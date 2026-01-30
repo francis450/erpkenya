@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@portabletext/react": "^6.0.2",
+    "@sanity/client": "^7.14.1",
+    "react-calendly": "^4.4.0"
+  }
+}
