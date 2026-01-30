@@ -26,6 +26,17 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
+            <Link to="/ai-features">
+                <Button size="sm" variant="ghost" className="text-white hover:text-cyan-300 hover:bg-white/10 text-sm flex items-center gap-2">
+                    <span className="relative flex h-2 w-2">
+                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
+                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
+                    </span>
+                    Explore New AI Features
+                </Button>
+            </Link>
+          </div>
           <Badge variant="outline" className="mb-6 border-primary/50 text-primary-foreground bg-primary/20 px-4 py-1 text-sm uppercase tracking-wider backdrop-blur-sm">
             The #1 ERP for Kenyan Businesses
           </Badge>
