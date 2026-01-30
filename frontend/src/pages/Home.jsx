@@ -60,6 +60,59 @@ export default function Home() {
         </div>
       </section>
 
+      {/* NEW: AI Teaser Section (BMS Style) */}
+      <section className="py-20 bg-slate-900 text-white overflow-hidden relative">
+         <div className="container mx-auto px-4 relative z-10">
+            <div className="flex flex-col md:flex-row items-center gap-12">
+                <div className="md:w-1/2">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/50 border border-cyan-500/30 text-cyan-300 text-sm font-medium mb-6">
+                        <BrainCircuit size={16} />
+                        <span>Intelligence Engineered</span>
+                    </div>
+                    <h2 className="text-3xl md:text-4xl font-bold mb-6">
+                        Your Competitors Are Still Using Spreadsheets.
+                    </h2>
+                    <p className="text-slate-300 text-lg mb-8 leading-relaxed">
+                        Don't let manual work slow you down. Our new AI module predicts stockouts before they happen and reconciles payments while you sleep.
+                    </p>
+                    <ul className="space-y-4 mb-8">
+                        <li className="flex items-center gap-3">
+                            <CheckCircle2 className="text-cyan-400 shrink-0" />
+                            <span>Predict demand based on Kenyan seasons</span>
+                        </li>
+                        <li className="flex items-center gap-3">
+                            <CheckCircle2 className="text-cyan-400 shrink-0" />
+                            <span>Auto-match M-Pesa to invoices</span>
+                        </li>
+                    </ul>
+                    <Link to="/ai-features">
+                        <Button className="bg-cyan-600 hover:bg-cyan-700 text-white border-none">
+                            Explore AI Features <ArrowRight className="ml-2 h-4 w-4" />
+                        </Button>
+                    </Link>
+                </div>
+                <div className="md:w-1/2">
+                    <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 p-2">
+                         <img 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" 
+                            alt="AI Dashboard" 
+                            className="rounded-lg w-full"
+                         />
+                         <div className="absolute bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur p-4 rounded-lg border border-slate-700">
+                            <div className="flex items-center gap-3 mb-2">
+                                <div className="h-2 w-2 rounded-full bg-green-500 animate-pulse"></div>
+                                <p className="text-sm font-medium text-green-400">System Alert: AI Prediction</p>
+                            </div>
+                            <p className="text-xs text-slate-300">
+                                "High probability of stockout for 'Maize Flour 2kg' in Kisumu depot next week. Recommended action: Reorder 500 bales today."
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+         </div>
+      </section>
+
       {/* Benefits / Stats Section */}
       <section className="py-20 bg-slate-50">
         <div className="container mx-auto px-4 md:px-6">
