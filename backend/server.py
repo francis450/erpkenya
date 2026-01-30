@@ -40,7 +40,8 @@ class LeadCreate(BaseModel):
     company: str
     phone: Optional[str] = None
     message: Optional[str] = None
-    form_type: str = "general" # demo, contact, etc.
+    form_type: str = "general" # demo, contact, ai_demo
+    interests: Optional[List[str]] = [] # e.g. ["Predictive Analytics", "Co-Pilot"]
 
 class Lead(LeadCreate):
     id: str = Field(default_factory=lambda: str(uuid.uuid4()))
