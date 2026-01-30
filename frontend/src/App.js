@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import AIFeatures from "./pages/AIFeatures";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
@@ -22,6 +23,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/ai-features" element={<AIFeatures />} />
           <Route path="/solutions" element={<PlaceholderPage title="Solutions" />} />
           <Route path="/industries" element={<PlaceholderPage title="Industries" />} />
           <Route path="/resources" element={<PlaceholderPage title="Resources & Blog" />} />
