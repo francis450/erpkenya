@@ -7,6 +7,7 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import { Badge } from '@/components/ui/badge';
 import { ArrowRight, CheckCircle2, Factory, TrendingUp, ShieldCheck, Truck, Users } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { LeadFormDialog } from '@/components/LeadFormDialog';
 
 export default function Home() {
   return (
@@ -35,9 +36,10 @@ export default function Home() {
             Streamline your manufacturing, distribution, and agriculture business with a cloud ERP tailored for East Africa. Seamless M-Pesa integration included.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <Button size="lg" className="text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20">
-              Request a Free Demo
-            </Button>
+            <LeadFormDialog 
+                triggerText="Request a Free Demo" 
+                triggerClass="text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20"
+            />
             <Button size="lg" variant="outline" className="text-lg h-14 px-8 border-white text-white hover:bg-white hover:text-slate-900 bg-transparent">
               View Features
             </Button>
@@ -304,9 +306,11 @@ export default function Home() {
                 Join 500+ Kenyan companies using our ERP to scale faster and stay compliant.
             </p>
             <div className="flex flex-col sm:flex-row justify-center gap-4">
-                 <Button size="lg" variant="secondary" className="bg-white text-primary hover:bg-blue-50 h-14 px-8 text-lg font-semibold">
-                    Schedule Your Demo
-                </Button>
+                 <LeadFormDialog 
+                    triggerText="Schedule Your Demo" 
+                    triggerClass="bg-white text-primary hover:bg-blue-50 h-14 px-8 text-lg font-semibold"
+                    triggerVariant="secondary"
+                 />
                 <Button size="lg" className="bg-transparent border border-white text-white hover:bg-white/10 h-14 px-8 text-lg">
                     Contact Sales
                 </Button>
