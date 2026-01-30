@@ -73,6 +73,60 @@ def test_leads_endpoint():
         print(f"❌ POST /api/leads - FAILED: Request error: {e}")
         return False
 
+def test_leads_with_interests():
+    """Test POST /api/leads endpoint with interests field"""
+    print("\n=== Testing POST /api/leads with interests ===")
+    
+    backend_url = get_backend_url()
+    if not backend_url:
+        print("❌ Could not get backend URL from frontend/.env")
+        return False
+        
+    url = f"{backend_url}/api/leads"
+    
+    # Test data as specified in the review request
+    test_data = {
+        "name": "AI Tester",
+        "email": "ai@test.com",
+        "company": "Tech Corp",
+        "form_type": "ai_demo",
+        "interests": ["predictive", "copilot"]
+    }
+    
+    try:
+        print(f"Making request to: {url}")
+        print(f"Request body: {json.dumps(test_data, indent=2)}")
+        
+        response = requests.post(url, json=test_data, timeout=10)
+        
+        print(f"Status Code: {response.status_code}")
+        print(f"Response Headers: {dict(response.headers)}")
+        
+        if response.status_code == 200:
+            try:
+                response_json = response.json()
+                print(f"Response JSON: {json.dumps(response_json, indent=2)}")
+                
+                # Verify expected response structure
+                if "message" in response_json and "id" in response_json:
+                    print("✅ POST /api/leads with interests - SUCCESS: Returns 200 OK with expected JSON structure")
+                    return True
+                else:
+                    print("❌ POST /api/leads with interests - FAILED: Missing expected fields in response")
+                    return False
+                    
+            except json.JSONDecodeError:
+                print(f"❌ POST /api/leads with interests - FAILED: Invalid JSON response: {response.text}")
+                return False
+        else:
+            print(f"❌ POST /api/leads with interests - FAILED: Expected 200 OK, got {response.status_code}")
+            print(f"Response text: {response.text}")
+            return False
+            
+    except requests.exceptions.RequestException as e:
+        print(f"❌ POST /api/leads with interests - FAILED: Request error: {e}")
+        return False
+
 def test_subscribe_endpoint():
     """Test POST /api/subscribe endpoint"""
     print("\n=== Testing POST /api/subscribe ===")
