@@ -27,6 +27,25 @@ export default function Home() {
         </div>
 
         <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
+          <Badge variant="outline" className="mb-6 border-primary/50 text-primary-foreground bg-primary/20 px-4 py-1 text-sm uppercase tracking-wider backdrop-blur-sm">
+            The #1 ERP for Kenyan Businesses
+          </Badge>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white max-w-4xl mb-6">
+             Stop Guessing. <span className="text-primary">Start Scaling.</span>
+          </h1>
+          <p className="text-xl text-slate-200 max-w-2xl mb-10 leading-relaxed">
+            Eliminate operational chaos with a cloud ERP tailored for KRA compliance, M-Pesa payments, and local manufacturing.
+          </p>
+          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
+            <CalendlyButton 
+                text="Schedule Your Strategy Session" 
+                url={CALENDLY_URLS.demo}
+                className="text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20"
+            />
+            <Button size="lg" variant="outline" className="text-lg h-14 px-8 border-white text-white hover:bg-white hover:text-slate-900 bg-transparent">
+              See How It Works
+            </Button>
+          </div>
           <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
             <Link to="/ai-features">
                 <Button size="sm" variant="ghost" className="text-white hover:text-cyan-300 hover:bg-white/10 text-sm flex items-center gap-2">
@@ -34,27 +53,9 @@ export default function Home() {
                       <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
                       <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
                     </span>
-                    Explore New AI Features
+                    New: AI Co-Pilot for Distributors
                 </Button>
             </Link>
-          </div>
-          <Badge variant="outline" className="mb-6 border-primary/50 text-primary-foreground bg-primary/20 px-4 py-1 text-sm uppercase tracking-wider backdrop-blur-sm">
-            The #1 ERP for Kenyan Businesses
-          </Badge>
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white max-w-4xl mb-6">
-             Smarter, Faster, & <span className="text-primary">KRA Compliant</span> Operations.
-          </h1>
-          <p className="text-xl text-slate-200 max-w-2xl mb-10 leading-relaxed">
-            Streamline your manufacturing, distribution, and agriculture business with a cloud ERP tailored for East Africa. Seamless M-Pesa integration included.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto">
-            <LeadFormDialog 
-                triggerText="Request a Free Demo" 
-                triggerClass="text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20"
-            />
-            <Button size="lg" variant="outline" className="text-lg h-14 px-8 border-white text-white hover:bg-white hover:text-slate-900 bg-transparent">
-              View Features
-            </Button>
           </div>
         </div>
       </section>
