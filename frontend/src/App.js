@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -19,6 +19,7 @@ const PlaceholderPage = ({ title }) => (
 function App() {
   return (
     <div className="App">
+      <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/solutions" element={<PlaceholderPage title="Solutions" />} />
@@ -27,6 +28,7 @@ function App() {
           <Route path="/success-stories" element={<PlaceholderPage title="Success Stories" />} />
         </Routes>
         <Toaster />
+      </BrowserRouter>
     </div>
   );
 }
