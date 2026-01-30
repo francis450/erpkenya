@@ -2,6 +2,7 @@ import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
+import { Toaster } from "@/components/ui/sonner";
 
 // Placeholder components for other pages
 const PlaceholderPage = ({ title }) => (
@@ -25,6 +26,7 @@ function App() {
           <Route path="/resources" element={<PlaceholderPage title="Resources & Blog" />} />
           <Route path="/success-stories" element={<PlaceholderPage title="Success Stories" />} />
         </Routes>
+        <Toaster />
     </div>
   );
 }

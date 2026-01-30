@@ -1,10 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Facebook, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
+import { toast } from 'sonner';
+
+const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
+const API = `${BACKEND_URL}/api`;
 
 export function Footer() {
+  const [email, setEmail] = useState('');
+  const [loading, setLoading] = useState(false);
+
+  const handleSubscribe = async () => {
+    if (!email) return;
+    setLoading(true);
+    try {
+      await axios.post(`${API}/subscribe`, { email });
+      toast.success("Subscribed successfully!");
+      setEmail('');
+    } catch (error) {
+        if (error.response?.status === 400 || error.response?.data?.message === "Already subscribed") {
+             toast.info("You are already subscribed.");
+        } else {
+             toast.error("Subscription failed. Please try again.");
+        }
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <footer className="bg-slate-950 text-slate-200">
       <div className="container mx-auto px-4 md:px-6 py-12 md:py-16">
@@ -67,9 +93,11 @@ export function Footer() {
                 type="email" 
                 placeholder="Enter your email" 
                 className="bg-slate-900 border-slate-800 focus:ring-primary text-white"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
               />
-              <Button className="w-full bg-primary hover:bg-primary/90">
-                Subscribe
+              <Button onClick={handleSubscribe} disabled={loading} className="w-full bg-primary hover:bg-primary/90">
+                {loading ? "Subscribing..." : "Subscribe"}
               </Button>
             </div>
           </div>
