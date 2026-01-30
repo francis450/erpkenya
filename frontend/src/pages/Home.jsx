@@ -340,7 +340,7 @@ export default function Home() {
                             Cloud ERP for Remote Access
                         </AccordionTrigger>
                         <AccordionContent className="text-slate-600">
-                            Access your business data from anywhere—whether you're at the Nairobi HQ, the Mombasa port, or a farm in Nakuru. Our cloud infrastructure ensures 99.9% uptime and data security.
+                            Access your business data from anywhere—whether you&apos;re at the Nairobi HQ, the Mombasa port, or a farm in Nakuru. Our cloud infrastructure ensures 99.9% uptime and data security.
                         </AccordionContent>
                     </AccordionItem>
                     <AccordionItem value="item-2">
