@@ -5,9 +5,10 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Badge } from '@/components/ui/badge';
-import { ArrowRight, CheckCircle2, Factory, TrendingUp, ShieldCheck, Truck, Users } from 'lucide-react';
+import { ArrowRight, CheckCircle2, Factory, TrendingUp, ShieldCheck, Truck, Users, BrainCircuit } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { LeadFormDialog } from '@/components/LeadFormDialog';
+import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
 
 export default function Home() {
   return (
