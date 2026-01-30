@@ -162,3 +162,5 @@ test_plan:
 agent_communication:
   - agent: "testing"
     message: "Completed testing of both requested endpoints. Both POST /api/leads and POST /api/subscribe are working correctly, returning 200 OK with proper JSON responses. Created backend_test.py for comprehensive API testing. All tests passed successfully."
+  - agent: "testing"
+    message: "Successfully tested POST /api/leads endpoint with interests field as requested. The endpoint properly handles the interests field (array of strings) and returns 200 OK with expected JSON response structure. Test data included: {name: 'AI Tester', email: 'ai@test.com', company: 'Tech Corp', form_type: 'ai_demo', interests: ['predictive', 'copilot']}. Updated backend_test.py to include this specific test case. All backend API tests are passing."
