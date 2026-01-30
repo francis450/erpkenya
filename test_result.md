@@ -129,6 +129,18 @@ backend:
         agent: "testing"
         comment: "Successfully tested POST /api/subscribe endpoint. Returns 200 OK with expected JSON structure containing 'message' and 'id' fields. Test data: {email: 'test@test.com'}. Response: {message: 'Subscribed successfully', id: UUID}"
 
+  - task: "POST /api/leads endpoint with interests field"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested POST /api/leads endpoint with interests field. Returns 200 OK with expected JSON structure. Test data: {name: 'AI Tester', email: 'ai@test.com', company: 'Tech Corp', form_type: 'ai_demo', interests: ['predictive', 'copilot']}. Response: {message: 'Lead submitted successfully', id: '6144b5a0-d426-4f67-94a4-af053a1fc987'}. The interests field is properly handled by the LeadCreate model which defines interests as Optional[List[str]] with default empty list."
+
 frontend:
   # No frontend testing required for this task
 
