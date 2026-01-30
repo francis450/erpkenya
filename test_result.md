@@ -101,3 +101,51 @@
 #====================================================================================================
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
+
+user_problem_statement: "Test the following endpoints: 1. POST /api/leads with body {\"name\": \"Test\", \"email\": \"test@test.com\", \"company\": \"Test Co\", \"form_type\": \"demo\"} 2. POST /api/subscribe with body {\"email\": \"test@test.com\"} Verify they return 200 OK and the expected JSON response."
+
+backend:
+  - task: "POST /api/leads endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested POST /api/leads endpoint. Returns 200 OK with expected JSON structure containing 'message' and 'id' fields. Test data: {name: 'Test', email: 'test@test.com', company: 'Test Co', form_type: 'demo'}. Response: {message: 'Lead submitted successfully', id: UUID}"
+
+  - task: "POST /api/subscribe endpoint"
+    implemented: true
+    working: true
+    file: "backend/server.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: false
+    status_history:
+      - working: true
+        agent: "testing"
+        comment: "Successfully tested POST /api/subscribe endpoint. Returns 200 OK with expected JSON structure containing 'message' and 'id' fields. Test data: {email: 'test@test.com'}. Response: {message: 'Subscribed successfully', id: UUID}"
+
+frontend:
+  # No frontend testing required for this task
+
+metadata:
+  created_by: "testing_agent"
+  version: "1.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "POST /api/leads endpoint"
+    - "POST /api/subscribe endpoint"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+  - agent: "testing"
+    message: "Completed testing of both requested endpoints. Both POST /api/leads and POST /api/subscribe are working correctly, returning 200 OK with proper JSON responses. Created backend_test.py for comprehensive API testing. All tests passed successfully."
