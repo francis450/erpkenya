@@ -182,8 +182,9 @@ def main():
     print("🚀 Starting Backend API Tests")
     print(f"Timestamp: {datetime.now().isoformat()}")
     
-    # Test both endpoints
+    # Test all endpoints
     leads_result = test_leads_endpoint()
+    leads_interests_result = test_leads_with_interests()
     subscribe_result = test_subscribe_endpoint()
     
     # Summary
@@ -191,9 +192,10 @@ def main():
     print("📊 TEST SUMMARY")
     print("="*50)
     print(f"POST /api/leads: {'✅ PASS' if leads_result else '❌ FAIL'}")
+    print(f"POST /api/leads (with interests): {'✅ PASS' if leads_interests_result else '❌ FAIL'}")
     print(f"POST /api/subscribe: {'✅ PASS' if subscribe_result else '❌ FAIL'}")
     
-    overall_success = leads_result and subscribe_result
+    overall_success = leads_result and leads_interests_result and subscribe_result
     print(f"\nOverall Result: {'✅ ALL TESTS PASSED' if overall_success else '❌ SOME TESTS FAILED'}")
     
     return overall_success
