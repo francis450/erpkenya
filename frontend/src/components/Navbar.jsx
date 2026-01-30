@@ -4,6 +4,8 @@ import { Button } from '@/components/ui/button';
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 
+import { LeadFormDialog } from '@/components/LeadFormDialog';
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,9 +46,10 @@ export function Navbar() {
             <Button variant="outline" className="border-primary text-primary hover:bg-primary/5">
                 Log In
             </Button>
-            <Button className="bg-primary hover:bg-primary/90 text-white shadow-lg">
-                Request Demo
-            </Button>
+            <LeadFormDialog 
+              triggerText="Request Demo" 
+              triggerClass="bg-primary hover:bg-primary/90 text-white shadow-lg" 
+            />
         </div>
 
         {/* Mobile Menu */}
@@ -72,7 +75,10 @@ export function Navbar() {
                 ))}
                 <div className="pt-4 flex flex-col gap-2">
                     <Button variant="outline" className="w-full justify-center">Log In</Button>
-                    <Button className="w-full justify-center">Request Demo</Button>
+                    <LeadFormDialog 
+                      triggerText="Request Demo" 
+                      triggerClass="w-full justify-center bg-primary hover:bg-primary/90 text-white" 
+                    />
                 </div>
               </div>
             </SheetContent>
