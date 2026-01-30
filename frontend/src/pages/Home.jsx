@@ -104,7 +104,7 @@ export default function Home() {
                                 <p className="text-sm font-medium text-green-400">System Alert: AI Prediction</p>
                             </div>
                             <p className="text-xs text-slate-300">
-                                "High probability of stockout for 'Maize Flour 2kg' in Kisumu depot next week. Recommended action: Reorder 500 bales today."
+                                "                                &quot;High probability of stockout for &apos;Maize Flour 2kg&apos; in Kisumu depot next week. Recommended action: Reorder 500 bales today.&quot;"
                             </p>
                         </div>
                     </div>
