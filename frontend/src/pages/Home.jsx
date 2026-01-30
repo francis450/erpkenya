@@ -73,7 +73,7 @@ export default function Home() {
                         Your Competitors Are Still Using Spreadsheets.
                     </h2>
                     <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                        Don't let manual work slow you down. Our new AI module predicts stockouts before they happen and reconciles payments while you sleep.
+                        Don&apos;t let manual work slow you down. Our new AI module predicts stockouts before they happen and reconciles payments while you sleep.
                     </p>
                     <ul className="space-y-4 mb-8">
                         <li className="flex items-center gap-3">
