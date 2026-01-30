@@ -3,8 +3,8 @@ import { PopupModal, InlineWidget } from "react-calendly";
 import { Button } from '@/components/ui/button';
 
 export const CALENDLY_URLS = {
-  demo: "https://calendly.com/erpkenya/demo", // Placeholder
-  aiConsult: "https://calendly.com/erpkenya/ai-consult" // Placeholder
+  demo: "https://calendly.com/contact-erpkenya",
+  aiConsult: "https://calendly.com/contact-erpkenya"
 };
 
 export function CalendlyButton({ 
