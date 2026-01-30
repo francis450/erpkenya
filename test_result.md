@@ -154,6 +154,7 @@ test_plan:
   current_focus:
     - "POST /api/leads endpoint"
     - "POST /api/subscribe endpoint"
+    - "POST /api/leads endpoint with interests field"
   stuck_tasks: []
   test_all: false
   test_priority: "high_first"
