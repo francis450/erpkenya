@@ -48,7 +48,7 @@ export function Footer() {
               Empowering Kenyan businesses with world-class ERP solutions tailored for local compliance, manufacturing, and growth.
             </p>
             <div className="flex space-x-4 pt-2">
-              <a href="#" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
+              <a href="https://www.linkedin.com/company/erp-kenya/" className="hover:text-white transition-colors"><Linkedin size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><Twitter size={20} /></a>
               <a href="#" className="hover:text-white transition-colors"><Facebook size={20} /></a>
             </div>
@@ -71,15 +71,15 @@ export function Footer() {
             <ul className="space-y-3 text-sm text-slate-400">
               <li className="flex items-start gap-3">
                 <MapPin size={18} className="text-primary shrink-0 mt-0.5" />
-                <span>Westlands Business Park, <br/>Nairobi, Kenya</span>
+                <span>Karen, Nairobi, Kenya</span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={18} className="text-primary shrink-0" />
-                <span>+254 700 123 456</span>
+                <a href="tel:+254757185189">+254 757 185189</a>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={18} className="text-primary shrink-0" />
-                <span>info@erpkenya.com</span>
+                <a href="mailto:contact@erpkenya.com">contact@erpkenya.com</a>
               </li>
             </ul>
           </div>
