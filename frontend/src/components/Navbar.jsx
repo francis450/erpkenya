@@ -23,9 +23,7 @@ export function Navbar() {
       <div className="container mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link to="/" className="flex items-center space-x-2">
-          <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
-            <span className="text-white font-bold text-xl">E</span>
-          </div>
+          <img src="/logo.png" alt="ERP Kenya Logo" className="h-8 w-8 object-contain" />
           <span className="font-bold text-xl tracking-tight text-slate-900">ERP Kenya</span>
         </Link>
 

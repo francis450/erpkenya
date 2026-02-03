@@ -39,9 +39,7 @@ export function Footer() {
           {/* Brand Column */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-               <div className="h-8 w-8 bg-primary rounded flex items-center justify-center">
-                <span className="text-white font-bold text-xl">E</span>
-              </div>
+              <img src="/logo.png" alt="ERP Kenya Logo" className="h-8 w-8 object-contain" />
               <span className="font-bold text-xl text-white">ERP Kenya</span>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed">
