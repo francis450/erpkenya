@@ -46,48 +46,37 @@ export default function Home() {
               See How It Works
             </Button>
           </div>
-          <div className="flex flex-col sm:flex-row gap-4 w-full sm:w-auto mt-4">
-            <Link to="/ai-features">
-                <Button size="sm" variant="ghost" className="text-white hover:text-cyan-300 hover:bg-white/10 text-sm flex items-center gap-2">
-                    <span className="relative flex h-2 w-2">
-                      <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-cyan-400 opacity-75"></span>
-                      <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
-                    </span>
-                    New: AI Co-Pilot for Distributors
-                </Button>
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* NEW: AI Teaser Section (BMS Style) */}
+      {/* Feature Highlight Section */}
       <section className="py-20 bg-slate-900 text-white overflow-hidden relative">
          <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-12">
                 <div className="md:w-1/2">
                     <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/50 border border-cyan-500/30 text-cyan-300 text-sm font-medium mb-6">
-                        <BrainCircuit size={16} />
-                        <span>Intelligence Engineered</span>
+                        <TrendingUp size={16} />
+                        <span>Maximum Efficiency</span>
                     </div>
                     <h2 className="text-3xl md:text-4xl font-bold mb-6">
                         Your Competitors Are Still Using Spreadsheets.
                     </h2>
                     <p className="text-slate-300 text-lg mb-8 leading-relaxed">
-                        Don&apos;t let manual work slow you down. Our new AI module predicts stockouts before they happen and reconciles payments while you sleep.
+                        Don&apos;t let manual work slow you down. Our ERP centralizes your inventory, sales, and accounts into one simple dashboard.
                     </p>
                     <ul className="space-y-4 mb-8">
                         <li className="flex items-center gap-3">
                             <CheckCircle2 className="text-cyan-400 shrink-0" />
-                            <span>Predict demand based on Kenyan seasons</span>
+                            <span>Real-time stock visibility across all branches</span>
                         </li>
                         <li className="flex items-center gap-3">
                             <CheckCircle2 className="text-cyan-400 shrink-0" />
-                            <span>Auto-match M-Pesa to invoices</span>
+                            <span>Auto-match M-Pesa payments to invoices</span>
                         </li>
                     </ul>
-                    <Link to="/ai-features">
+                    <Link to="/solutions">
                         <Button className="bg-cyan-600 hover:bg-cyan-700 text-white border-none">
-                            Explore AI Features <ArrowRight className="ml-2 h-4 w-4" />
+                            Explore Features <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </Link>
                 </div>
@@ -156,7 +145,7 @@ export default function Home() {
                 <p className="text-lg text-slate-600 max-w-2xl mx-auto">We understand the unique challenges of the Kenyan market, from farm to factory.</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Manufacturing */}
                 <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
@@ -228,6 +217,44 @@ export default function Home() {
                             Warehouse optimization and route planning.
                         </p>
                         <span className="text-primary font-medium flex items-center gap-2 group-hover:text-white transition-colors">
+                            Learn More <ArrowRight size={16} />
+                        </span>
+                    </div>
+                </div>
+
+                {/* Non-Profits (NEW) */}
+                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1000" 
+                        alt="Non-Profit" 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
+                        <h3 className="text-2xl font-bold text-white mb-2">NGOs & Non-Profits</h3>
+                         <p className="text-slate-200 text-sm mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Grant management and transparent donor reporting.
+                        </p>
+                        <span className="text-rose-400 font-medium flex items-center gap-2 group-hover:text-white transition-colors">
+                            Learn More <ArrowRight size={16} />
+                        </span>
+                    </div>
+                </div>
+
+                 {/* Healthcare (NEW) */}
+                 <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
+                    <img 
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000" 
+                        alt="Healthcare" 
+                        className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
+                        <h3 className="text-2xl font-bold text-white mb-2">Healthcare</h3>
+                         <p className="text-slate-200 text-sm mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                            Pharmacy stock tracking and patient management.
+                        </p>
+                        <span className="text-cyan-400 font-medium flex items-center gap-2 group-hover:text-white transition-colors">
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>

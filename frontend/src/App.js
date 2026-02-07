@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
-import AIFeatures from "./pages/AIFeatures";
 import Resources from "./pages/Resources";
 import SuccessStories from "./pages/SuccessStories";
+import Solutions from "./pages/Solutions";
+import Industries from "./pages/Industries";
+import Contact from "./pages/Contact";
 import BlogPost from "./components/BlogPost";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -26,12 +28,12 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/ai-features" element={<AIFeatures />} />
           <Route path="/resources" element={<Resources />} />
           <Route path="/resources/:slug" element={<BlogPost />} />
           <Route path="/success-stories" element={<SuccessStories />} />
-          <Route path="/solutions" element={<PlaceholderPage title="Solutions" />} />
-          <Route path="/industries" element={<PlaceholderPage title="Industries" />} />
+          <Route path="/solutions" element={<Solutions />} />
+          <Route path="/industries" element={<Industries />} />
+          <Route path="/contact" element={<Contact />} />
           <Route path="/resources" element={<PlaceholderPage title="Resources & Blog" />} />
           <Route path="/success-stories" element={<PlaceholderPage title="Success Stories" />} />
         </Routes>
