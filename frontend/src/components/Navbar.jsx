@@ -11,11 +11,10 @@ export function Navbar() {
 
   const navItems = [
     { name: "Home", path: "/" },
-    { name: "AI Features", path: "/ai-features" },
     { name: "Solutions", path: "/solutions" },
     { name: "Industries", path: "/industries" },
     { name: "Resources", path: "/resources" },
-    { name: "Success Stories", path: "/success-stories" },
+    { name: "Contact", path: "/contact" },
   ];
 
   return (
