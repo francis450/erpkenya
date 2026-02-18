@@ -8,7 +8,10 @@
         <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" rel="stylesheet" />
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" media="print" onload="this.media='all'" />
+        <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap" /></noscript>
+        <!-- Preload LCP hero image -->
+        <link rel="preload" as="image" href="https://images.unsplash.com/photo-1741991110666-88115e724741?auto=format&fit=crop&w=1600&q=75" fetchpriority="high" />
         <!--
         manifest.json provides metadata used when your web app is installed on a
         user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
@@ -38,7 +41,8 @@
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
         <script>
-            !(function (t, e) {
+            window.addEventListener('load', function() {
+                !(function (t, e) {
                 var o, n, p, r;
                 e.__SV ||
                     ((window.posthog = e),
@@ -101,24 +105,25 @@
             })(document, window.posthog || []);
             posthog.init("phc_xAvL2Iq4tFmANRE7kzbKwaSqp1HJjN7x48s3vr0CMjs", {
                 api_host: "https://us.i.posthog.com",
-                person_profiles: "identified_only", // or 'always' to create profiles for anonymous users as well,
+                person_profiles: "identified_only",
                 session_recording: {
                     recordCrossOriginIframes: true,
                     capturePerformance: false,
                 },
             });
+            });
         </script>
         <!--Start of Tawk.to Script-->
         <script type="text/javascript">
-            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-            (function(){
+            window.addEventListener('load', function() {
+                var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
                 var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
                 s1.async=true;
                 s1.src='https://embed.tawk.to/698633f40204fe1c37635524/1jgq3lt9o';
                 s1.charset='UTF-8';
                 s1.setAttribute('crossorigin','*');
                 s0.parentNode.insertBefore(s1,s0);
-            })();
+            });
         </script>
         <!--End of Tawk.to Script-->
     </body>

@@ -14,16 +14,21 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <Navbar />
+      <main id="main-content">
       
       {/* Hero Section */}
       <section className="relative h-[600px] w-full flex items-center justify-center overflow-hidden">
-        <div 
-            className="absolute inset-0 bg-cover bg-center z-0"
-            style={{ 
-                backgroundImage: 'url("https://images.unsplash.com/photo-1741991110666-88115e724741")', // Nairobi Skyline
-            }}
-        >
-            <div className="absolute inset-0 bg-slate-950/70"></div> 
+        <div className="absolute inset-0 z-0">
+            <img
+              src="https://images.unsplash.com/photo-1741991110666-88115e724741?auto=format&fit=crop&w=1600&q=75"
+              alt="Nairobi Skyline"
+              width="1600"
+              height="600"
+              fetchpriority="high"
+              decoding="async"
+              className="w-full h-full object-cover object-center"
+            />
+            <div className="absolute inset-0 bg-slate-950/70"></div>
         </div>
 
         <div className="container relative z-10 px-4 md:px-6 flex flex-col items-center text-center">
@@ -83,8 +88,12 @@ export default function Home() {
                 <div className="md:w-1/2">
                     <div className="relative rounded-xl overflow-hidden shadow-2xl border border-slate-700 bg-slate-800 p-2">
                          <img 
-                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1000" 
-                            alt="AI Dashboard" 
+                            src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=75&w=800" 
+                            alt="AI Dashboard showing real-time inventory analytics" 
+                            width="800"
+                            height="450"
+                            loading="lazy"
+                            decoding="async"
                             className="rounded-lg w-full"
                          />
                          <div className="absolute bottom-6 left-6 right-6 bg-slate-900/90 backdrop-blur p-4 rounded-lg border border-slate-700">
@@ -147,11 +156,15 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {/* Manufacturing */}
-                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                <Link to="/industries" aria-label="Manufacturing ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                     <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1717386255773-1e3037c81788" 
-                        alt="Manufacturing" 
+                        src="https://images.unsplash.com/photo-1717386255773-1e3037c81788?auto=format&fit=crop&q=75&w=800" 
+                        alt="Manufacturing facility" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -163,14 +176,18 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
 
                  {/* Agriculture */}
-                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                <Link to="/industries" aria-label="Agriculture ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                      <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1602020277972-99978250c8bd" 
-                        alt="Agriculture" 
+                        src="https://images.unsplash.com/photo-1602020277972-99978250c8bd?auto=format&fit=crop&q=75&w=800" 
+                        alt="Agriculture farm" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -182,14 +199,18 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
 
                  {/* Logistics */}
-                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                <Link to="/industries" aria-label="Logistics ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                      <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1740914994657-f1cdffdc418e" 
-                        alt="Logistics" 
+                        src="https://images.unsplash.com/photo-1740914994657-f1cdffdc418e?auto=format&fit=crop&q=75&w=800" 
+                        alt="Logistics and supply chain" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -201,14 +222,18 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
 
                  {/* Distribution */}
-                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                <Link to="/industries" aria-label="Distribution ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                      <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?q=80&w=2070&auto=format&fit=crop" 
-                        alt="Distribution" 
+                        src="https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=75&w=800" 
+                        alt="Distribution warehouse" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -220,14 +245,18 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
 
                 {/* Non-Profits (NEW) */}
-                <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                <Link to="/industries" aria-label="NGO and Non-Profit ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                      <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1000" 
-                        alt="Non-Profit" 
+                        src="https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=75&w=800" 
+                        alt="NGO and non-profit team" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -239,14 +268,18 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
 
                  {/* Healthcare (NEW) */}
-                 <div className="group relative overflow-hidden rounded-xl h-[400px] cursor-pointer">
+                 <Link to="/industries" aria-label="Healthcare ERP solutions" className="group relative overflow-hidden rounded-xl h-[400px] block">
                      <div className="absolute inset-0 bg-slate-900/40 group-hover:bg-slate-900/60 transition-colors z-10"></div>
                     <img 
-                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000" 
-                        alt="Healthcare" 
+                        src="https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=75&w=800" 
+                        alt="Healthcare professionals" 
+                        width="800"
+                        height="400"
+                        loading="lazy"
+                        decoding="async"
                         className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                     />
                     <div className="absolute inset-0 z-20 flex flex-col justify-end p-6">
@@ -258,7 +291,7 @@ export default function Home() {
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
-                </div>
+                </Link>
             </div>
         </div>
       </section>
@@ -411,6 +444,7 @@ export default function Home() {
         </div>
       </section>
 
+      </main>
       <Footer />
     </div>
   );

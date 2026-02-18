@@ -1,42 +1,32 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import Resources from "./pages/Resources";
-import SuccessStories from "./pages/SuccessStories";
-import Solutions from "./pages/Solutions";
-import Industries from "./pages/Industries";
-import Contact from "./pages/Contact";
-import BlogPost from "./components/BlogPost";
+import { lazy, Suspense } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Toaster } from "@/components/ui/sonner";
 
-// Placeholder components for other pages
-const PlaceholderPage = ({ title }) => (
-  <div className="min-h-screen flex flex-col">
-    <Navbar />
-    <div className="flex-grow container mx-auto px-4 py-20 text-center">
-      <h1 className="text-4xl font-bold mb-4">{title}</h1>
-      <p className="text-xl text-muted-foreground">This page is under construction for the MVP.</p>
-    </div>
-    <Footer />
-  </div>
-);
+const Home = lazy(() => import("./pages/Home"));
+const Resources = lazy(() => import("./pages/Resources"));
+const SuccessStories = lazy(() => import("./pages/SuccessStories"));
+const Solutions = lazy(() => import("./pages/Solutions"));
+const Industries = lazy(() => import("./pages/Industries"));
+const Contact = lazy(() => import("./pages/Contact"));
+const BlogPost = lazy(() => import("./components/BlogPost"));
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/resources" element={<Resources />} />
-          <Route path="/resources/:slug" element={<BlogPost />} />
-          <Route path="/success-stories" element={<SuccessStories />} />
-          <Route path="/solutions" element={<Solutions />} />
-          <Route path="/industries" element={<Industries />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/resources" element={<PlaceholderPage title="Resources & Blog" />} />
-          <Route path="/success-stories" element={<PlaceholderPage title="Success Stories" />} />
-        </Routes>
+        <Suspense fallback={<div className="min-h-screen flex items-center justify-center"><div className="h-8 w-8 border-4 border-primary border-t-transparent rounded-full animate-spin" role="status" aria-label="Loading"></div></div>}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/resources/:slug" element={<BlogPost />} />
+            <Route path="/success-stories" element={<SuccessStories />} />
+            <Route path="/solutions" element={<Solutions />} />
+            <Route path="/industries" element={<Industries />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Suspense>
         <Toaster />
       </BrowserRouter>
     </div>
