@@ -22,6 +22,7 @@ import {
 } from 'lucide-react';
 import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
 import { Link } from 'react-router-dom';
+import { SEO } from '@/components/SEO';
 
 export default function Industries() {
   const industries = [
@@ -93,9 +94,16 @@ export default function Industries() {
 
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="Industry-Specific ERP Kenya | Manufacturing, Agriculture, Retail & More"
+        description="ERP solutions tailored for Kenyan industries: Manufacturing, Distribution, Retail, Agriculture, Construction, Healthcare, NGOs & Service companies. Local compliance built-in."
+        canonical="/industries"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Industries" },
+        ]}
+      />
       <Navbar />
-
-      {/* Hero Section */}
       <section className="relative py-20 lg:py-32 bg-slate-900 text-white overflow-hidden">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 md:px-6">

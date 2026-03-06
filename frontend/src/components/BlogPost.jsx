@@ -6,6 +6,7 @@ import { fetchContent } from '@/lib/sanity';
 import { Badge } from '@/components/ui/badge';
 import { PortableText } from '@portabletext/react';
 import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { SEO } from '@/components/SEO';
 
 const ptComponents = {
   types: {
@@ -83,8 +84,36 @@ export default function BlogPost() {
   if (loading) return <div>Loading...</div>;
   if (!post) return <div>Post not found</div>;
 
+  const articleJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    headline: post.title,
+    description: post.excerpt || "",
+    image: post.mainImage || "",
+    datePublished: post.publishedAt,
+    author: { "@type": "Organization", name: "ERP Kenya" },
+    publisher: {
+      "@type": "Organization",
+      name: "ERP Kenya",
+      url: "https://erpkenya.com",
+    },
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
+      <SEO
+        title={post.title}
+        description={post.excerpt ? post.excerpt.slice(0, 160) : post.title}
+        canonical={`/resources/${slug}`}
+        ogType="article"
+        ogImage={post.mainImage}
+        jsonLd={articleJsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Resources", url: "/resources" },
+          { name: post.title },
+        ]}
+      />
       <Navbar />
       
       <article className="container mx-auto px-4 py-20 max-w-3xl">

@@ -3,6 +3,7 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { fetchContent } from '@/lib/sanity';
 import { Quote } from 'lucide-react';
+import { SEO } from '@/components/SEO';
 
 export default function SuccessStories() {
   const [stories, setStories] = useState([]);
@@ -17,6 +18,15 @@ export default function SuccessStories() {
 
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
+      <SEO
+        title="ERP Success Stories Kenya | Real Results from Kenyan Businesses"
+        description="See how Kenyan manufacturing, agriculture, and logistics companies reduced costs and automated growth with ERP Kenya. Verified client case studies."
+        canonical="/success-stories"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Success Stories" },
+        ]}
+      />
       <Navbar />
       
       <section className="bg-slate-50 py-20 text-center">

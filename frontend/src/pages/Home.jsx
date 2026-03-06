@@ -9,10 +9,50 @@ import { ArrowRight, CheckCircle2, Factory, TrendingUp, ShieldCheck, Truck, User
 import { Link } from 'react-router-dom';
 import { LeadFormDialog } from '@/components/LeadFormDialog';
 import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
+import { SEO } from '@/components/SEO';
+
+const homeJsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "ERP Kenya",
+    url: "https://erpkenya.com",
+    logo: "https://erpkenya.com/favicon.ico",
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+254-757-185189",
+      contactType: "sales",
+      areaServed: "KE",
+      availableLanguage: "English",
+    },
+    sameAs: [
+      "https://www.linkedin.com/company/erp-kenya/",
+    ],
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "Westlands Commercial Centre, Block C",
+      addressLocality: "Nairobi",
+      addressCountry: "KE",
+    },
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "ERP Kenya",
+    url: "https://erpkenya.com",
+    description: "Cloud ERP software for Kenyan businesses with KRA compliance, M-Pesa integration, and manufacturing support.",
+  },
+];
 
 export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="ERP Software Kenya | Cloud ERP for KRA Compliance & M-Pesa"
+        description="Kenya's #1 cloud ERP system. Automated M-Pesa reconciliation, KRA eTIMS compliance, manufacturing & inventory management. Join 500+ Kenyan businesses scaling faster."
+        canonical="/"
+        jsonLd={homeJsonLd}
+      />
       <Navbar />
       <main id="main-content">
       

@@ -4,10 +4,42 @@ import { Footer } from '@/components/Footer';
 import { Card, CardContent } from '@/components/ui/card';
 import { Mail, MapPin, Phone, Clock } from 'lucide-react';
 import { CalendlyButton } from '@/components/CalendlyWidget';
+import { SEO } from '@/components/SEO';
+
+const contactJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "ERP Kenya",
+  url: "https://erpkenya.com",
+  telephone: "+254-757-185189",
+  email: "contact@erpkenya.com",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Westlands Commercial Centre, Block C",
+    addressLocality: "Nairobi",
+    addressCountry: "KE",
+  },
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "08:00",
+    closes: "18:00",
+  },
+};
 
 export default function Contact() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="Contact ERP Kenya | Get a Demo | Nairobi Office"
+        description="Contact ERP Kenya in Nairobi. Get a free demo, pricing info, or speak to an industry expert. Westlands Commercial Centre. Call +254 757 185 189. Response within 2 hours."
+        canonical="/contact"
+        jsonLd={contactJsonLd}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Contact" },
+        ]}
+      />
       <Navbar />
 
       {/* Hero Section */}

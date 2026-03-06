@@ -23,10 +23,20 @@ import {
   Users 
 } from 'lucide-react';
 import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
+import { SEO } from '@/components/SEO';
 
 export default function Solutions() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
+      <SEO
+        title="ERP Solutions Kenya | Financial, HR Payroll, Inventory & Manufacturing"
+        description="Comprehensive ERP modules for Kenyan businesses: Financial Management with M-Pesa integration, HR & Payroll with KRA/NSSF/NHIF compliance, Inventory, CRM, Manufacturing & Analytics."
+        canonical="/solutions"
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Solutions" },
+        ]}
+      />
       <Navbar />
 
       {/* Hero Section */}
