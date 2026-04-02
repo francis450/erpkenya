@@ -23,6 +23,7 @@ import {
   Users 
 } from 'lucide-react';
 import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
+import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
 export default function Solutions() {
@@ -153,6 +154,9 @@ export default function Solutions() {
                     <span className="text-sm">Performance & Leave Management</span>
                   </li>
                 </ul>
+                <Link to="/solutions/hr-payroll" className="inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-700 font-medium mt-4">
+                  Learn more <ArrowRight size={14} />
+                </Link>
               </CardContent>
             </Card>
 
@@ -207,6 +211,9 @@ export default function Solutions() {
                     <span className="text-sm">Production costing analysis</span>
                   </li>
                 </ul>
+                <Link to="/manufacturing" className="inline-flex items-center gap-1 text-sm text-amber-600 hover:text-amber-700 font-medium mt-4">
+                  Learn more <ArrowRight size={14} />
+                </Link>
               </CardContent>
             </Card>
 

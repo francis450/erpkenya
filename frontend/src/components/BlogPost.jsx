@@ -61,6 +61,16 @@ const ptComponents = {
     bullet: ({ children }) => <li className="pl-2">{children}</li>,
     number: ({ children }) => <li className="pl-2">{children}</li>,
   },
+  marks: {
+    link: ({ value, children }) => {
+      const href = value?.href || '#';
+      const isInternal = href.startsWith('/');
+      if (isInternal) {
+        return <Link to={href} className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium">{children}</Link>;
+      }
+      return <a href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium">{children}</a>;
+    },
+  },
 };
 
 export default function BlogPost() {

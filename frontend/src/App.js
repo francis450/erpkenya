@@ -10,6 +10,9 @@ const SuccessStories = lazy(() => import("./pages/SuccessStories"));
 const Solutions = lazy(() => import("./pages/Solutions"));
 const Industries = lazy(() => import("./pages/Industries"));
 const Contact = lazy(() => import("./pages/Contact"));
+const Manufacturing = lazy(() => import("./pages/Manufacturing"));
+const KraEtims = lazy(() => import("./pages/KraEtims"));
+const HrPayroll = lazy(() => import("./pages/HrPayroll"));
 const BlogPost = lazy(() => import("./components/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -24,7 +27,10 @@ function App() {
             <Route path="/resources/:slug" element={<BlogPost />} />
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/solutions" element={<Solutions />} />
+            <Route path="/solutions/hr-payroll" element={<HrPayroll />} />
             <Route path="/industries" element={<Industries />} />
+            <Route path="/manufacturing" element={<Manufacturing />} />
+            <Route path="/kra-etims" element={<KraEtims />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="*" element={<NotFound />} />
           </Routes>

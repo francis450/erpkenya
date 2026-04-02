@@ -32,7 +32,9 @@ export default function Industries() {
       description: "From raw materials to finished goods, track every shilling of value add.",
       details: ["Bill of Materials (BOM)", "Wastage Tracking", "Production Scheduling", "Batch Traceability"],
       color: "blue",
-      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000"
+      image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1000",
+      link: "/manufacturing",
+      linkText: "Explore Manufacturing ERP"
     },
     {
       title: "Distribution & Wholesale",
@@ -160,9 +162,9 @@ export default function Industries() {
                   </ul>
                 </CardContent>
                 <CardFooter className="border-t pt-4">
-                     <Link to="/contact" className="w-full">
+                     <Link to={industry.link || "/contact"} className="w-full">
                         <Button variant="ghost" className="w-full justify-between hover:bg-slate-100 group-hover:text-primary">
-                            See Case Studies <ArrowRight size={16} />
+                            {industry.linkText || "See Case Studies"} <ArrowRight size={16} />
                         </Button>
                      </Link>
                 </CardFooter>
