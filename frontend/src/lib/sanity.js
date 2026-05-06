@@ -23,11 +23,20 @@ export async function fetchContent(type) {
   try {
     const query = `*[_type == "${type}"]`;
     const data = await client.fetch(query);
+    if (type === 'blogPost') {
+      return mergeLocalBlogPosts(data.length > 0 ? data : []);
+    }
     return data.length > 0 ? data : getMockData(type);
   } catch (error) {
     console.error("Sanity fetch failed, using fallback:", error);
     return getMockData(type);
   }
+}
+
+function mergeLocalBlogPosts(posts) {
+  const seenSlugs = new Set(posts.map((post) => post.slug?.current).filter(Boolean));
+  const localOnlyPosts = mockBlogPosts.filter((post) => !seenSlugs.has(post.slug.current));
+  return [...localOnlyPosts, ...posts];
 }
 
 function getMockData(type) {

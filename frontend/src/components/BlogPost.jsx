@@ -5,7 +5,7 @@ import { Footer } from '@/components/Footer';
 import { fetchContent } from '@/lib/sanity';
 import { Badge } from '@/components/ui/badge';
 import { PortableText } from '@portabletext/react';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { SEO } from '@/components/SEO';
 
 const ptComponents = {
@@ -38,6 +38,20 @@ const ptComponents = {
           alt={value.alt || ' '}
           className="w-full h-auto rounded-xl my-8 shadow-md"
         />
+      );
+    },
+    code: ({ value }) => {
+      return (
+        <div className="my-8 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
+          {value.language && (
+            <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              {value.language}
+            </div>
+          )}
+          <pre className="overflow-x-auto p-4 text-sm leading-6 text-slate-100">
+            <code>{value.code}</code>
+          </pre>
+        </div>
       );
     }
   },
@@ -96,11 +110,16 @@ export default function BlogPost() {
 
   const articleJsonLd = {
     "@context": "https://schema.org",
-    "@type": "Article",
+    "@type": "BlogPosting",
     headline: post.title,
     description: post.excerpt || "",
     image: post.mainImage || "",
     datePublished: post.publishedAt,
+    dateModified: post.updatedAt || post.publishedAt,
+    mainEntityOfPage: {
+      "@type": "WebPage",
+      "@id": `https://erpkenya.com/resources/${slug}`,
+    },
     author: { "@type": "Organization", name: "ERP Kenya" },
     publisher: {
       "@type": "Organization",
@@ -133,7 +152,7 @@ export default function BlogPost() {
          <div className="flex items-center gap-4 mb-8 text-slate-500 text-sm">
             <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
             <span>•</span>
-            <span>5 min read</span>
+            <span>{post.readTime || '5 min read'}</span>
          </div>
 
          {post.mainImage && (

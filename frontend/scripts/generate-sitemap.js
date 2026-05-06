@@ -12,6 +12,7 @@ const routes = [
   { path: "/manufacturing", priority: "0.9", changefreq: "monthly" },
   { path: "/kra-etims", priority: "0.9", changefreq: "monthly" },
   { path: "/resources", priority: "0.8", changefreq: "weekly" },
+  { path: "/resources/install-erpnext-v15-ubuntu-24-04", priority: "0.8", changefreq: "monthly" },
   { path: "/resources/top-erp-software-kenya-2026-comparison", priority: "0.8", changefreq: "monthly" },
   { path: "/resources/erp-implementation-kenya-checklist", priority: "0.8", changefreq: "monthly" },
   { path: "/resources/ai-companies-kenya-erp-automation", priority: "0.8", changefreq: "monthly" },
