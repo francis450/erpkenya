@@ -23,13 +23,14 @@ export const mockBlogPosts = [
   {
     _id: "post-erpnext-v15-ubuntu-24-install",
     _type: "blogPost",
-    title: "Install ERPNext v15 on Ubuntu 24.04: Step-by-Step Guide",
+    title: "ERPNext v15 on Ubuntu 24.04: A No-Nonsense Guide (That Actually Works)",
     slug: { current: "install-erpnext-v15-ubuntu-24-04" },
     mainImage: "https://images.unsplash.com/photo-1629654297299-c8506221ca97?auto=format&fit=crop&q=80&w=1200",
     publishedAt: "2026-05-06T09:00:00Z",
     updatedAt: "2026-05-06T09:00:00Z",
     readTime: "11 min read",
-    excerpt: "A practical ERPNext v15 installation guide for Ubuntu 24.04, covering Frappe Bench, MariaDB, Node.js, wkhtmltopdf, ERPNext apps, and production setup.",
+    excerpt: "Because life's too short for cryptic stack traces at 2am. A no-nonsense ERPNext v15 installation guide for Ubuntu 24.04 that actually works.",
+    markdownPath: "/blog/erpnext-v15-ubuntu-24-install.md",
     content: [
       portableBlock("This guide walks through installing ERPNext v15 on Ubuntu 24.04 from a clean server or WSL2 environment. It is written for teams that want the practical command sequence, the important version notes, and the production setup steps without digging through scattered forum threads."),
       portableBlock("Tested Environment", "h3"),

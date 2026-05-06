@@ -87,6 +87,118 @@ const ptComponents = {
   },
 };
 
+function InlineMarkdown({ text }) {
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g);
+
+  return (
+    <>
+      {parts.map((part, index) => {
+        if (part.startsWith('`') && part.endsWith('`')) {
+          return <code key={index} className="rounded bg-slate-100 px-1.5 py-0.5 text-base text-slate-900">{part.slice(1, -1)}</code>;
+        }
+        if (part.startsWith('**') && part.endsWith('**')) {
+          return <strong key={index}>{part.slice(2, -2)}</strong>;
+        }
+        if (part.startsWith('*') && part.endsWith('*')) {
+          return <em key={index}>{part.slice(1, -1)}</em>;
+        }
+        return <React.Fragment key={index}>{part}</React.Fragment>;
+      })}
+    </>
+  );
+}
+
+function MarkdownContent({ markdown }) {
+  const lines = markdown.replace(/\r\n/g, '\n').split('\n');
+  const elements = [];
+  let codeBlock = null;
+  let listItems = [];
+
+  const flushList = () => {
+    if (!listItems.length) return;
+    elements.push(
+      <ul key={`list-${elements.length}`} className="list-disc pl-6 mb-6 space-y-2 text-lg text-slate-700">
+        {listItems.map((item, index) => (
+          <li key={index} className="pl-2"><InlineMarkdown text={item} /></li>
+        ))}
+      </ul>
+    );
+    listItems = [];
+  };
+
+  lines.forEach((line, index) => {
+    const codeMatch = line.match(/^```(\w+)?/);
+    if (codeMatch && !codeBlock) {
+      flushList();
+      codeBlock = { language: codeMatch[1], lines: [] };
+      return;
+    }
+    if (codeMatch && codeBlock) {
+      elements.push(
+        <div key={`code-${index}`} className="my-8 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
+          {codeBlock.language && (
+            <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
+              {codeBlock.language}
+            </div>
+          )}
+          <pre className="overflow-x-auto p-4 text-sm leading-6 text-slate-100">
+            <code>{codeBlock.lines.join('\n')}</code>
+          </pre>
+        </div>
+      );
+      codeBlock = null;
+      return;
+    }
+    if (codeBlock) {
+      codeBlock.lines.push(line);
+      return;
+    }
+
+    if (!line.trim()) {
+      flushList();
+      return;
+    }
+    if (line.trim() === '---') {
+      flushList();
+      elements.push(<hr key={`hr-${index}`} className="my-10 border-slate-200" />);
+      return;
+    }
+    if (line.startsWith('# ')) {
+      flushList();
+      return;
+    }
+    if (line.startsWith('## ')) {
+      flushList();
+      elements.push(<h2 key={index} className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 leading-tight"><InlineMarkdown text={line.slice(3)} /></h2>);
+      return;
+    }
+    if (line.startsWith('### ')) {
+      flushList();
+      elements.push(<h3 key={index} className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 leading-snug"><InlineMarkdown text={line.slice(4)} /></h3>);
+      return;
+    }
+    if (line.startsWith('- ')) {
+      listItems.push(line.slice(2));
+      return;
+    }
+    if (line.startsWith('> ')) {
+      flushList();
+      elements.push(
+        <blockquote key={index} className="border-l-4 border-primary pl-6 py-2 my-8 italic text-xl text-slate-800 bg-slate-50 rounded-r-lg">
+          <InlineMarkdown text={line.slice(2)} />
+        </blockquote>
+      );
+      return;
+    }
+
+    flushList();
+    elements.push(<p key={index} className="text-lg text-slate-700 leading-8 mb-6"><InlineMarkdown text={line} /></p>);
+  });
+
+  flushList();
+  return <>{elements}</>;
+}
+
 export default function BlogPost() {
   const { slug } = useParams();
   const [post, setPost] = useState(null);
@@ -99,7 +211,13 @@ export default function BlogPost() {
       // For mock, we just filter the list
       const allPosts = await fetchContent('blogPost');
       const found = allPosts.find(p => p.slug.current === slug);
-      setPost(found);
+      if (found?.markdownPath) {
+        const response = await fetch(found.markdownPath);
+        const markdown = await response.text();
+        setPost({ ...found, markdown });
+      } else {
+        setPost(found);
+      }
       setLoading(false);
     }
     getData();
@@ -164,7 +282,11 @@ export default function BlogPost() {
          )}
 
          <div className="max-w-none">
-            <PortableText value={post.content} components={ptComponents} />
+            {post.markdown ? (
+              <MarkdownContent markdown={post.markdown} />
+            ) : (
+              <PortableText value={post.content} components={ptComponents} />
+            )}
          </div>
       </article>
 
