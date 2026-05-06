@@ -5,8 +5,44 @@ import { Footer } from '@/components/Footer';
 import { fetchContent } from '@/lib/sanity';
 import { Badge } from '@/components/ui/badge';
 import { PortableText } from '@portabletext/react';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Check, Copy } from 'lucide-react';
 import { SEO } from '@/components/SEO';
+
+function CodeBlock({ code, language }) {
+  const [copied, setCopied] = useState(false);
+
+  const copyCode = async () => {
+    try {
+      await navigator.clipboard.writeText(code);
+      setCopied(true);
+      window.setTimeout(() => setCopied(false), 1800);
+    } catch (error) {
+      console.error("Failed to copy code block:", error);
+    }
+  };
+
+  return (
+    <div className="my-8 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
+      <div className="flex min-h-10 items-center justify-between gap-3 border-b border-slate-800 px-4 py-2">
+        <span className="text-xs font-semibold uppercase tracking-wide text-slate-400">
+          {language || 'command'}
+        </span>
+        <button
+          type="button"
+          onClick={copyCode}
+          className="inline-flex h-8 items-center gap-2 rounded-md border border-slate-700 px-3 text-xs font-medium text-slate-200 transition-colors hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary"
+          aria-label={copied ? "Command copied" : "Copy command"}
+        >
+          {copied ? <Check className="h-3.5 w-3.5" /> : <Copy className="h-3.5 w-3.5" />}
+          {copied ? 'Copied' : 'Copy'}
+        </button>
+      </div>
+      <pre className="overflow-x-auto p-4 text-sm leading-6 text-slate-100">
+        <code>{code}</code>
+      </pre>
+    </div>
+  );
+}
 
 const ptComponents = {
   types: {
@@ -41,18 +77,7 @@ const ptComponents = {
       );
     },
     code: ({ value }) => {
-      return (
-        <div className="my-8 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
-          {value.language && (
-            <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              {value.language}
-            </div>
-          )}
-          <pre className="overflow-x-auto p-4 text-sm leading-6 text-slate-100">
-            <code>{value.code}</code>
-          </pre>
-        </div>
-      );
+      return <CodeBlock code={value.code} language={value.language} />;
     }
   },
   block: {
@@ -135,16 +160,11 @@ function MarkdownContent({ markdown }) {
     }
     if (codeMatch && codeBlock) {
       elements.push(
-        <div key={`code-${index}`} className="my-8 overflow-hidden rounded-lg border border-slate-800 bg-slate-950 shadow-sm">
-          {codeBlock.language && (
-            <div className="border-b border-slate-800 px-4 py-2 text-xs font-semibold uppercase tracking-wide text-slate-400">
-              {codeBlock.language}
-            </div>
-          )}
-          <pre className="overflow-x-auto p-4 text-sm leading-6 text-slate-100">
-            <code>{codeBlock.lines.join('\n')}</code>
-          </pre>
-        </div>
+        <CodeBlock
+          key={`code-${index}`}
+          code={codeBlock.lines.join('\n')}
+          language={codeBlock.language}
+        />
       );
       codeBlock = null;
       return;
