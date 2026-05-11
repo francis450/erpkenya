@@ -69,7 +69,7 @@
     "test": "craco test"
   },
   "reactSnap": {
-    "include": ["/", "/solutions", "/industries", "/resources", "/resources/install-erpnext-v15-ubuntu-24-04", "/resources/top-erp-software-kenya-2026-comparison", "/resources/erp-implementation-kenya-checklist", "/resources/ai-companies-kenya-erp-automation", "/resources/automated-mpesa-reconciliation", "/resources/inventory-management-strategies", "/success-stories", "/contact"],
+    "include": ["/", "/solutions", "/industries", "/resources", "/resources/install-erpnext-v15-macos", "/resources/install-erpnext-v15-ubuntu-24-04", "/resources/top-erp-software-kenya-2026-comparison", "/resources/erp-implementation-kenya-checklist", "/resources/ai-companies-kenya-erp-automation", "/resources/automated-mpesa-reconciliation", "/resources/inventory-management-strategies", "/success-stories", "/contact"],
     "headless": true,
     "puppeteerArgs": ["--no-sandbox"],
     "skipThirdPartyRequests": true

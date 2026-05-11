@@ -21,6 +21,21 @@ const portableCode = (code, language = "bash") => ({
 
 export const mockBlogPosts = [
   {
+    _id: "post-erpnext-v15-macos",
+    _type: "blogPost",
+    title: "ERPNext v15 on macOS: A No-Nonsense Guide (That Actually Works)",
+    slug: { current: "install-erpnext-v15-macos" },
+    mainImage: "https://images.unsplash.com/photo-1517336714731-489689fd1ca8?auto=format&fit=crop&q=80&w=1200",
+    publishedAt: "2026-05-11T09:00:00Z",
+    updatedAt: "2026-05-11T09:00:00Z",
+    readTime: "18 min read",
+    excerpt: "A practical ERPNext v15 installation guide for macOS using Laravel Herd, DBngin, Homebrew, NVM, Redis, and Frappe Bench.",
+    markdownPath: "/blog/erpnext-v15-macos.md",
+    content: [
+      portableBlock("A practical ERPNext v15 installation guide for macOS using Laravel Herd, DBngin, Homebrew, NVM, Redis, and Frappe Bench.")
+    ]
+  },
+  {
     _id: "post-erpnext-v15-ubuntu-24-install",
     _type: "blogPost",
     title: "ERPNext v15 on Ubuntu 24.04: A No-Nonsense Guide (That Actually Works)",

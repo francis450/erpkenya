@@ -113,7 +113,7 @@ const ptComponents = {
 };
 
 function InlineMarkdown({ text }) {
-  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*)/g);
+  const parts = text.split(/(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g);
 
   return (
     <>
@@ -127,9 +127,59 @@ function InlineMarkdown({ text }) {
         if (part.startsWith('*') && part.endsWith('*')) {
           return <em key={index}>{part.slice(1, -1)}</em>;
         }
+        const linkMatch = part.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
+        if (linkMatch) {
+          const [, label, href] = linkMatch;
+          const isInternal = href.startsWith('/');
+          if (isInternal) {
+            return <Link key={index} to={href} className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium">{label}</Link>;
+          }
+          return <a key={index} href={href} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary/80 underline underline-offset-2 font-medium">{label}</a>;
+        }
         return <React.Fragment key={index}>{part}</React.Fragment>;
       })}
     </>
+  );
+}
+
+function TableMarkdown({ rows }) {
+  if (rows.length < 2) return null;
+
+  const parseRow = (row) => row
+    .trim()
+    .replace(/^\|/, '')
+    .replace(/\|$/, '')
+    .split('|')
+    .map((cell) => cell.trim());
+
+  const headers = parseRow(rows[0]);
+  const bodyRows = rows.slice(2).map(parseRow);
+
+  return (
+    <div className="my-8 overflow-x-auto rounded-lg border border-slate-200">
+      <table className="w-full min-w-[640px] border-collapse text-left text-base text-slate-700">
+        <thead className="bg-slate-50 text-sm uppercase tracking-wide text-slate-600">
+          <tr>
+            {headers.map((header, index) => (
+              <th key={index} className="border-b border-slate-200 px-4 py-3 font-semibold">
+                <InlineMarkdown text={header} />
+              </th>
+            ))}
+          </tr>
+        </thead>
+        <tbody>
+          {bodyRows.map((row, rowIndex) => (
+            <tr key={rowIndex} className="border-b border-slate-100 last:border-0">
+              {headers.map((_, cellIndex) => (
+                <td key={cellIndex} className="px-4 py-3 align-top">
+                  <InlineMarkdown text={row[cellIndex] || ''} />
+                </td>
+              ))}
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
   );
 }
 
@@ -138,23 +188,38 @@ function MarkdownContent({ markdown }) {
   const elements = [];
   let codeBlock = null;
   let listItems = [];
+  let listType = 'bullet';
+  let tableRows = [];
 
   const flushList = () => {
     if (!listItems.length) return;
+    const ListTag = listType === 'number' ? 'ol' : 'ul';
     elements.push(
-      <ul key={`list-${elements.length}`} className="list-disc pl-6 mb-6 space-y-2 text-lg text-slate-700">
+      <ListTag
+        key={`list-${elements.length}`}
+        className={`${listType === 'number' ? 'list-decimal' : 'list-disc'} pl-6 mb-6 space-y-2 text-lg text-slate-700`}
+      >
         {listItems.map((item, index) => (
           <li key={index} className="pl-2"><InlineMarkdown text={item} /></li>
         ))}
-      </ul>
+      </ListTag>
     );
     listItems = [];
+    listType = 'bullet';
+  };
+
+  const flushTable = () => {
+    if (!tableRows.length) return;
+    const table = <TableMarkdown key={`table-${elements.length}`} rows={tableRows} />;
+    if (table) elements.push(table);
+    tableRows = [];
   };
 
   lines.forEach((line, index) => {
     const codeMatch = line.match(/^```(\w+)?/);
     if (codeMatch && !codeBlock) {
       flushList();
+      flushTable();
       codeBlock = { language: codeMatch[1], lines: [] };
       return;
     }
@@ -176,33 +241,59 @@ function MarkdownContent({ markdown }) {
 
     if (!line.trim()) {
       flushList();
+      flushTable();
       return;
     }
     if (line.trim() === '---') {
       flushList();
+      flushTable();
       elements.push(<hr key={`hr-${index}`} className="my-10 border-slate-200" />);
+      return;
+    }
+    if (/^\|.*\|$/.test(line.trim())) {
+      flushList();
+      tableRows.push(line);
       return;
     }
     if (line.startsWith('# ')) {
       flushList();
+      flushTable();
       return;
     }
     if (line.startsWith('## ')) {
       flushList();
+      flushTable();
       elements.push(<h2 key={index} className="text-2xl md:text-3xl font-bold text-slate-900 mt-10 mb-5 leading-tight"><InlineMarkdown text={line.slice(3)} /></h2>);
       return;
     }
     if (line.startsWith('### ')) {
       flushList();
+      flushTable();
       elements.push(<h3 key={index} className="text-xl md:text-2xl font-bold text-slate-900 mt-8 mb-4 leading-snug"><InlineMarkdown text={line.slice(4)} /></h3>);
       return;
     }
+    if (line.startsWith('#### ')) {
+      flushList();
+      flushTable();
+      elements.push(<h4 key={index} className="text-lg md:text-xl font-bold text-slate-900 mt-6 mb-3"><InlineMarkdown text={line.slice(5)} /></h4>);
+      return;
+    }
     if (line.startsWith('- ')) {
+      flushTable();
+      listType = 'bullet';
       listItems.push(line.slice(2));
+      return;
+    }
+    const numberMatch = line.match(/^\d+\.\s+(.*)$/);
+    if (numberMatch) {
+      flushTable();
+      listType = 'number';
+      listItems.push(numberMatch[1]);
       return;
     }
     if (line.startsWith('> ')) {
       flushList();
+      flushTable();
       elements.push(
         <blockquote key={index} className="border-l-4 border-primary pl-6 py-2 my-8 italic text-xl text-slate-800 bg-slate-50 rounded-r-lg">
           <InlineMarkdown text={line.slice(2)} />
@@ -212,10 +303,12 @@ function MarkdownContent({ markdown }) {
     }
 
     flushList();
+    flushTable();
     elements.push(<p key={index} className="text-lg text-slate-700 leading-8 mb-6"><InlineMarkdown text={line} /></p>);
   });
 
   flushList();
+  flushTable();
   return <>{elements}</>;
 }
 
