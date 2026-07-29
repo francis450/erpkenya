@@ -20,8 +20,11 @@ import {
 import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
 import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
+import { PayrollCalculator } from '@/components/PayrollCalculator';
+import { grossToNet, formatKES } from '@/lib/kenyaPayroll';
 
 export default function HrPayroll() {
+  const sample = grossToNet({ basic: 80000, allowances: 15000 });
   const hrPayrollJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -73,7 +76,7 @@ export default function HrPayroll() {
   const complianceItems = [
     { name: "KRA PAYE", desc: "Automatic tax band calculations with personal relief" },
     { name: "NSSF Tier I & II", desc: "Current rates applied with employee + employer split" },
-    { name: "NHIF", desc: "Graduated scale deductions based on gross salary" },
+    { name: "SHIF", desc: "Flat 2.75% of gross salary, KES 300 minimum" },
     { name: "Housing Levy", desc: "1.5% employer + 1.5% employee as per Finance Act" },
     { name: "NITA", desc: "National Industrial Training Authority contributions" },
     { name: "Helb", desc: "HELB loan deductions for applicable employees" }
@@ -107,28 +110,31 @@ export default function HrPayroll() {
       <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto relative z-10 px-4 md:px-6">
-          <div className="max-w-3xl">
-            <Badge className="mb-6 bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border-purple-500/50">
-              HR & Payroll Kenya
-            </Badge>
-            <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-              Payroll That <span className="text-purple-400">Understands Kenya.</span>
-            </h1>
-            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Stop wrestling with PAYE calculations and statutory deadlines. ERP Kenya automates payroll processing with KRA, NSSF, NHIF, and Housing Levy compliance built in — not bolted on.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <CalendlyButton 
-                text="See Payroll in Action" 
-                url={CALENDLY_URLS.demo}
-                className="text-lg h-14 px-8 bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-900/20 border-0"
-              />
-              <Link to="/solutions">
-                <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
-                  All Solutions <ArrowRight className="ml-2" size={18} />
-                </Button>
-              </Link>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="max-w-xl">
+              <Badge className="mb-6 bg-purple-500/10 text-purple-400 hover:bg-purple-500/20 border-purple-500/50">
+                HR & Payroll Kenya
+              </Badge>
+              <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
+                Payroll That <span className="text-purple-400">Understands Kenya.</span>
+              </h1>
+              <p className="text-xl text-slate-300 mb-8 leading-relaxed">
+                Stop wrestling with PAYE calculations and statutory deadlines. ERP Kenya automates payroll processing with KRA, NSSF, SHIF, and Housing Levy compliance built in — not bolted on.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <CalendlyButton
+                  text="See Payroll in Action"
+                  url={CALENDLY_URLS.demo}
+                  className="text-lg h-14 px-8 bg-purple-600 hover:bg-purple-700 text-white shadow-xl shadow-purple-900/20 border-0"
+                />
+                <Link to="/solutions">
+                  <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+                    All Solutions <ArrowRight className="ml-2" size={18} />
+                  </Button>
+                </Link>
+              </div>
             </div>
+            <PayrollCalculator />
           </div>
         </div>
       </section>
@@ -212,31 +218,31 @@ export default function HrPayroll() {
                 <div className="space-y-4">
                   <div className="flex justify-between border-b border-slate-700 pb-2">
                     <span className="text-slate-400">Basic Salary</span>
-                    <span className="font-mono">KES 80,000</span>
+                    <span className="font-mono">{formatKES(sample.basic)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-700 pb-2">
                     <span className="text-slate-400">House Allowance</span>
-                    <span className="font-mono">KES 15,000</span>
+                    <span className="font-mono">{formatKES(sample.allowances)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-700 pb-2 text-red-400">
                     <span>PAYE</span>
-                    <span className="font-mono">- KES 18,480</span>
+                    <span className="font-mono">- {formatKES(sample.paye)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-700 pb-2 text-red-400">
                     <span>NSSF (Tier I + II)</span>
-                    <span className="font-mono">- KES 2,160</span>
+                    <span className="font-mono">- {formatKES(sample.nssf.total)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-700 pb-2 text-red-400">
-                    <span>NHIF</span>
-                    <span className="font-mono">- KES 1,700</span>
+                    <span>SHIF</span>
+                    <span className="font-mono">- {formatKES(sample.shif)}</span>
                   </div>
                   <div className="flex justify-between border-b border-slate-700 pb-2 text-red-400">
                     <span>Housing Levy (1.5%)</span>
-                    <span className="font-mono">- KES 1,425</span>
+                    <span className="font-mono">- {formatKES(sample.housingLevy)}</span>
                   </div>
                   <div className="flex justify-between pt-2 text-lg font-bold text-green-400">
                     <span>Net Pay</span>
-                    <span className="font-mono">KES 71,235</span>
+                    <span className="font-mono">{formatKES(sample.net)}</span>
                   </div>
                 </div>
                 <p className="text-xs text-slate-500 mt-4">* Illustrative example. Actual deductions vary by employee circumstances.</p>
