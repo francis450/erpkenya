@@ -6,7 +6,26 @@ import { fetchContent } from '@/lib/sanity';
 import { Badge } from '@/components/ui/badge';
 import { PortableText } from '@portabletext/react';
 import { ArrowRight, Check, Copy } from 'lucide-react';
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { SEO } from '@/components/SEO';
+import NotFound from '@/pages/NotFound';
+
+function FaqSection({ faq }) {
+  if (!faq || faq.length === 0) return null;
+  return (
+    <div className="mt-16 not-prose">
+      <h2 className="text-2xl md:text-3xl font-bold text-slate-900 mb-6">Frequently Asked Questions</h2>
+      <Accordion type="single" collapsible className="w-full">
+        {faq.map((item, index) => (
+          <AccordionItem key={index} value={`faq-${index}`}>
+            <AccordionTrigger className="text-lg font-medium text-left">{item.q}</AccordionTrigger>
+            <AccordionContent className="text-slate-600 text-base leading-relaxed">{item.a}</AccordionContent>
+          </AccordionItem>
+        ))}
+      </Accordion>
+    </div>
+  );
+}
 
 function CodeBlock({ code, language }) {
   const [copied, setCopied] = useState(false);
@@ -49,7 +68,7 @@ const ptComponents = {
     callToAction: ({ value }) => {
       return (
         <div className="my-12 bg-slate-900 rounded-2xl p-8 md:p-12 text-center relative overflow-hidden group">
-          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-purple-500"></div>
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-secondary"></div>
           <div className="relative z-10">
             <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">{value.title}</h3>
             <p className="text-slate-300 mb-8 max-w-xl mx-auto text-lg leading-relaxed">{value.text}</p>
@@ -63,7 +82,7 @@ const ptComponents = {
           </div>
           {/* Decorative circles */}
           <div className="absolute -top-24 -right-24 w-48 h-48 bg-primary/10 rounded-full blur-3xl"></div>
-          <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-purple-500/10 rounded-full blur-3xl"></div>
+          <div className="absolute -bottom-24 -left-24 w-48 h-48 bg-secondary/10 rounded-full blur-3xl"></div>
         </div>
       );
     },
@@ -337,7 +356,7 @@ export default function BlogPost() {
   }, [slug]);
 
   if (loading) return <div>Loading...</div>;
-  if (!post) return <div>Post not found</div>;
+  if (!post) return <NotFound />;
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -359,6 +378,16 @@ export default function BlogPost() {
     },
   };
 
+  const faqJsonLd = post.faq && post.faq.length > 0 ? {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: post.faq.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: { "@type": "Answer", text: item.a },
+    })),
+  } : null;
+
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
       <SEO
@@ -367,7 +396,7 @@ export default function BlogPost() {
         canonical={`/resources/${slug}`}
         ogType="article"
         ogImage={post.mainImage}
-        jsonLd={articleJsonLd}
+        jsonLd={faqJsonLd ? [articleJsonLd, faqJsonLd] : articleJsonLd}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Resources", url: "/resources" },
@@ -400,6 +429,7 @@ export default function BlogPost() {
             ) : (
               <PortableText value={post.content} components={ptComponents} />
             )}
+            <FaqSection faq={post.faq} />
          </div>
       </article>
 

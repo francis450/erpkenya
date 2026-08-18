@@ -14,6 +14,10 @@ export const SHIF_MIN = 300;
 
 export const HOUSING_LEVY_RATE = 0.015;
 
+// Flat NITA levy, employer-paid per employee/month — never deducted from
+// employee wages (Industrial Training Act, Cap 237).
+export const NITA_LEVY = 50;
+
 // Monthly PAYE bands: each band taxes the slice of income up to `limit`
 // (Infinity for the top band) at `rate`. Cumulative, not marginal-on-total.
 export const PAYE_BANDS = [
@@ -24,6 +28,11 @@ export const PAYE_BANDS = [
   { limit: Infinity, rate: 0.35 },
 ];
 
+// NSSF_TIER_I_LIMIT/NSSF_TIER_II_LIMIT reflect Phase 4 of the Act's phased
+// rollout (Feb 2026 - Jan 2027). Phase 5 (Feb 2027 onward) moves to limits
+// tied to the top urban minimum wage / national average earning, gazetted
+// dynamically rather than fixed — these constants will need a manual update
+// once that phase takes effect.
 export function computeNSSF(gross) {
   const tierI = NSSF_RATE * Math.min(gross, NSSF_TIER_I_LIMIT);
   const tierII = NSSF_RATE * Math.min(Math.max(gross - NSSF_TIER_I_LIMIT, 0), NSSF_TIER_II_LIMIT - NSSF_TIER_I_LIMIT);
@@ -37,6 +46,10 @@ export function computeSHIF(gross) {
 
 export function computeHousingLevy(gross) {
   return gross * HOUSING_LEVY_RATE;
+}
+
+export function computeNITA() {
+  return NITA_LEVY;
 }
 
 export function computePAYE(taxablePay) {
@@ -62,7 +75,21 @@ export function grossToNet({ basic = 0, allowances = 0 }) {
   const paye = computePAYE(taxablePay);
   const net = gross - nssf.total - shif - paye - housingLevy;
 
-  return { basic, allowances, gross, nssf, shif, taxablePay, paye, housingLevy, net };
+  // Employer-side overhead: NSSF is matched dollar-for-dollar, Housing Levy
+  // is matched at the same rate, plus the flat NITA levy. None of these are
+  // withheld from the employee — they sit on top of gross as Cost to Company.
+  const employerNssf = nssf.total;
+  const employerHousingLevy = housingLevy;
+  const nita = computeNITA();
+  const employer = {
+    nssf: employerNssf,
+    housingLevy: employerHousingLevy,
+    nita,
+    total: employerNssf + employerHousingLevy + nita,
+  };
+  const ctc = gross + employer.total;
+
+  return { basic, allowances, gross, nssf, shif, taxablePay, paye, housingLevy, net, employer, ctc };
 }
 
 // Solves for the Basic Salary (holding allowances fixed) that produces the

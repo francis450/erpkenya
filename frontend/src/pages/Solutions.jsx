@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { Button } from '@/components/ui/button';
@@ -27,6 +28,14 @@ import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
 export default function Solutions() {
+  const location = useLocation();
+
+  useEffect(() => {
+    if (!location.hash) return;
+    const el = document.getElementById(location.hash.slice(1));
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.hash]);
+
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
@@ -44,7 +53,7 @@ export default function Solutions() {
       <section className="relative py-20 lg:py-32 overflow-hidden bg-slate-950">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-10"></div>
         <div className="container mx-auto relative z-10 px-4 md:px-6 text-center">
-          <Badge className="mb-6 bg-cyan-500/10 text-cyan-400 hover:bg-cyan-500/20 border-cyan-500/50">
+          <Badge className="mb-6 bg-primary/10 text-primary hover:bg-primary/20 border-primary/50">
             Comprehensive Suite
           </Badge>
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white max-w-4xl mx-auto mb-6">
@@ -77,9 +86,9 @@ export default function Solutions() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Finance */}
-            <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-cyan-500">
+            <Card id="financial" className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary scroll-mt-24">
               <CardHeader>
-                <div className="w-12 h-12 bg-cyan-100 dark:bg-cyan-900/30 rounded-lg flex items-center justify-center mb-4 text-cyan-600 dark:text-cyan-400">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
                   <Banknote size={24} />
                 </div>
                 <CardTitle className="text-xl">Financial Management</CardTitle>
@@ -104,9 +113,9 @@ export default function Solutions() {
             </Card>
 
             {/* Inventory */}
-            <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary">
+            <Card id="inventory" className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-secondary scroll-mt-24">
               <CardHeader>
-                <div className="w-12 h-12 bg-orange-100 dark:bg-orange-900/30 rounded-lg flex items-center justify-center mb-4 text-orange-600 dark:text-orange-400">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4 text-green-600 dark:text-green-400">
                   <Box size={24} />
                 </div>
                 <CardTitle className="text-xl">Inventory & Warehousing</CardTitle>
@@ -131,9 +140,9 @@ export default function Solutions() {
             </Card>
 
             {/* HR */}
-            <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-purple-500">
+            <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-navy">
               <CardHeader>
-                <div className="w-12 h-12 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mb-4 text-purple-600 dark:text-purple-400">
+                <div className="w-12 h-12 bg-slate-200 dark:bg-slate-700/40 rounded-lg flex items-center justify-center mb-4 text-slate-700 dark:text-slate-300">
                   <Users size={24} />
                 </div>
                 <CardTitle className="text-xl">HR & Payroll</CardTitle>
@@ -154,16 +163,16 @@ export default function Solutions() {
                     <span className="text-sm">Performance & Leave Management</span>
                   </li>
                 </ul>
-                <Link to="/solutions/hr-payroll" className="inline-flex items-center gap-1 text-sm text-purple-600 hover:text-purple-700 font-medium mt-4">
+                <Link to="/solutions/hr-payroll" className="inline-flex items-center gap-1 text-sm text-slate-700 hover:text-slate-900 font-medium mt-4">
                   Learn more <ArrowRight size={14} />
                 </Link>
               </CardContent>
             </Card>
 
              {/* CRM */}
-             <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-pink-500">
+             <Card id="crm" className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-primary scroll-mt-24">
               <CardHeader>
-                <div className="w-12 h-12 bg-pink-100 dark:bg-pink-900/30 rounded-lg flex items-center justify-center mb-4 text-pink-600 dark:text-pink-400">
+                <div className="w-12 h-12 bg-blue-100 dark:bg-blue-900/30 rounded-lg flex items-center justify-center mb-4 text-blue-600 dark:text-blue-400">
                   <Smartphone size={24} />
                 </div>
                 <CardTitle className="text-xl">CRM & Sales</CardTitle>
@@ -188,9 +197,9 @@ export default function Solutions() {
             </Card>
 
              {/* Manufacturing */}
-             <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-amber-500">
+             <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-secondary">
               <CardHeader>
-                <div className="w-12 h-12 bg-amber-100 dark:bg-amber-900/30 rounded-lg flex items-center justify-center mb-4 text-amber-600 dark:text-amber-400">
+                <div className="w-12 h-12 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center mb-4 text-green-600 dark:text-green-400">
                   <FactoryIcon size={24} />
                 </div>
                 <CardTitle className="text-xl">Manufacturing</CardTitle>
@@ -211,16 +220,16 @@ export default function Solutions() {
                     <span className="text-sm">Production costing analysis</span>
                   </li>
                 </ul>
-                <Link to="/manufacturing" className="inline-flex items-center gap-1 text-sm text-amber-600 hover:text-amber-700 font-medium mt-4">
+                <Link to="/manufacturing" className="inline-flex items-center gap-1 text-sm text-green-600 hover:text-green-700 font-medium mt-4">
                   Learn more <ArrowRight size={14} />
                 </Link>
               </CardContent>
             </Card>
 
              {/* Reporting */}
-             <Card className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-indigo-500">
+             <Card id="analytics" className="hover:shadow-lg transition-all duration-300 border-t-4 border-t-navy scroll-mt-24">
               <CardHeader>
-                <div className="w-12 h-12 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg flex items-center justify-center mb-4 text-indigo-600 dark:text-indigo-400">
+                <div className="w-12 h-12 bg-slate-200 dark:bg-slate-700/40 rounded-lg flex items-center justify-center mb-4 text-slate-700 dark:text-slate-300">
                   <BarChart3 size={24} />
                 </div>
                 <CardTitle className="text-xl">Analytics & BI</CardTitle>

@@ -99,7 +99,7 @@ export default function Home() {
          <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row items-center gap-12">
                 <div className="md:w-1/2">
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-cyan-900/50 border border-cyan-500/30 text-cyan-300 text-sm font-medium mb-6">
+                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/30 text-blue-300 text-sm font-medium mb-6">
                         <TrendingUp size={16} />
                         <span>Maximum Efficiency</span>
                     </div>
@@ -111,16 +111,16 @@ export default function Home() {
                     </p>
                     <ul className="space-y-4 mb-8">
                         <li className="flex items-center gap-3">
-                            <CheckCircle2 className="text-cyan-400 shrink-0" />
+                            <CheckCircle2 className="text-blue-400 shrink-0" />
                             <span>Real-time stock visibility across all branches</span>
                         </li>
                         <li className="flex items-center gap-3">
-                            <CheckCircle2 className="text-cyan-400 shrink-0" />
+                            <CheckCircle2 className="text-blue-400 shrink-0" />
                             <span>Auto-match M-Pesa payments to invoices</span>
                         </li>
                     </ul>
                     <Link to="/solutions">
-                        <Button className="bg-cyan-600 hover:bg-cyan-700 text-white border-none">
+                        <Button className="bg-primary hover:bg-primary/90 text-white border-none">
                             Explore Features <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                     </Link>
@@ -173,9 +173,9 @@ export default function Home() {
                         Automated VAT calculations, eTIMS integration support, and regulatory reporting built-in.
                     </CardContent>
                 </Card>
-                <Card className="border-t-4 border-t-accent shadow-sm hover:shadow-md transition-shadow">
+                <Card className="border-t-4 border-t-navy shadow-sm hover:shadow-md transition-shadow">
                     <CardHeader>
-                        <TrendingUp className="h-10 w-10 text-accent mb-2" />
+                        <TrendingUp className="h-10 w-10 text-slate-700 dark:text-slate-300 mb-2" />
                         <CardTitle>Scalable Growth</CardTitle>
                     </CardHeader>
                     <CardContent className="text-muted-foreground">
@@ -304,7 +304,7 @@ export default function Home() {
                          <p className="text-slate-200 text-sm mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                             Grant management and transparent donor reporting.
                         </p>
-                        <span className="text-rose-400 font-medium flex items-center gap-2 group-hover:text-white transition-colors">
+                        <span className="text-secondary font-medium flex items-center gap-2 group-hover:text-white transition-colors">
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>
@@ -327,7 +327,7 @@ export default function Home() {
                          <p className="text-slate-200 text-sm mb-4 translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
                             Pharmacy stock tracking and patient management.
                         </p>
-                        <span className="text-cyan-400 font-medium flex items-center gap-2 group-hover:text-white transition-colors">
+                        <span className="text-primary font-medium flex items-center gap-2 group-hover:text-white transition-colors">
                             Learn More <ArrowRight size={16} />
                         </span>
                     </div>

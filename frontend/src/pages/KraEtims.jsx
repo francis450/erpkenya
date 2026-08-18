@@ -30,6 +30,17 @@ export default function KraEtims() {
     url: "https://erpkenya.com/kra-etims"
   };
 
+  const etimsSoftwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "ERP Kenya eTIMS Integration",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "KRA eTIMS integrated ERP software with automated invoice submission and tax compliance reporting for Kenyan businesses.",
+    url: "https://erpkenya.com/kra-etims",
+    provider: { "@type": "Organization", name: "ERP Kenya", url: "https://erpkenya.com" }
+  };
+
   const painPoints = [
     {
       icon: <AlertTriangle size={24} />,
@@ -53,47 +64,44 @@ export default function KraEtims() {
       icon: <Zap size={24} />,
       title: "Automatic Invoice Submission",
       description: "Every sales invoice is submitted to KRA eTIMS in real-time as it's created. No manual uploads, no portal logins, no delays.",
-      color: "cyan"
+      color: "blue"
     },
     {
       icon: <RefreshCcw size={24} />,
       title: "Real-Time Sync",
       description: "Your ERP and eTIMS are always in sync. Invoice numbers, tax amounts, and customer details match perfectly — no reconciliation needed.",
-      color: "blue"
+      color: "green"
     },
     {
       icon: <ShieldCheck size={24} />,
       title: "Complete Audit Trail",
       description: "Every submission is logged with timestamps, status codes, and KRA confirmation numbers. You're always audit-ready.",
-      color: "green"
+      color: "navy"
     },
     {
       icon: <FileCheck2 size={24} />,
       title: "Credit Note Handling",
       description: "Returns and credit notes are submitted to eTIMS automatically with proper references to the original invoice.",
-      color: "purple"
+      color: "blue"
     },
     {
       icon: <Lock size={24} />,
       title: "Error Recovery",
       description: "If KRA's system is down, invoices queue automatically and retry. You never lose a submission.",
-      color: "orange"
+      color: "green"
     },
     {
       icon: <FileText size={24} />,
       title: "Compliance Reporting",
       description: "Generate eTIMS reconciliation reports, VAT summaries, and withholding tax reports in one click for filing periods.",
-      color: "amber"
+      color: "navy"
     }
   ];
 
   const colorMap = {
-    cyan: { bg: "bg-cyan-100 dark:bg-cyan-900/30", text: "text-cyan-600 dark:text-cyan-400" },
     blue: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-600 dark:text-blue-400" },
     green: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-600 dark:text-green-400" },
-    purple: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-600 dark:text-purple-400" },
-    orange: { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-600 dark:text-orange-400" },
-    amber: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-600 dark:text-amber-400" }
+    navy: { bg: "bg-slate-200 dark:bg-slate-700/40", text: "text-slate-700 dark:text-slate-300" }
   };
 
   return (
@@ -102,7 +110,7 @@ export default function KraEtims() {
         title="KRA eTIMS Integrated ERP | Automated Tax Compliance Kenya"
         description="KRA eTIMS integrated ERP software for Kenyan businesses. Automatic invoice submission, real-time sync, complete audit trail, and compliance reporting. Stop manual uploads."
         canonical="/kra-etims"
-        jsonLd={etimsJsonLd}
+        jsonLd={[etimsJsonLd, etimsSoftwareJsonLd]}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Solutions", url: "/solutions" },

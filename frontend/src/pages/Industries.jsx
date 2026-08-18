@@ -24,6 +24,12 @@ import { CalendlyButton, CALENDLY_URLS } from '@/components/CalendlyWidget';
 import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
+const dotColorMap = {
+  blue: "bg-blue-500",
+  green: "bg-green-500",
+  navy: "bg-slate-600",
+};
+
 export default function Industries() {
   const industries = [
     {
@@ -41,7 +47,7 @@ export default function Industries() {
       icon: <Truck size={40} />,
       description: "Keep your fleet moving and your warehouse organized.",
       details: ["Route Sales Management", "Van Sales", "Multi-warehouse stock", "Driver Reconciliation"],
-      color: "orange",
+      color: "green",
       image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -49,7 +55,7 @@ export default function Industries() {
       icon: <ShoppingCart size={40} />,
       description: "Speed up checkout and stop inventory shrinkage.",
       details: ["Fast POS System", "Loyalty Programs", "Shelf-life Management", "Barcode Integration"],
-      color: "green",
+      color: "navy",
       image: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -57,7 +63,7 @@ export default function Industries() {
       icon: <BriefcaseIcon size={40} />,
       description: "Turn time into money with project-based billing.",
       details: ["Project Costing", "Timesheets", "Recurring Invoicing", "Contract Management"],
-      color: "purple",
+      color: "blue",
       image: "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -65,7 +71,7 @@ export default function Industries() {
       icon: <HardHat size={40} />,
       description: "Manage sites, materials, and labor costs in real-time.",
       details: ["Site Inventory", "Project Budgeting", "Subcontractor Management", "Equipment Tracking"],
-      color: "yellow",
+      color: "green",
       image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -73,7 +79,7 @@ export default function Industries() {
       icon: <WheatIcon size={40} />,
       description: "Farm to fork traceability and cost management.",
       details: ["Harvest Tracking", "Input Management", "Outgrower Management", "Biological Asset Tracking"],
-      color: "emerald",
+      color: "navy",
       image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -81,7 +87,7 @@ export default function Industries() {
       icon: <Heart size={40} />,
       description: "Track every donation and ensure transparency in operations.",
       details: ["Grant Management", "Donor Reporting", "Project Budgeting", "Beneficiary Tracking"],
-      color: "rose",
+      color: "blue",
       image: "https://images.unsplash.com/photo-1593113598332-cd288d649433?auto=format&fit=crop&q=80&w=1000"
     },
     {
@@ -89,7 +95,7 @@ export default function Industries() {
       icon: <Stethoscope size={40} />,
       description: "Manage patient records, pharmacy stock, and clinic operations.",
       details: ["Patient Management", "Pharmacy Inventory", "Expiry Tracking", "Insurance Billing"],
-      color: "cyan",
+      color: "green",
       image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000"
     }
   ];
@@ -110,17 +116,17 @@ export default function Industries() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto px-4 md:px-6">
           <div className="max-w-3xl">
-            <Badge variant="outline" className="mb-6 border-cyan-500 text-cyan-400">
+            <Badge variant="outline" className="mb-6 border-primary text-primary">
                Sector Specific Solutions
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-              Built for Kenya's <span className="text-cyan-400">Engine Room.</span>
+              Built for Kenya's <span className="text-primary">Engine Room.</span>
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               Generic software fails when reality hits. Whether you manufacture, distribute, or serve—ERPKenya speaks your specific industry language.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-cyan-600 hover:bg-cyan-700 text-white border-0">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white border-0">
                 Explore Your Industry
               </Button>
             </div>
@@ -155,7 +161,7 @@ export default function Industries() {
                   <ul className="space-y-2">
                     {industry.details.map((detail, idx) => (
                         <li key={idx} className="flex items-center gap-2 text-sm font-medium">
-                            <div className={`w-1.5 h-1.5 rounded-full bg-${industry.color}-500`} />
+                            <div className={`w-1.5 h-1.5 rounded-full ${dotColorMap[industry.color]}`} />
                             {detail}
                         </li>
                     ))}
@@ -198,7 +204,7 @@ export default function Industries() {
 
       {/* CTA */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-cyan-900/20 blur-3xl rounded-full transform translate-x-1/2"></div>
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-primary/20 blur-3xl rounded-full transform translate-x-1/2"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Don't see your industry?</h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
@@ -208,7 +214,7 @@ export default function Industries() {
             <CalendlyButton 
                 text="Consult with an Industry Expert" 
                 url={CALENDLY_URLS.demo}
-                className="bg-cyan-600 hover:bg-cyan-500 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-cyan-900/50"
+                className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-primary/50"
             />
           </div>
         </div>

@@ -31,42 +31,53 @@ export default function Manufacturing() {
     url: "https://erpkenya.com/manufacturing"
   };
 
+  const manufacturingSoftwareJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    name: "ERP Kenya Manufacturing Module",
+    applicationCategory: "BusinessApplication",
+    operatingSystem: "Web",
+    description: "Cloud manufacturing ERP for Kenyan factories: BOM management, work order tracking, and production costing.",
+    url: "https://erpkenya.com/manufacturing",
+    provider: { "@type": "Organization", name: "ERP Kenya", url: "https://erpkenya.com" }
+  };
+
   const features = [
     {
       icon: <Layers size={24} />,
       title: "Bill of Materials (BOM)",
       description: "Define multi-level BOMs with sub-assemblies, raw materials, and cost rollups. Track every shilling of value added from raw material to finished good.",
-      color: "amber"
+      color: "blue"
     },
     {
       icon: <ClipboardList size={24} />,
       title: "Work Order Management",
       description: "Create, schedule, and track production work orders from start to finish. Real-time visibility into what's in progress, what's queued, and what's complete.",
-      color: "blue"
+      color: "green"
     },
     {
       icon: <Timer size={24} />,
       title: "Production Scheduling",
       description: "Optimize your shop floor with drag-and-drop scheduling. Balance machine capacity, labour availability, and material readiness to hit delivery dates.",
-      color: "green"
+      color: "navy"
     },
     {
       icon: <PackageCheck size={24} />,
       title: "Quality Control",
       description: "Define inspection checkpoints at every production stage. Capture defect data, trigger rework orders, and maintain batch traceability for compliance.",
-      color: "purple"
+      color: "blue"
     },
     {
       icon: <Wrench size={24} />,
       title: "Shop Floor Tracking",
       description: "Workers log time and output directly from the factory floor using tablets or phones. No more paper tickets or end-of-day guesswork.",
-      color: "orange"
+      color: "green"
     },
     {
       icon: <BarChart3 size={24} />,
       title: "Production Costing",
       description: "Know your actual production cost per unit — not just estimates. Track material wastage, labour cost, and overheads in real-time to protect your margins.",
-      color: "cyan"
+      color: "navy"
     }
   ];
 
@@ -78,12 +89,9 @@ export default function Manufacturing() {
   ];
 
   const colorMap = {
-    amber: { bg: "bg-amber-100 dark:bg-amber-900/30", text: "text-amber-600 dark:text-amber-400" },
     blue: { bg: "bg-blue-100 dark:bg-blue-900/30", text: "text-blue-600 dark:text-blue-400" },
     green: { bg: "bg-green-100 dark:bg-green-900/30", text: "text-green-600 dark:text-green-400" },
-    purple: { bg: "bg-purple-100 dark:bg-purple-900/30", text: "text-purple-600 dark:text-purple-400" },
-    orange: { bg: "bg-orange-100 dark:bg-orange-900/30", text: "text-orange-600 dark:text-orange-400" },
-    cyan: { bg: "bg-cyan-100 dark:bg-cyan-900/30", text: "text-cyan-600 dark:text-cyan-400" }
+    navy: { bg: "bg-slate-200 dark:bg-slate-700/40", text: "text-slate-700 dark:text-slate-300" }
   };
 
   return (
@@ -92,7 +100,7 @@ export default function Manufacturing() {
         title="Manufacturing ERP Kenya | Production, BOM & Quality Management"
         description="Manufacturing ERP software built for Kenyan factories. Bill of Materials, production scheduling, quality control, shop floor tracking, KRA eTIMS compliance & M-Pesa integration."
         canonical="/manufacturing"
-        jsonLd={manufacturingJsonLd}
+        jsonLd={[manufacturingJsonLd, manufacturingSoftwareJsonLd]}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Industries", url: "/industries" },
@@ -106,20 +114,20 @@ export default function Manufacturing() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-15"></div>
         <div className="container mx-auto relative z-10 px-4 md:px-6">
           <div className="max-w-3xl">
-            <Badge className="mb-6 bg-amber-500/10 text-amber-400 hover:bg-amber-500/20 border-amber-500/50">
+            <Badge className="mb-6 bg-secondary/10 text-secondary hover:bg-secondary/20 border-secondary/50">
               Manufacturing ERP Kenya
             </Badge>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
-              From Raw Materials to <span className="text-amber-400">Finished Goods.</span> Track Every Shilling.
+              From Raw Materials to <span className="text-secondary">Finished Goods.</span> Track Every Shilling.
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               Purpose-built manufacturing ERP for Kenyan factories. Manage BOMs, production schedules, quality control, and costing — with KRA eTIMS compliance and M-Pesa reconciliation built in.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <CalendlyButton 
-                text="Get a Manufacturing Demo" 
+              <CalendlyButton
+                text="Get a Manufacturing Demo"
                 url={CALENDLY_URLS.demo}
-                className="text-lg h-14 px-8 bg-amber-600 hover:bg-amber-700 text-white shadow-xl shadow-amber-900/20 border-0"
+                className="text-lg h-14 px-8 bg-secondary hover:bg-secondary/90 text-white shadow-xl shadow-secondary/20 border-0"
               />
               <Link to="/solutions">
                 <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
@@ -132,13 +140,13 @@ export default function Manufacturing() {
       </section>
 
       {/* Stats Section */}
-      <section className="py-12 bg-amber-600 text-white">
+      <section className="py-12 bg-secondary text-white">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             {stats.map((stat, index) => (
               <div key={index}>
                 <div className="text-3xl md:text-4xl font-bold mb-1">{stat.value}</div>
-                <div className="text-amber-100 text-sm md:text-base">{stat.label}</div>
+                <div className="text-green-100 text-sm md:text-base">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -254,7 +262,7 @@ export default function Manufacturing() {
               { step: "4", title: "Delivery & Invoice", desc: "Finished goods dispatched. eTIMS invoice submitted to KRA. M-Pesa payment matched." }
             ].map((item, index) => (
               <div key={index} className="text-center">
-                <div className="w-12 h-12 bg-amber-600 text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
+                <div className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">
                   {item.step}
                 </div>
                 <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
@@ -267,7 +275,7 @@ export default function Manufacturing() {
 
       {/* CTA Section */}
       <section className="py-24 bg-slate-900 text-white relative overflow-hidden">
-        <div className="absolute right-0 top-0 w-1/3 h-full bg-amber-900/20 blur-3xl rounded-full transform translate-x-1/2"></div>
+        <div className="absolute right-0 top-0 w-1/3 h-full bg-secondary/20 blur-3xl rounded-full transform translate-x-1/2"></div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="text-3xl md:text-5xl font-bold mb-6">Ready to Modernize Your Factory?</h2>
           <p className="text-xl text-slate-300 mb-10 max-w-2xl mx-auto">
@@ -277,7 +285,7 @@ export default function Manufacturing() {
             <CalendlyButton 
               text="Book a Manufacturing Demo" 
               url={CALENDLY_URLS.demo}
-              className="bg-amber-600 hover:bg-amber-500 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-amber-900/50"
+              className="bg-secondary hover:bg-secondary/90 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-secondary/50"
             />
             <Link to="/resources/top-erp-software-kenya-2026-comparison">
               <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">

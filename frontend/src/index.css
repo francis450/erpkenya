@@ -25,9 +25,13 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    /* Kenya Red (Accent) */
-    --accent: 355 85% 45%; 
-    --accent-foreground: 210 40% 98%;
+    /* Hover/focus surface — light tint of Primary Blue, used by buttons, nav, and menu items */
+    --accent: 221.2 40% 95.5%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+
+    /* Brand Navy — third logo tile, same hue family as Primary but dark */
+    --navy: 221.2 55% 21%;
+    --navy-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;

@@ -4,23 +4,42 @@ const path = require("path");
 const SITE_URL = "https://erpkenya.com";
 const today = new Date().toISOString().split("T")[0];
 
-const routes = [
+const staticRoutes = [
   { path: "/", priority: "1.0", changefreq: "weekly" },
   { path: "/solutions", priority: "0.9", changefreq: "monthly" },
   { path: "/solutions/hr-payroll", priority: "0.9", changefreq: "monthly" },
+  { path: "/pricing", priority: "0.8", changefreq: "monthly" },
   { path: "/industries", priority: "0.9", changefreq: "monthly" },
   { path: "/manufacturing", priority: "0.9", changefreq: "monthly" },
   { path: "/kra-etims", priority: "0.9", changefreq: "monthly" },
   { path: "/resources", priority: "0.8", changefreq: "weekly" },
-  { path: "/resources/install-erpnext-v15-macos", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/install-erpnext-v15-ubuntu-24-04", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/top-erp-software-kenya-2026-comparison", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/erp-implementation-kenya-checklist", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/ai-companies-kenya-erp-automation", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/automated-mpesa-reconciliation", priority: "0.8", changefreq: "monthly" },
-  { path: "/resources/inventory-management-strategies", priority: "0.8", changefreq: "monthly" },
   { path: "/success-stories", priority: "0.7", changefreq: "monthly" },
   { path: "/contact", priority: "0.6", changefreq: "monthly" },
+];
+
+function getBlogSlugs() {
+  const mockDataPath = path.resolve(__dirname, "../src/lib/mockData.js");
+  const source = fs.readFileSync(mockDataPath, "utf-8");
+  const match = source.match(/export const mockBlogPosts = \[([\s\S]*?)\n\];/);
+  if (!match) {
+    throw new Error("Could not locate mockBlogPosts in mockData.js");
+  }
+  const slugPattern = /slug:\s*{\s*current:\s*["']([^"']+)["']\s*}/g;
+  const slugs = [];
+  let slugMatch;
+  while ((slugMatch = slugPattern.exec(match[1])) !== null) {
+    slugs.push(slugMatch[1]);
+  }
+  return slugs;
+}
+
+const routes = [
+  ...staticRoutes,
+  ...getBlogSlugs().map((slug) => ({
+    path: `/resources/${slug}`,
+    priority: "0.8",
+    changefreq: "monthly",
+  })),
 ];
 
 function generateSitemap() {

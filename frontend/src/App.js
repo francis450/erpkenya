@@ -13,6 +13,7 @@ const Contact = lazy(() => import("./pages/Contact"));
 const Manufacturing = lazy(() => import("./pages/Manufacturing"));
 const KraEtims = lazy(() => import("./pages/KraEtims"));
 const HrPayroll = lazy(() => import("./pages/HrPayroll"));
+const Pricing = lazy(() => import("./pages/Pricing"));
 const BlogPost = lazy(() => import("./components/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -28,6 +29,7 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/hr-payroll" element={<HrPayroll />} />
+            <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/manufacturing" element={<Manufacturing />} />
             <Route path="/kra-etims" element={<KraEtims />} />
