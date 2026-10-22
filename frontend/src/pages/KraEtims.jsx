@@ -21,15 +21,6 @@ import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
 export default function KraEtims() {
-  const etimsJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "ERP Kenya eTIMS Integration",
-    description: "KRA eTIMS integrated ERP software for automated tax compliance in Kenya. Real-time invoice submission, audit trail, and compliance reporting.",
-    brand: { "@type": "Brand", name: "ERP Kenya" },
-    url: "https://erpkenya.com/kra-etims"
-  };
-
   const etimsSoftwareJsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -110,7 +101,7 @@ export default function KraEtims() {
         title="KRA eTIMS Integrated ERP | Automated Tax Compliance Kenya"
         description="KRA eTIMS integrated ERP software for Kenyan businesses. Automatic invoice submission, real-time sync, complete audit trail, and compliance reporting. Stop manual uploads."
         canonical="/kra-etims"
-        jsonLd={[etimsJsonLd, etimsSoftwareJsonLd]}
+        jsonLd={etimsSoftwareJsonLd}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Solutions", url: "/solutions" },

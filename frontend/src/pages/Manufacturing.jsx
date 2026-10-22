@@ -22,15 +22,6 @@ import { Link } from 'react-router-dom';
 import { SEO } from '@/components/SEO';
 
 export default function Manufacturing() {
-  const manufacturingJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "ERP Kenya Manufacturing Module",
-    description: "Manufacturing ERP software for Kenyan factories — BOM management, production scheduling, quality control, KRA eTIMS compliance, and M-Pesa integration.",
-    brand: { "@type": "Brand", name: "ERP Kenya" },
-    url: "https://erpkenya.com/manufacturing"
-  };
-
   const manufacturingSoftwareJsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -100,7 +91,7 @@ export default function Manufacturing() {
         title="Manufacturing ERP Kenya | Production, BOM & Quality Management"
         description="Manufacturing ERP software built for Kenyan factories. Bill of Materials, production scheduling, quality control, shop floor tracking, KRA eTIMS compliance & M-Pesa integration."
         canonical="/manufacturing"
-        jsonLd={[manufacturingJsonLd, manufacturingSoftwareJsonLd]}
+        jsonLd={manufacturingSoftwareJsonLd}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Industries", url: "/industries" },

@@ -25,15 +25,6 @@ import { grossToNet, formatKES, HOUSING_LEVY_RATE } from '@/lib/kenyaPayroll';
 
 export default function HrPayroll() {
   const sample = grossToNet({ basic: 80000, allowances: 15000 });
-  const hrPayrollJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: "ERP Kenya HR & Payroll Module",
-    description: "Payroll software for Kenya with automated KRA PAYE, NSSF, NHIF, and Housing Levy compliance. Employee self-service, leave management, and P9 form generation.",
-    brand: { "@type": "Brand", name: "ERP Kenya" },
-    url: "https://erpkenya.com/solutions/hr-payroll"
-  };
-
   const hrPayrollSoftwareJsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
@@ -105,7 +96,7 @@ export default function HrPayroll() {
         title="Payroll Software Kenya | HR Management with KRA, NSSF & NHIF Compliance"
         description="Payroll software built for Kenya. Automated PAYE, NSSF, NHIF, and Housing Levy calculations. Employee self-service, leave management, P9 forms, and statutory reporting."
         canonical="/solutions/hr-payroll"
-        jsonLd={[hrPayrollJsonLd, hrPayrollSoftwareJsonLd]}
+        jsonLd={hrPayrollSoftwareJsonLd}
         breadcrumbs={[
           { name: "Home", url: "/" },
           { name: "Solutions", url: "/solutions" },
