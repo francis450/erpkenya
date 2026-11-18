@@ -30,7 +30,7 @@ export default function Resources() {
   return (
     <div className="min-h-screen bg-slate-50 font-sans flex flex-col">
       <SEO
-        title="ERP Resources & Guides | KRA Compliance Tips for Kenyan Businesses"
+        title="ERP Guides & KRA Compliance Tips for Kenya"
         description="Practical ERP guides, KRA compliance tips, M-Pesa integration tutorials, and business automation strategies for Kenyan business owners."
         canonical="/resources"
         breadcrumbs={[

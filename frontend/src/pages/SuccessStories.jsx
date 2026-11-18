@@ -19,7 +19,7 @@ export default function SuccessStories() {
   return (
     <div className="min-h-screen bg-white font-sans flex flex-col">
       <SEO
-        title="ERP Success Stories Kenya | Real Results from Kenyan Businesses"
+        title="ERP Success Stories: Real Results in Kenya"
         description="See how Kenyan manufacturing, agriculture, and logistics companies reduced costs and automated growth with ERP Kenya. Verified client case studies."
         canonical="/success-stories"
         breadcrumbs={[

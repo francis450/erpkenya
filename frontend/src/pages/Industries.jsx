@@ -103,7 +103,7 @@ export default function Industries() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Industry-Specific ERP Kenya | Manufacturing, Agriculture, Retail & More"
+        title="Industry ERP Kenya: Agriculture, Retail & More"
         description="ERP solutions tailored for Kenyan industries: Manufacturing, Distribution, Retail, Agriculture, Construction, Healthcare, NGOs & Service companies. Local compliance built-in."
         canonical="/industries"
         breadcrumbs={[

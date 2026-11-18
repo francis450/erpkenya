@@ -14,7 +14,10 @@ export function SEO({
   jsonLd,
   breadcrumbs,
 }) {
-  const fullTitle = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  // Google truncates titles at ~60 chars: only append the brand when it fits
+  const TITLE_LIMIT = 60;
+  const branded = title ? `${title} | ${SITE_NAME}` : SITE_NAME;
+  const fullTitle = title && branded.length > TITLE_LIMIT ? title : branded;
   const canonicalUrl = canonical
     ? canonical.startsWith("http")
       ? canonical

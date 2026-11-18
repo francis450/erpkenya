@@ -39,8 +39,8 @@ export default function Solutions() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="ERP Solutions Kenya | Financial, HR Payroll, Inventory & Manufacturing"
-        description="Comprehensive ERP modules for Kenyan businesses: Financial Management with M-Pesa integration, HR & Payroll with KRA/NSSF/NHIF compliance, Inventory, CRM, Manufacturing & Analytics."
+        title="ERP Solutions Kenya: Finance, Payroll, Inventory"
+        description="Comprehensive ERP modules for Kenyan businesses: Financial Management with M-Pesa integration, HR & Payroll with KRA/NSSF/SHIF compliance, Inventory, CRM, Manufacturing & Analytics."
         canonical="/solutions"
         breadcrumbs={[
           { name: "Home", url: "/" },
@@ -152,7 +152,7 @@ export default function Solutions() {
                 <ul className="space-y-3">
                   <li className="flex gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
-                    <span className="text-sm">One-click KRA, NSSF, NHIF Reports</span>
+                    <span className="text-sm">One-click KRA, NSSF, SHIF Reports</span>
                   </li>
                   <li className="flex gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -274,7 +274,7 @@ export default function Solutions() {
                             <p className="text-muted-foreground mb-4">Unlike global ERPs where you have to struggle with plugins for KRA TIMS or local payroll taxes, we have it built in.</p>
                             <ul className="space-y-2">
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> <span>eTIMS Integration Ready</span></li>
-                                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> <span>Statutory Reports (NSSF, NHIF, PAYE)</span></li>
+                                <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> <span>Statutory Reports (NSSF, SHIF, PAYE)</span></li>
                                 <li className="flex items-center gap-2"><CheckCircle2 className="w-4 h-4 text-primary"/> <span>Withholding Tax Management</span></li>
                             </ul>
                         </div>

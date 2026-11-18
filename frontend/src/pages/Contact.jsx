@@ -31,7 +31,7 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Contact ERP Kenya | Get a Demo | Nairobi Office"
+        title="Contact Us: Book an ERP Demo in Nairobi"
         description="Contact ERP Kenya in Nairobi. Get a free demo, pricing info, or speak to an industry expert. Westlands Commercial Centre. Call +254 757 185 189. Response within 2 hours."
         canonical="/contact"
         jsonLd={contactJsonLd}

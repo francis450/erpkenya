@@ -98,7 +98,7 @@ export default function KraEtims() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="KRA eTIMS Integrated ERP | Automated Tax Compliance Kenya"
+        title="KRA eTIMS Integrated ERP: Automated Compliance"
         description="KRA eTIMS integrated ERP software for Kenyan businesses. Automatic invoice submission, real-time sync, complete audit trail, and compliance reporting. Stop manual uploads."
         canonical="/kra-etims"
         jsonLd={etimsSoftwareJsonLd}

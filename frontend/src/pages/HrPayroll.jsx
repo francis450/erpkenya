@@ -46,13 +46,13 @@ export default function HrPayroll() {
     {
       icon: <ShieldCheck size={24} />,
       title: "Statutory Compliance",
-      description: "PAYE, NSSF, NHIF, Housing Levy, and NITA — all calculated per the latest KRA rates. When the Finance Act changes rates, we update your system automatically.",
+      description: "PAYE, NSSF, SHIF, Housing Levy, and NITA — all calculated per the latest KRA rates. When the Finance Act changes rates, we update your system automatically.",
       color: "green"
     },
     {
       icon: <FileText size={24} />,
       title: "P9 & Statutory Reports",
-      description: "Generate P9 forms, NSSF schedules, NHIF reports, and PAYE returns in one click. Formatted exactly how KRA and statutory bodies expect them.",
+      description: "Generate P9 forms, NSSF schedules, SHIF reports, and PAYE returns in one click. Formatted exactly how KRA and statutory bodies expect them.",
       color: "navy"
     },
     {
@@ -93,8 +93,8 @@ export default function HrPayroll() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Payroll Software Kenya | HR Management with KRA, NSSF & NHIF Compliance"
-        description="Payroll software built for Kenya. Automated PAYE, NSSF, NHIF, and Housing Levy calculations. Employee self-service, leave management, P9 forms, and statutory reporting."
+        title="Payroll Software Kenya: PAYE, NSSF & SHIF"
+        description="Payroll software built for Kenya. Automated PAYE, NSSF, SHIF, and Housing Levy calculations. Employee self-service, leave management, P9 forms, and statutory reporting."
         canonical="/solutions/hr-payroll"
         jsonLd={hrPayrollSoftwareJsonLd}
         breadcrumbs={[

@@ -91,7 +91,7 @@ export default function Pricing() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="ERP Software Cost in Kenya | Pricing Guide & Custom Quotes"
+        title="ERP Pricing Kenya: Costs & Custom Quotes"
         description="How much does ERP software cost in Kenya? See what actually drives pricing — users, modules, integrations, and support — and request a custom quote for your business."
         canonical="/pricing"
         jsonLd={faqJsonLd}

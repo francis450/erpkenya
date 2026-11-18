@@ -88,7 +88,7 @@ export default function Manufacturing() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Manufacturing ERP Kenya | Production, BOM & Quality Management"
+        title="Manufacturing ERP Kenya: BOM, Production & QC"
         description="Manufacturing ERP software built for Kenyan factories. Bill of Materials, production scheduling, quality control, shop floor tracking, KRA eTIMS compliance & M-Pesa integration."
         canonical="/manufacturing"
         jsonLd={manufacturingSoftwareJsonLd}

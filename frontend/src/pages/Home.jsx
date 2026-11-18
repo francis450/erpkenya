@@ -48,7 +48,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="ERP Software Kenya | Cloud ERP for KRA Compliance & M-Pesa"
+        title="ERP Software Kenya: KRA eTIMS & M-Pesa Cloud ERP"
         description="Kenya's #1 cloud ERP system. Automated M-Pesa reconciliation, KRA eTIMS compliance, manufacturing & inventory management. Join 500+ Kenyan businesses scaling faster."
         canonical="/"
         jsonLd={homeJsonLd}

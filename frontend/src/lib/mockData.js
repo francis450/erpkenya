@@ -351,7 +351,7 @@ export const mockBlogPosts = [
       {
         _type: "block",
         children: [
-          { _type: "span", text: "Built specifically for the Kenyan market. Native M-Pesa reconciliation, KRA eTIMS compliance out of the box, NSSF/NHIF payroll deductions, and local support based in Nairobi. Best for: SMEs and mid-market companies who need a system that works without heavy customization." }
+          { _type: "span", text: "Built specifically for the Kenyan market. Native M-Pesa reconciliation, KRA eTIMS compliance out of the box, NSSF/SHIF payroll deductions, and local support based in Nairobi. Best for: SMEs and mid-market companies who need a system that works without heavy customization." }
         ]
       },
       {
@@ -447,7 +447,7 @@ export const mockBlogPosts = [
         _type: "block",
         style: "normal",
         listItem: "bullet",
-        children: [{ _type: "span", text: "Statutory payroll deductions — PAYE, NSSF, NHIF, Housing Levy calculations that change with each Finance Act" }]
+        children: [{ _type: "span", text: "Statutory payroll deductions — PAYE, NSSF, SHIF, Housing Levy calculations that change with each Finance Act" }]
       },
       {
         _type: "block",
@@ -476,7 +476,7 @@ export const mockBlogPosts = [
       {
         _type: "block",
         children: [
-          { _type: "span", text: "If you're a Kenyan SME or mid-market company, prioritize local compliance and support over brand name. A system that works on day one — with M-Pesa, eTIMS, and NHIF built in — will save you more than a global brand that needs 6 months of customization." }
+          { _type: "span", text: "If you're a Kenyan SME or mid-market company, prioritize local compliance and support over brand name. A system that works on day one — with M-Pesa, eTIMS, and SHIF built in — will save you more than a global brand that needs 6 months of customization." }
         ]
       },
       {
@@ -540,7 +540,7 @@ export const mockBlogPosts = [
         _type: "block",
         style: "normal",
         listItem: "bullet",
-        children: [{ _type: "span", text: "Ignoring compliance from day one — retrofitting KRA eTIMS or NHIF deductions after go-live is a nightmare" }]
+        children: [{ _type: "span", text: "Ignoring compliance from day one — retrofitting KRA eTIMS or SHIF deductions after go-live is a nightmare" }]
       },
       {
         _type: "block",
