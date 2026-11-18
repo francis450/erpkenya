@@ -395,7 +395,7 @@ export default function BlogPost() {
         description={post.excerpt ? post.excerpt.slice(0, 160) : post.title}
         canonical={`/resources/${slug}`}
         ogType="article"
-        ogImage={post.mainImage}
+        ogImage={post.mainImage || undefined}
         jsonLd={faqJsonLd ? [articleJsonLd, faqJsonLd] : articleJsonLd}
         breadcrumbs={[
           { name: "Home", url: "/" },
