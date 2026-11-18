@@ -418,8 +418,10 @@ export default function BlogPost() {
          {post.mainImage && (
             <img 
                 src={post.mainImage} 
-                alt={post.title} 
-                className="w-full h-[400px] object-cover rounded-xl mb-10 shadow-lg"
+                alt={post.title}
+                width={1200}
+                height={630}
+                className="w-full h-auto aspect-[1200/630] object-cover rounded-xl mb-10 shadow-lg"
             />
          )}
 
