@@ -30,7 +30,7 @@ const homeJsonLd = [
     ],
     address: {
       "@type": "PostalAddress",
-      streetAddress: "Westlands Commercial Centre, Block C",
+      streetAddress: "Karen",
       addressLocality: "Nairobi",
       addressCountry: "KE",
     },

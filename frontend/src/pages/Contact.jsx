@@ -15,7 +15,7 @@ const contactJsonLd = {
   email: "contact@erpkenya.com",
   address: {
     "@type": "PostalAddress",
-    streetAddress: "Westlands Commercial Centre, Block C",
+    streetAddress: "Karen",
     addressLocality: "Nairobi",
     addressCountry: "KE",
   },
@@ -32,7 +32,7 @@ export default function Contact() {
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
         title="Contact Us: Book an ERP Demo in Nairobi"
-        description="Contact ERP Kenya in Nairobi. Get a free demo, pricing info, or speak to an industry expert. Westlands Commercial Centre. Call +254 757 185 189. Response within 2 hours."
+        description="Contact ERP Kenya in Karen, Nairobi. Book a free demo, get pricing, or speak to an industry expert. Call +254 757 185 189. Response within 2 hours."
         canonical="/contact"
         jsonLd={contactJsonLd}
         breadcrumbs={[
@@ -76,7 +76,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h3 className="font-semibold text-xl mb-2">Visit Our Office</h3>
-                      <p className="text-muted-foreground">Westlands Commercial Centre, Block C<br />Nairobi, Kenya</p>
+                      <p className="text-muted-foreground">Karen, Nairobi, Kenya</p>
                     </div>
                   </CardContent>
                 </Card>
