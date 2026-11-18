@@ -56,10 +56,12 @@ export function Footer() {
           <div className="space-y-4">
             <h3 className="font-semibold text-white text-lg">Solutions</h3>
             <ul className="space-y-2 text-sm text-slate-400">
-              <li><Link to="/solutions" className="hover:text-primary transition-colors">Manufacturing</Link></li>
-              <li><Link to="/solutions" className="hover:text-primary transition-colors">Distribution</Link></li>
-              <li><Link to="/solutions" className="hover:text-primary transition-colors">Agriculture</Link></li>
-              <li><Link to="/solutions" className="hover:text-primary transition-colors">Financial Management</Link></li>
+              <li><Link to="/manufacturing" className="hover:text-primary transition-colors">Manufacturing</Link></li>
+              <li><Link to="/solutions/hr-payroll" className="hover:text-primary transition-colors">HR & Payroll</Link></li>
+              <li><Link to="/kra-etims" className="hover:text-primary transition-colors">KRA eTIMS</Link></li>
+              <li><Link to="/resources/automated-mpesa-reconciliation" className="hover:text-primary transition-colors">M-Pesa Reconciliation</Link></li>
+              <li><Link to="/resources/inventory-management-strategies" className="hover:text-primary transition-colors">Inventory Management</Link></li>
+              <li><Link to="/success-stories" className="hover:text-primary transition-colors">Success Stories</Link></li>
               <li><Link to="/pricing" className="hover:text-primary transition-colors">Pricing</Link></li>
             </ul>
           </div>
