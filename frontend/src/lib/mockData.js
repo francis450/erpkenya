@@ -21,6 +21,139 @@ const portableCode = (code, language = "bash") => ({
 
 export const mockBlogPosts = [
   {
+    _id: "post-year-end-tax-checklist-2026",
+    _type: "blogPost",
+    title: "Year-End Tax Checklist for Kenyan Businesses (2026)",
+    slug: { current: "year-end-tax-checklist-kenya-2026" },
+    mainImage: "https://erpkenya.com/images/year-end-tax-checklist-2026.png",
+    publishedAt: "2026-11-18T09:00:00Z",
+    updatedAt: "2026-11-18T09:00:00Z",
+    readTime: "9 min read",
+    excerpt: "KRA's tax amnesty closes on 31 December and every 2026 expense now needs an eTIMS invoice. What to do before year end, with all the key dates.",
+    faq: [
+      {
+        q: "When does the KRA tax amnesty end?",
+        a: "The 2026 tax amnesty runs from 1 July to 31 December 2026. It waives penalties, interest and fines on tax debts for periods up to 31 December 2025, provided the principal tax is paid in full by 31 December 2026, either as a lump sum or through an iTax payment plan that is fully cleared by that date."
+      },
+      {
+        q: "Can I still claim 2026 business expenses that have no eTIMS invoice?",
+        a: "Generally, no. KRA allowed a one-time concession for 2025 returns. For the 2026 year of income, expenses must be supported by a valid eTIMS or TIMS invoice that carries your KRA PIN, unless they fall into an excluded category such as salaries, imports or interest. Check KRA's income and expense validation guide for the full list."
+      },
+      {
+        q: "Does the tax amnesty cover customs duty?",
+        a: "No. The amnesty covers penalties, interest and fines under the Tax Procedures Act. Customs duties under the East African Community Customs Management Act are excluded."
+      },
+      {
+        q: "When is the last instalment tax payment for a company with a December year end?",
+        a: "Instalment tax is paid on the 20th day of the 4th, 6th, 9th and 12th months of the company's financial year. For a December year end, the final instalment is due on 20 December. Any balance of tax is due by the end of the fourth month after year end, which is 30 April."
+      }
+    ],
+    content: [
+      portableBlock("Most years, December is about closing the books and planning for January. This year there is more at stake. KRA's tax amnesty closes on 31 December, the 2026 year is the first in which every expense you claim must be backed by an eTIMS invoice, and KRA has told businesses to keep proper stock records ahead of a new eTIMS stock feature. Each of these is much easier to deal with now than after the year has closed."),
+      portableBlock("This checklist covers what to do before 31 December, and the deadlines that follow in early 2027. It assumes a business with a December year end; if yours is different, the same steps apply to your own year end."),
+
+      portableBlock("1. Clear Old Tax Debts Before the Amnesty Closes", "h3"),
+      portableBlock("The 2026 tax amnesty, re-introduced by the Finance Act 2026, waives 100% of penalties, interest and fines on tax debts for periods up to 31 December 2025. The window runs from 1 July to 31 December 2026. The condition is simple: the principal tax has to be paid in full."),
+      portableListItem("If you owe only penalties and interest, with no principal outstanding, the waiver is automatic."),
+      portableListItem("If you owe principal, pay it in full before 31 December, or apply on iTax for a payment plan. Under a plan, all the principal must still be cleared by 31 December 2026."),
+      portableListItem("If you have unfiled returns for past periods, file them within the window. Late-filing penalties are waived where no principal is due."),
+      portableListItem("Customs duties are not covered, and penalties and interest for periods from 1 January 2026 are payable in full."),
+      portableBlock("On iTax, KRA's guidance is to generate the payment for the relevant tax and period, reduce the amount to the principal only, and pay. The penalties and interest are reversed once the principal is settled. Interest keeps building up on unpaid principal while the window is open, and anything left unpaid after 31 December becomes fully recoverable, so the earlier you check your iTax ledger, the better."),
+
+      portableBlock("2. Collect an eTIMS Invoice for Every 2026 Expense", "h3"),
+      portableBlock("Since 1 January 2026, KRA has been checking the income and expenses declared in income tax returns against three sources: TIMS and eTIMS invoices, withholding tax records, and customs import records. For 2025 returns, KRA allowed a one-time concession for valid expenses without eTIMS invoices. That concession has ended. For the 2026 year of income, an expense that isn't backed by a valid electronic tax invoice carrying your KRA PIN is likely to be disallowed, which increases your taxable profit."),
+      portableBlock("Some expenses are excluded from this check, including salaries, imports and interest. KRA's income and expense validation guide has the full list. For everything else, the work is best done now, while suppliers can still issue invoices for this year:"),
+      portableListItem("Run a report of every 2026 purchase and expense, and mark which ones have an eTIMS invoice number against them.", "number"),
+      portableListItem("Ask suppliers for any missing invoices now, not in March. Many will need time to issue them.", "number"),
+      portableListItem("Check that each invoice carries your KRA PIN. An invoice issued without your PIN is recorded as a sale to a final consumer and won't count as your expense. eTIMS invoices can't be edited or cancelled, so the supplier has to issue a credit note and a new invoice with your PIN.", "number"),
+      portableListItem("For purchases from small suppliers or farmers who can't issue eTIMS invoices, use buyer-initiated invoicing, where you raise the invoice and the seller approves it.", "number"),
+      portableListItem("Ask your KRA account manager for your TIMS and eTIMS schedule for the year, and compare it with your own records.", "number"),
+
+      portableBlock("3. Make Sure Your Sales Match What KRA Sees", "h3"),
+      portableBlock("The same validation works on the income side. KRA can see every eTIMS invoice you issued and the withholding tax your customers deducted from payments to you. If the sales in your accounts don't match those figures, expect questions."),
+      portableListItem("Reconcile total sales in your accounts with the total of eTIMS invoices you issued for the year."),
+      portableListItem("Make sure every return, discount or cancelled sale went through eTIMS as a credit note. Voiding a sale in your own system doesn't change KRA's records."),
+      portableListItem("Match the withholding tax certificates you received against your customer receipts, and chase customers for any that are missing."),
+
+      {
+        _type: "callToAction",
+        title: "Keep eTIMS and Your Books in Step",
+        text: "ERP Kenya submits sales invoices and credit notes to eTIMS as they are raised, so your sales and KRA's records match by default.",
+        buttonText: "See the eTIMS Integration",
+        url: "/kra-etims"
+      },
+
+      portableBlock("4. Pay the Final Instalment Tax by 20 December", "h3"),
+      portableBlock("Companies pay income tax in four instalments during the year, on the 20th day of the 4th, 6th, 9th and 12th months of their financial year. For a December year end, the last instalment is due on 20 December. Each instalment is a quarter of the year's expected tax, calculated either on this year's estimate or on last year's tax plus 10%; your accountant can confirm which basis suits you. Any balance is due by 30 April, four months after year end."),
+      portableBlock("If the year has gone better or worse than planned, now is the time to update your estimate, before the final instalment is paid."),
+
+      portableBlock("5. Count Your Stock Properly", "h3"),
+      portableBlock("In a public notice issued in September 2026, KRA told all businesses using TIMS and eTIMS to keep proper records of stock that is purchased or received, sold, transferred, returned, adjusted or otherwise disposed of. KRA is preparing a stock management feature within eTIMS and has held consultations with businesses. It hasn't confirmed a start date, but the direction is clear: KRA will increasingly compare your stock movements with your invoices."),
+      portableBlock("A careful year-end count is the best preparation. It fixes the closing stock figure in your accounts, which feeds straight into cost of sales and profit, and gives you a clean starting point for 2027."),
+      portableListItem("Count every location, including branches, vehicles and stock held by third parties."),
+      portableListItem("Post the differences as stock adjustments with a reason, rather than quietly editing quantities."),
+      portableListItem("Write off expired, damaged or obsolete stock with supporting records, so the adjustment can be explained if KRA asks."),
+      {
+        _type: "block",
+        markDefs: [{ _key: "link-inventory", _type: "link", href: "/resources/inventory-management-strategies" }],
+        children: [
+          { _type: "span", text: "Our " },
+          { _type: "span", text: "inventory management guide", marks: ["link-inventory"] },
+          { _type: "span", text: " covers cycle counting, multi-branch stock and landed costs in more detail." }
+        ]
+      },
+
+      portableBlock("6. Close the Payroll Year Cleanly", "h3"),
+      portableBlock("December payroll has its usual deadlines, and two things change early in 2027:"),
+      portableListItem("PAYE, SHIF and NSSF for December are due by 9 January 2027, and the Affordable Housing Levy by the ninth working day of January."),
+      portableListItem("Employers issue P9 forms to employees, showing the year's pay and tax, by the end of February. Since December 2024, SHIF and the Housing Levy have been deducted before PAYE is calculated, so check that your 2026 P9 figures reflect this."),
+      portableListItem("The next phase of NSSF contribution limits is scheduled from February 2027. Wait for the official figures to be gazetted, then update your payroll before the February run."),
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "link-nssf", _type: "link", href: "/resources/automate-nssf-shif-housing-levy-deductions-kenya" },
+          { _key: "link-calc", _type: "link", href: "/solutions/hr-payroll" }
+        ],
+        children: [
+          { _type: "span", text: "For how NSSF, SHIF and the Housing Levy are calculated, see " },
+          { _type: "span", text: "our guide to automating statutory deductions", marks: ["link-nssf"] },
+          { _type: "span", text: ", or check a payslip with the " },
+          { _type: "span", text: "payroll calculator", marks: ["link-calc"] },
+          { _type: "span", text: "." }
+        ]
+      },
+
+      portableBlock("7. Watch the New Nil Return Deadline", "h3"),
+      portableBlock("If you have a dormant company or another entity with no income in 2026, note the change in the Finance Act 2026: nil returns are now due within one month of the end of the year of income, instead of six months. For the 2026 year, that means 31 January 2027. The Act also changed other filing deadlines, so check KRA's current guidance for each of your returns rather than relying on last year's dates."),
+
+      portableBlock("Key Dates at a Glance", "h3"),
+      portableListItem("20 December 2026: final instalment tax for companies with a December year end."),
+      portableListItem("31 December 2026: tax amnesty closes. Principal must be paid in full for penalties and interest to be waived."),
+      portableListItem("9 January 2027: December PAYE, SHIF and NSSF due. The Housing Levy is due by the ninth working day."),
+      portableListItem("20 January 2027: December VAT return and payment due."),
+      portableListItem("31 January 2027: nil returns for the 2026 year of income."),
+      portableListItem("February 2027: P9 forms to employees, and the next NSSF phase once gazetted."),
+      portableListItem("30 April 2027: balance of company income tax for a December year end."),
+
+      portableBlock("This checklist is a general guide based on KRA notices and the Finance Act 2026 as of November 2026. Tax rules change, and your situation may differ, so confirm the details with KRA or your tax adviser before you act.", "blockquote"),
+
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "link-etims", _type: "link", href: "/kra-etims" },
+          { _key: "link-contact", _type: "link", href: "/contact" }
+        ],
+        children: [
+          { _type: "span", text: "Most of this list comes down to one thing: your books, your eTIMS records and your stock need to tell the same story. If they live in separate systems, year end is when the gaps show. See how ERP Kenya handles " },
+          { _type: "span", text: "eTIMS for sales invoices and credit notes", marks: ["link-etims"] },
+          { _type: "span", text: ", or " },
+          { _type: "span", text: "book a demo", marks: ["link-contact"] },
+          { _type: "span", text: " to see it on your own processes." }
+        ]
+      }
+    ]
+  },
+  {
     _id: "post-erpnext-v15-macos",
     _type: "blogPost",
     title: "ERPNext v15 on macOS: A No-Nonsense Guide (That Actually Works)",
