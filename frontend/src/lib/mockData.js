@@ -152,92 +152,94 @@ export const mockBlogPosts = [
   {
     _id: "post-1",
     _type: "blogPost",
-    title: "How Automated ERP Integration Simplifies M-Pesa for Kenyan Businesses",
+    title: "M-Pesa Reconciliation: How to Automate It in Your ERP",
     slug: { current: "automated-mpesa-reconciliation" },
     mainImage: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?auto=format&fit=crop&q=80&w=800",
     publishedAt: "2026-02-15T09:00:00Z",
-    excerpt: "Stop wasting hours reconciling payments manually. Discover how automated rules match M-Pesa transactions to invoices instantly.",
+    updatedAt: "2026-11-18T09:00:00Z",
+    readTime: "7 min read",
+    excerpt: "How M-Pesa payments reach your ERP through Safaricom's Daraja API, the matching rules that work, and how to close each day without a spreadsheet.",
+    faq: [
+      {
+        q: "Can an ERP receive M-Pesa payments automatically, without forwarding SMS messages?",
+        a: "Yes. Safaricom's Daraja API sends a notification to your ERP for every payment made to your Paybill or Till number, usually within seconds. It includes the M-Pesa transaction ID, amount, time, payer name and, for Paybill, the account number the customer typed. No SMS forwarding or statement download is needed."
+      },
+      {
+        q: "Does automated reconciliation work with a Till (Buy Goods) number?",
+        a: "Yes, but Till payments carry no account number, so there is nothing that ties a payment to a specific invoice. Till payments are best matched at the point of sale, or collected with an STK Push prompt sent from the invoice, where the result comes back linked to that invoice."
+      },
+      {
+        q: "What happens when a customer types the wrong account number?",
+        a: "The payment is still recorded against your M-Pesa account in the ERP, but it goes into an unmatched queue instead of being applied to an invoice. Someone reviews the queue, assigns the payment to the right customer, and the invoice is settled. Nothing is lost and nothing is applied to the wrong customer."
+      },
+      {
+        q: "Do M-Pesa sales still need a KRA eTIMS invoice?",
+        a: "Yes. The eTIMS requirement applies to the sale, not the payment method. Whether the customer pays by M-Pesa, cash or bank transfer, the invoice must be issued through eTIMS. In ERP Kenya, the invoice is submitted to eTIMS when it is raised, and the M-Pesa payment is matched to it afterwards."
+      }
+    ],
     content: [
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "You didn't start a business to spend your evenings staring at spreadsheets, trying to match M-Pesa reference codes to customer invoices. It’s tedious, prone to error, and frankly, a waste of your talent." }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "The Problem: The Reconciliation Nightmare" }]
-      },
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "For many Kenyan distributors, the 'end of day' means creating manual receipts for hundreds of small mobile money payments. One wrong digit, and your books are off. This chaos slows down deliveries and frustrates customers. " },
-          { _type: "span", text: "A study by the Kenya Association of Manufacturers found that SMEs lose up to 15 hours a week on manual data entry." }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "The Solution: Automated Matching Rules" }]
-      },
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "ERP Kenya's Finance module automates this process. It imports the incoming M-Pesa SMS or API data, identifies the customer by phone number, matches it to the open invoice based on exact amount, and settles it. Automatically." }
-        ]
-      },
+      portableBlock("For most Kenyan businesses, M-Pesa is the main way customers pay. That is good for cash flow and bad for bookkeeping. Every payment arrives as a separate transaction with a reference code, and someone has to work out which customer it came from and which invoice it settles. At a few payments a day that is a chore. At a few hundred, it is a full-time job, and the books are always a day or two behind."),
+      portableBlock("Automating it is mostly a matter of getting the payment data into your ERP directly, then letting clear rules do the matching. This guide covers how that works and how to set it up."),
+
+      portableBlock("Why Manual M-Pesa Reconciliation Breaks Down", "h3"),
+      portableBlock("The problem isn't that matching one payment is hard. It's that the exceptions pile up:"),
+      portableListItem("Customers type the wrong account number, or their own name, or leave it blank."),
+      portableListItem("One invoice is paid in three instalments over two weeks."),
+      portableListItem("One payment covers several invoices, with no indication of which."),
+      portableListItem("Till (Buy Goods) payments carry no account number at all."),
+      portableListItem("The M-Pesa statement is downloaded hours later and re-keyed into the accounts, adding a second chance for errors."),
+      portableBlock("Each exception needs a person to investigate it, and while they do, the customer's balance is wrong. That leads to chasing customers who have already paid, or releasing goods to customers who haven't."),
+
+      portableBlock("How M-Pesa Payments Reach Your ERP", "h3"),
+      portableBlock("Safaricom's Daraja API is the official way for business systems to connect to M-Pesa. For incoming payments, your business registers a confirmation URL for its Paybill or Till number. From then on, every payment to that number is posted to your ERP automatically, usually within seconds of the customer receiving their confirmation SMS."),
+      portableBlock("Each notification includes the M-Pesa transaction ID, the amount, the time, the payer's name and, for Paybill payments, the account number the customer entered. Safaricom partially masks the customer's phone number in these notifications, so the account number, not the phone number, is the reliable way to identify who paid."),
+      portableBlock("Daraja also supports STK Push (Lipa na M-Pesa Online). Instead of waiting for the customer to pay, your ERP sends a payment prompt to their phone from the invoice itself. The customer enters their PIN, and the result comes back linked to that exact invoice. There is nothing to match, which makes STK Push the cleanest option for B2B collections and online orders."),
+
+      portableBlock("Matching Rules That Actually Work", "h3"),
+      portableBlock("Good rules are strict at the top and cautious at the bottom. Apply them in this order:"),
+      portableListItem("Account number equals an open invoice number: apply the payment to that invoice.", "number"),
+      portableListItem("Account number equals a customer code: apply the payment to that customer's oldest open invoices first.", "number"),
+      portableListItem("Payer name and amount closely match an open invoice: suggest the match for someone to confirm, but don't apply it automatically.", "number"),
+      portableListItem("Anything else goes to an unmatched queue for review.", "number"),
+      portableBlock("Partial payments leave the invoice part-paid, with the balance still showing. Overpayments are held as a credit on the customer's account, ready to apply to the next invoice. Either way, the customer's statement is correct the moment the payment arrives."),
+      portableBlock("Most of the work is in rule 1. If customers reliably use the invoice number as their account number, the large majority of payments match with no human involvement. Print the Paybill number and \"Account no: invoice number\" on every invoice, quotation and payment reminder SMS."),
+
       {
         _type: "callToAction",
-        title: "Ready to Automate?",
-        text: "Stop wasting hours on manual reconciliation. See ERP Kenya in action today.",
+        title: "See M-Pesa Matching Live",
+        text: "We'll connect a test Paybill and show payments landing on invoices in real time.",
         buttonText: "Book Free Demo",
         url: "/contact"
       },
+
+      portableBlock("Paybill or Till: Which Should You Use?", "h3"),
+      portableBlock("Use a Paybill number wherever customers pay against an invoice, such as distributors, wholesalers, schools, landlords and service businesses. The account number field is what makes automatic matching possible."),
+      portableBlock("A Till number suits walk-in sales, where the customer pays at the counter and the cashier can see the payment arrive. Because there is no account number, Till payments should be matched at the point of sale, not reconciled later. Many businesses run both: a Till for the shop, and a Paybill for credit customers."),
+
+      portableBlock("Closing the Day", "h3"),
+      portableBlock("Automation doesn't remove the daily check. It makes it take minutes instead of hours. At the end of each day, compare your M-Pesa account balance in the ERP with the balance on the M-Pesa organisation portal, then clear anything left in the unmatched queue."),
+      portableBlock("Two items regularly trip people up. M-Pesa transaction charges should be booked as an expense, not netted off sales. And when money is moved from M-Pesa to your bank account, it should be recorded as a transfer between two of your own accounts, not as income or a payment."),
+
+      portableBlock("Setting It Up", "h3"),
+      portableListItem("Apply for Daraja production access for your Paybill or Till number. Safaricom's approval can take some time, so start early.", "number"),
+      portableListItem("Link the shortcode to an M-Pesa account in your ERP, so every incoming payment is posted there.", "number"),
+      portableListItem("Put your Paybill number and the invoice number on every invoice and payment reminder.", "number"),
+      portableListItem("Configure the matching rules above, and decide who owns the unmatched queue.", "number"),
+      portableListItem("Run the automated matching alongside your existing process for a couple of weeks, then switch over.", "number"),
+
+      portableBlock("What's Next?", "h3"),
       {
         _type: "block",
-        style: "blockquote",
-        children: [{ _type: "span", text: "\"We used to hire two interns just to do data entry. Now, the system does it instantly based on our preset rules.\"" }]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "Your 3-Step Plan to Freedom" }]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        listItem: "number",
-        children: [{ _type: "span", text: "Connect your Paybill number to ERP Kenya." }]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        listItem: "number",
-        children: [{ _type: "span", text: "Set your matching rules (e.g., exact amount matches)." }]
-      },
-      {
-        _type: "block",
-        style: "normal",
-        listItem: "number",
-        children: [{ _type: "span", text: "Watch your cash flow update in real-time." }]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "What's Next?" }]
-      },
-      {
-        _type: "block",
-        markDefs: [{ _key: "link-inventory", _type: "link", href: "/resources/inventory-management-strategies" }],
+        markDefs: [
+          { _key: "link-inventory", _type: "link", href: "/resources/inventory-management-strategies" },
+          { _key: "link-etims", _type: "link", href: "/kra-etims" }
+        ],
         children: [
-          { _type: "span", text: "Once your payment collection is automated, the next bottleneck is usually inventory. " },
-          {
-            _type: "span",
-            text: "Learn how automated inventory tracking prevents stock-outs",
-            marks: ["link-inventory"]
-          },
-          { _type: "span", text: " and keeps your shelves full — especially during peak holiday seasons." }
+          { _type: "span", text: "Once collections are automated, the next bottleneck is usually stock. " },
+          { _type: "span", text: "Read how to set reorder points around real import lead times", marks: ["link-inventory"] },
+          { _type: "span", text: ", or see how " },
+          { _type: "span", text: "KRA eTIMS invoicing", marks: ["link-etims"] },
+          { _type: "span", text: " fits into the same sales flow." }
         ]
       }
     ]
@@ -245,69 +247,81 @@ export const mockBlogPosts = [
   {
     _id: "post-2",
     _type: "blogPost",
-    title: "Inventory Management: Staying Stocked in East Africa",
+    title: "Inventory Management in Kenya: Staying Stocked",
     slug: { current: "inventory-management-strategies" },
     mainImage: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=800",
     publishedAt: "2026-02-10T09:00:00Z",
-    excerpt: "Don't let delays at Mombasa port catch you off guard. Learn how real-time inventory tracking helps you plan better.",
+    updatedAt: "2026-11-18T09:00:00Z",
+    readTime: "8 min read",
+    excerpt: "Long import lead times, seasonal demand and stock spread across branches. How Kenyan businesses set reorder points, cost imports and keep stock accurate.",
+    faq: [
+      {
+        q: "How do I calculate a reorder point?",
+        a: "Multiply your average daily sales by your full lead time in days, from placing the order to the stock being available to sell, then add safety stock. For example, selling 40 units a day with a 50-day lead time and 10 days of safety stock gives a reorder point of (40 × 50) + (40 × 10) = 2,400 units."
+      },
+      {
+        q: "Should I use FIFO or moving average stock valuation?",
+        a: "Both are accepted. FIFO values stock at the cost of the most recent purchases, which tracks replacement cost more closely when prices and exchange rates are rising. Moving average smooths out price swings between shipments. ERPNext lets you choose the method per item, but pick one per item and keep it consistent."
+      },
+      {
+        q: "Can one system track stock across several branches?",
+        a: "Yes. Each branch, store and vehicle is set up as its own warehouse, with its own stock levels and reorder levels. Moving stock between them is recorded as a transfer, so you always know what is at each location and what is in transit."
+      },
+      {
+        q: "How often should we count stock?",
+        a: "Instead of one big annual count, count a small group of items every week, with fast-moving and high-value items counted most often. Differences are posted as a stock reconciliation, so shrinkage shows up within days instead of at year end."
+      }
+    ],
     content: [
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "Supply chain surprises are the enemy of growth. Whether it's a delay at the port or a sudden fuel price hike, reacting late costs you money. In East Africa, where logistics can be unpredictable, having real-time data is necessary." }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "Stop Guessing, Start Knowing" }]
-      },
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "Traditional manual books look at what happened last month. ERP Kenya looks at what is happening now. By analyzing current stock levels and sales velocity, our system alerts you when you hit your re-order points." }
-        ]
-      },
+      portableBlock("Running out of stock costs you the sale, and often the customer. Holding too much ties up cash that a growing business needs elsewhere. Getting the balance right is hard anywhere, but Kenyan businesses face a few problems that make it harder, and most spreadsheets don't account for them."),
+
+      portableBlock("Why Stock Planning Is Harder Here", "h3"),
+      portableListItem("Long, variable lead times. Imported goods spend weeks at sea, then time at Mombasa port, in customs clearance and in transport inland. The gap between ordering and selling is often measured in months."),
+      portableListItem("Currency movements. Goods bought in US dollars cost more to replace when the shilling weakens, even if the supplier's price hasn't changed."),
+      portableListItem("Seasonal demand. December, back-to-school in January, and the long and short rains for agricultural inputs all shift demand sharply."),
+      portableListItem("Stock in several places. A Nairobi warehouse, upcountry branches and delivery vehicles each hold stock, and the totals rarely match unless every movement is recorded."),
+
+      portableBlock("Set Reorder Points from Your Real Lead Time", "h3"),
+      portableBlock("A reorder point is the stock level at which you place the next order. The formula is simple: average daily sales × lead time in days + safety stock. The mistake most businesses make is using the supplier's shipping time as the lead time. The real figure runs from the day you place the order to the day the stock is on your shelf, including production, shipping, port clearance and transport."),
+      portableBlock("For example, if you sell 40 units a day, your real lead time is 50 days, and you want 10 days of safety stock, your reorder point is (40 × 50) + (40 × 10) = 2,400 units. Order when stock falls to 2,400, not when you notice the shelf looking empty."),
+      portableBlock("ERP Kenya is built on ERPNext, which stores a reorder level and reorder quantity for each item in each warehouse. When stock falls below that level, the system raises a material request automatically, so the order is placed on time even in a busy week. Review the levels before each peak season. A reorder point based on an average month will be too low for December."),
+
+      portableBlock("Plan with Projected Stock, Not Stock on Hand", "h3"),
+      portableBlock("The number on the shelf isn't the number that matters. If 500 units are on hand but 300 are already promised to customers and another 1,000 are on a ship, your planning position is very different from what a physical count suggests. ERPNext tracks projected quantity: what you have, plus what is on order, minus what is already reserved for customers. Base reorder decisions on that figure, and you avoid both double-ordering and false alarms."),
+
+      portableBlock("Know the Landed Cost of Every Item", "h3"),
+      portableBlock("The supplier's invoice is only part of what an imported item costs. Freight, insurance, import duty, clearing and forwarding fees, port charges and inland transport can add a large share on top. If those costs go straight to expenses, your stock is undervalued and your margins look better than they are."),
+      portableBlock("A landed cost voucher spreads these charges across the items in a shipment, by value or by quantity, and adds them to the cost of the stock. Your stock valuation, cost of sales and gross margin then reflect what the goods actually cost to bring in, which is the number you need when setting prices."),
+
       {
         _type: "callToAction",
         title: "Take Control of Stock",
-        text: "Don't let stockouts lose you customers. Get full visibility now.",
+        text: "See reorder levels, landed costs and multi-branch stock working on your own item list.",
         buttonText: "Explore Features",
         url: "/solutions"
       },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "Case Study: City Supermarket" }]
-      },
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "Last year, one of our retail clients used our inventory tool. The system flagged low stock on essential grains just before a long holiday weekend. While competitors ran out, they had already restocked." }
-        ]
-      },
-      {
-        _type: "block",
-        children: [
-          { _type: "span", text: "The result? They captured all the holiday foot traffic, increasing their monthly sales by 15%." }
-        ]
-      },
-      {
-        _type: "block",
-        style: "h3",
-        children: [{ _type: "span", text: "Modernizing Your Payment Collection" }]
-      },
+
+      portableBlock("Focus Attention with ABC Analysis", "h3"),
+      portableBlock("Not every item deserves the same attention. Rank your items by the value they sell each year. Typically a small group, the A items, accounts for most of your sales value. Those get the tightest reorder levels, the most frequent counts and the closest supplier follow-up. C items, the long tail of low-value lines, can be ordered in larger, less frequent batches."),
+
+      portableBlock("Track Batches, Expiry Dates and Serial Numbers", "h3"),
+      portableBlock("For pharmaceuticals, food, agro-chemicals and veterinary products, knowing which batch is on the shelf matters as much as knowing the quantity. Batch tracking records the batch number and expiry date of every unit received, so stock can be picked first-expiry-first-out, and expired stock is flagged before it reaches a customer. If a supplier recalls a batch, you can see exactly who it was sold to."),
+      portableBlock("For electronics, machinery and anything sold with a warranty, serial numbers do the same job for individual units, linking each one to its purchase, sale and any warranty claim."),
+
+      portableBlock("Manage Stock Across Locations", "h3"),
+      portableBlock("Set up each warehouse, branch and vehicle as its own location. Moving stock between them is recorded as a transfer, and using a goods-in-transit location for stock on the road keeps it visible while it is between sites. Each branch then has its own reorder levels, so a shortage in Kisumu is caught even when Nairobi is fully stocked."),
+
+      portableBlock("Count Little and Often", "h3"),
+      portableBlock("An annual stock-take tells you what went wrong a year ago. Cycle counting, where a small group of items is counted every week, tells you this week. Differences between the count and the system are posted as a stock reconciliation, with the adjustment recorded against a reason. Patterns, such as the same items or the same branch coming up short, become visible quickly."),
+
+      portableBlock("Modernising Your Payment Collection", "h3"),
       {
         _type: "block",
         markDefs: [{ _key: "link-mpesa", _type: "link", href: "/resources/automated-mpesa-reconciliation" }],
         children: [
-          { _type: "span", text: "Great inventory management is only half the battle. If your payment collection is still manual, you're leaving money on the table. " },
-          {
-            _type: "span",
-            text: "Discover how automated M-Pesa reconciliation eliminates manual data entry",
-            marks: ["link-mpesa"]
-          },
-          { _type: "span", text: " and gives you real-time cash flow visibility." }
+          { _type: "span", text: "Accurate stock is half the picture. The other half is knowing who has paid for it. " },
+          { _type: "span", text: "See how to automate M-Pesa reconciliation", marks: ["link-mpesa"] },
+          { _type: "span", text: " so customer balances are right the moment a payment arrives." }
         ]
       }
     ]
@@ -998,26 +1012,9 @@ export const mockBlogPosts = [
   }
 ];
 
-export const mockSuccessStories = [
-  {
-    _id: "story-1",
-    company: "Westlands Supermarket",
-    industry: "Retail",
-    metric: "Reduced Shrinkage by 40%",
-    quote: "The inventory tracking helps us see exactly what's on the shelf versus what was sold. We stopped theft immediately.",
-    author: "Jane Kimani, Store Manager",
-    image: "https://images.unsplash.com/photo-1604719312566-8912e9227f6a?auto=format&fit=crop&q=80&w=800"
-  },
-  {
-    _id: "story-2",
-    company: "Nairobi Metal Works Ltd",
-    industry: "Manufacturing",
-    metric: "20 Hours Saved Weekly",
-    quote: "We used to spend Monday to Wednesday just reconciling bank and M-Pesa statements. Now, the system does it instantly.",
-    author: "David Ochieng, CEO",
-    image: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=800"
-  }
-];
+// Real, client-approved stories only. The Success Stories page shows
+// industry use cases until this list (or Sanity "successStory") has entries.
+export const mockSuccessStories = [];
 
 export const mockResources = [
   {
