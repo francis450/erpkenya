@@ -21,6 +21,350 @@ const portableCode = (code, language = "bash") => ({
 
 export const mockBlogPosts = [
   {
+    _id: "post-erp-vendor-questions-kenya",
+    _type: "blogPost",
+    title: "12 Questions to Ask Before Choosing an ERP in Kenya",
+    slug: { current: "questions-to-ask-erp-vendor-kenya" },
+    mainImage: "https://erpkenya.com/images/erp-vendor-questions.png",
+    publishedAt: "2026-11-21T09:00:00Z",
+    updatedAt: "2026-11-21T09:00:00Z",
+    readTime: "9 min read",
+    excerpt: "Sending out an ERP request for quotes? The 12 questions that separate a solid proposal from an expensive surprise, and the answers to listen for.",
+    faq: [
+      {
+        q: "How many ERP vendors should we ask for quotes?",
+        a: "Three is usually enough to compare. Send each one the same written summary of your business (users, companies, currencies, stock, payroll and target go-live) so the quotes can be compared line by line."
+      },
+      {
+        q: "Should we ask for a demo before or after the quote?",
+        a: "Before you decide, always. A demo set up around your own processes, such as your currencies, your stock and your approvals, tells you far more than a generic product tour."
+      },
+      {
+        q: "What is a reasonable payment structure for an ERP implementation?",
+        a: "Payments tied to milestones, such as design sign-off, data migration and go-live, protect both sides. Some vendors also offer a smaller upfront payment with the balance spread over the first year."
+      }
+    ],
+    content: [
+      portableBlock("The proposals arrive on the same afternoon. One is two pages long with a single number at the bottom. Another runs to forty pages and somehow never says what happens to your data if you leave. A third looks perfect until you notice the licence fee is per user, per year, and goes up every January."),
+      portableBlock("Choosing an ERP is rarely about features. Most systems can post a journal and print an invoice. What matters more is the scope, the assumptions, the people and the small print. These are the twelve questions we would ask if we were in your seat."),
+
+      portableBlock("Cost and Commitment", "h3"),
+      portableBlock("1. What will this cost over three years, not just year one?", "h4"),
+      portableBlock("Ask for every recurring cost in writing: licences, hosting, support, and any annual increases. Listen for a clear split between one-time costs and monthly or annual ones. Be wary of a low first-year price that hides per-user licences which grow every time you hire."),
+      portableBlock("2. Is the price fixed, and what are the assumptions behind it?", "h4"),
+      portableBlock("Every quote rests on assumptions: how many users, items, locations and companies; how much data moves across. Good vendors write these down so you can confirm or correct them. Without them, a fixed price is only fixed until the first disagreement."),
+      portableBlock("3. What is not included?", "h4"),
+      portableBlock("Customisation, integrations, extra training days, travel and third-party fees are the usual exclusions. A vendor who lists them clearly is easier to work with than one who discovers them halfway through the project."),
+
+      portableBlock("Your Data", "h3"),
+      portableBlock("4. Who owns our data, and how do we get it out?", "h4"),
+      portableBlock("The answer you want is short: it is your data, and you can take a full copy at any time, including if you leave. Ask what format it comes in and whether another provider could run it. With open-source systems such as ERPNext, any capable provider can host your database, which keeps everyone honest."),
+      portableBlock("5. What exactly will be migrated?", "h4"),
+      portableBlock("Opening balances only? Current-year monthly balances? Full transaction history? Customer and supplier lists with KRA PINs? Each option has a different cost. Agree it upfront and agree who cleans the data, because migrating messy records only moves the mess."),
+      portableBlock("6. Where will the system run, and what happens when the internet goes down?", "h4"),
+      portableBlock("Cloud, on-premise or hybrid each suit different businesses. Ask how backups work, where copies are kept, and how your team keeps working during an outage. If a vendor offers only one option, ask why it is right for you specifically."),
+
+      {
+        _type: "callToAction",
+        title: "Ask Us These Questions",
+        text: "We'll answer all twelve in writing, with an itemised quote and every assumption listed.",
+        buttonText: "Request an Itemised Quote",
+        url: "/contact"
+      },
+
+      portableBlock("Kenyan Compliance", "h3"),
+      portableBlock("7. How is eTIMS handled, and who is responsible for what?", "h4"),
+      portableBlock("Connecting a business system to KRA's eTIMS involves an approved integration. Ask who provides it, who supports it when an invoice is rejected, and how its fees are charged. A clear answer names each party's role: your team, the ERP vendor, the integrator and KRA."),
+      portableBlock("8. Who updates payroll when the law changes?", "h4"),
+      portableBlock("PAYE bands, NSSF limits, SHIF and the Housing Levy have all changed in the last few years, and they will change again. Ask whether updates are included in support, how quickly they are applied, and whether you can see the rules the system is using."),
+
+      portableBlock("The Project", "h3"),
+      portableBlock("9. Who will actually do the work?", "h4"),
+      portableBlock("Meet the people who will configure your system and train your team, not only the person who sold it. Ask how many other projects they are running at the same time as yours."),
+      portableBlock("10. What does the plan look like, and when do we go live?", "h4"),
+      portableBlock("A good plan has dates, owners and sign-off points. Ask when they recommend going live and why. For most Kenyan businesses, the start of the financial year is cleanest: payroll begins with the PAYE year and opening stock comes from the year-end count."),
+      portableBlock("11. How much customisation are you proposing?", "h4"),
+      portableBlock("Custom code can be useful, but every piece of it has to be maintained through future upgrades. Prefer a vendor who shows how standard features cover your process first, and prices anything custom separately so you can decide."),
+      portableBlock("12. What happens after go-live?", "h4"),
+      portableBlock("Ask what support covers, how you raise an issue, how fast they respond, and whether there is a named person who knows your setup. The first month-end close on a new system is where support matters most."),
+
+      portableBlock("Red Flags", "h3"),
+      portableListItem("A single number with no breakdown or assumptions."),
+      portableListItem("Vague answers about data ownership or exporting your data."),
+      portableListItem("Claims that compliance is handled with no explanation of how, or by whom."),
+      portableListItem("Pressure to sign before you have seen the system set up for your business."),
+      portableListItem("Heavy customisation proposed before standard features have been explored."),
+
+      portableBlock("Before You Send Your Request", "h3"),
+      portableBlock("Vendors can only quote accurately on what they know. Include the number of system users, employees on payroll, legal entities, currencies, stock items and locations, your current system, the modules you need, and your target go-live date. Rough figures are fine. The more you share, the more comparable the quotes will be."),
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "l-impl", _type: "link", href: "/implementation" },
+          { _key: "l-price", _type: "link", href: "/pricing" },
+          { _key: "l-dep", _type: "link", href: "/deployment" }
+        ],
+        children: [
+          { _type: "span", text: "To see how we answer these questions, read " },
+          { _type: "span", text: "how we implement", marks: ["l-impl"] },
+          { _type: "span", text: ", " },
+          { _type: "span", text: "what's in our quotes", marks: ["l-price"] },
+          { _type: "span", text: ", and " },
+          { _type: "span", text: "where your system can run", marks: ["l-dep"] },
+          { _type: "span", text: "." }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "post-multi-currency-kes-usd",
+    _type: "blogPost",
+    title: "Running Your Books in KES and USD: A Practical Guide",
+    slug: { current: "multi-currency-accounting-kes-usd" },
+    mainImage: "https://erpkenya.com/images/multi-currency-kes-usd.png",
+    publishedAt: "2026-11-21T08:00:00Z",
+    updatedAt: "2026-11-21T08:00:00Z",
+    readTime: "8 min read",
+    excerpt: "Buying in dollars and selling in shillings? How to set up KES and USD properly, handle exchange gains and losses, and close the month without a spreadsheet.",
+    faq: [
+      {
+        q: "What is the difference between realised and unrealised exchange gains?",
+        a: "A realised gain or loss happens when a foreign-currency invoice is paid at a different rate from the one it was raised at. An unrealised gain or loss is the change in value of balances that are still open at month end. ERPNext posts realised differences when the payment is matched, and revalues open balances when you run an exchange rate revaluation."
+      },
+      {
+        q: "Can one customer have invoices in both KES and USD?",
+        a: "In ERPNext, each customer or supplier uses one currency per company, because their balance is held in a single receivable or payable account. If you genuinely bill the same customer in both currencies, the usual approach is to set them up twice, once for each currency."
+      },
+      {
+        q: "Which exchange rate should we use?",
+        a: "Agree a policy with your auditor and apply it consistently. Many Kenyan businesses use the Central Bank of Kenya rate for the transaction date. ERPNext can fetch rates automatically or let you record them yourself."
+      }
+    ],
+    content: [
+      portableBlock("Picture a Nairobi importer at month end. The supplier invoices are in dollars, the customer invoices are in shillings, and the bank statement has both. Somewhere between the rate on the invoice and the rate on the day the money moved, a few hundred thousand shillings have appeared or vanished, and nobody is quite sure which account they belong in."),
+      portableBlock("This is one of the most common reasons Kenyan businesses outgrow entry-level accounting software. Multi-currency is not hard in principle, but it has to be set up properly from the start. This guide walks through how it works and how to set it up in ERPNext."),
+
+      portableBlock("One Company, Two Currencies", "h3"),
+      portableBlock("Your company reports in one currency: KES. Your financial statements and tax returns are in KES. You can still buy, sell and bank in USD, but every USD transaction is also recorded in KES at an exchange rate."),
+      portableBlock("In practice, that means three things need a currency:"),
+      portableListItem("Bank accounts. A USD account at your bank becomes a USD account in your books, so its balance matches the statement in dollars."),
+      portableListItem("Customers and suppliers. A US supplier you pay in dollars is set up with USD as its currency, with its balance held in a USD payables account."),
+      portableListItem("Invoices and payments. Each records the foreign amount and the rate, so the KES value is always known."),
+
+      portableBlock("Where Exchange Differences Come From", "h3"),
+      portableBlock("Suppose you receive a supplier invoice for USD 10,000 when the rate is 130, so it goes into your books as KES 1,300,000. A month later you pay it, and the rate is 129. The payment costs KES 1,290,000. The KES 10,000 difference is a realised exchange gain."),
+      portableBlock("In a spreadsheet, someone has to notice that difference, calculate it and post it. In ERPNext, when the payment is matched to the invoice, the difference is calculated and posted automatically to the exchange gain and loss account you set for the company."),
+      portableBlock("At month end there is a second kind of difference. Unpaid USD invoices and USD bank balances are now worth a different amount in KES than when you recorded them. These are unrealised gains and losses. ERPNext's exchange rate revaluation works them out for every open USD balance and prepares the journal for you to check and post."),
+
+      {
+        _type: "callToAction",
+        title: "See KES and USD in One Set of Books",
+        text: "We'll show you multi-currency purchasing, payments and revaluation set up around your own business.",
+        buttonText: "Book a Demo",
+        url: "/contact"
+      },
+
+      portableBlock("Setting It Up Properly", "h3"),
+      portableListItem("Decide your exchange rate policy with your auditor, and write it down.", "number"),
+      portableListItem("Create a separate bank account in the books for each currency you hold.", "number"),
+      portableListItem("Set up receivable and payable accounts for each foreign currency, such as Debtors - USD and Creditors - USD.", "number"),
+      portableListItem("Set each customer and supplier's currency before their first transaction. It is much harder to change afterwards.", "number"),
+      portableListItem("Set the exchange gain and loss account on the company, so realised differences have somewhere to go.", "number"),
+      portableListItem("Choose whether rates are fetched automatically or entered by your team, and who checks them.", "number"),
+
+      portableBlock("Imports: Getting the True Cost in Shillings", "h3"),
+      portableBlock("For importers, the supplier invoice is only part of the cost. Freight, insurance, duty and clearing are usually paid in shillings, often weeks later. ERPNext's landed cost feature adds these charges to the items in the shipment, so your stock shows what the goods really cost to bring in."),
+      portableBlock("The result is a cost price you can trust when setting selling prices, instead of a supplier price converted at whatever rate was handy."),
+
+      portableBlock("Closing the Month", "h3"),
+      portableListItem("Reconcile each foreign bank account against its statement in the foreign currency."),
+      portableListItem("Match payments to invoices so realised differences are posted."),
+      portableListItem("Run the exchange rate revaluation for open balances at the month-end rate."),
+      portableListItem("Review the exchange gain and loss account. A large or unexpected number usually points to a wrong rate on a single transaction."),
+
+      portableBlock("What Your Reports Show", "h3"),
+      portableBlock("With currencies set up properly, the general ledger can show any account in its own currency and in KES, customer and supplier statements come out in the currency they trade in, and your financial statements are in KES with exchange differences on their own line. Month end becomes a review of numbers the system already holds."),
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "l-fin", _type: "link", href: "/solutions/finance" },
+          { _key: "l-ic", _type: "link", href: "/resources/inter-company-accounting-kenya" }
+        ],
+        children: [
+          { _type: "span", text: "See everything else in " },
+          { _type: "span", text: "ERPNext Financial Management", marks: ["l-fin"] },
+          { _type: "span", text: ", or read how to handle " },
+          { _type: "span", text: "invoices between related companies", marks: ["l-ic"] },
+          { _type: "span", text: ", which often come in a foreign currency too." }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "post-inter-company-accounting-kenya",
+    _type: "blogPost",
+    title: "Inter-Company Accounting for Kenyan Groups, Made Simple",
+    slug: { current: "inter-company-accounting-kenya" },
+    mainImage: "https://erpkenya.com/images/inter-company-accounting.png",
+    publishedAt: "2026-11-20T09:00:00Z",
+    updatedAt: "2026-11-20T09:00:00Z",
+    readTime: "8 min read",
+    excerpt: "A sister company abroad, a property company charging rent, money collected on someone else's behalf. How to keep inter-company balances clean and agreed.",
+    faq: [
+      {
+        q: "Do both companies need to be on ERPNext?",
+        a: "No. If both companies are in the same ERPNext system, inter-company invoices can be created on both sides automatically. If one company uses a different system, you record your side in ERPNext against an internal customer or supplier, and agree the balance with the other company each month."
+      },
+      {
+        q: "Is money we collect for a related company our income?",
+        a: "Usually not. If you collect payments on another company's behalf, the money is owed to that company, so it belongs in a liability account until it is passed on. Recording it as income overstates your revenue and your tax."
+      },
+      {
+        q: "Are there tax rules for transactions between related companies?",
+        a: "Yes. Transactions between related parties, especially across borders, are covered by Kenya's transfer pricing rules and need to be priced and documented as if the companies were independent. Agree the approach with your tax adviser."
+      }
+    ],
+    content: [
+      portableBlock("Two finance teams, one relationship, and a balance that never matches. The Kenyan company says the sister company owes it KES 4.2 million. The sister company says the figure is closer to 3.6. Somewhere in between are a rent invoice nobody posted, a payment recorded in the wrong month, and a deposit collected on the other company's behalf that one side booked as sales."),
+      portableBlock("If this sounds familiar, the problem is rarely the arithmetic. It is that inter-company transactions are being recorded as if they were ordinary sales and purchases, by two teams who never compare notes until year end."),
+
+      portableBlock("What Counts as Inter-Company", "h3"),
+      portableBlock("Any transaction between companies under common ownership: a parent and its subsidiary, two sister companies, or a property company owned by the same shareholders. Common examples in Kenyan groups include:"),
+      portableListItem("Goods or services sold from one company to another."),
+      portableListItem("Rent charged by a property company to the trading company."),
+      portableListItem("Management fees or shared costs recharged between companies."),
+      portableListItem("Loans and advances between companies."),
+      portableListItem("Money collected by one company on another's behalf, such as customer deposits for an overseas sister company."),
+
+      portableBlock("The Golden Rule: Both Sides Must Match", "h3"),
+      portableBlock("Every inter-company transaction appears twice: money owed to one company, and money owed by the other. The two figures should always agree. When the group's accounts are combined they cancel out, and if they don't match, someone has to find out why before the accounts can be finished."),
+      portableBlock("The way to keep them matching is to treat related companies differently from ordinary customers and suppliers from the start, and to agree the balance every month rather than every year."),
+
+      portableBlock("How ERPNext Handles It", "h3"),
+      portableBlock("In ERPNext, a related company is set up as an internal customer or supplier, linked to the company it represents. That link changes how transactions behave:"),
+      portableListItem("When both companies are in the same ERPNext system, a sales invoice raised by one company can create the matching purchase invoice in the other, so both sides are recorded from the same document."),
+      portableListItem("Inter-company journal entries post to both companies at once, for loans, recharges and other adjustments."),
+      portableListItem("Group reports combine the companies' accounts, so you can see the whole group at a glance."),
+      portableBlock("When the related company runs a different system, which is common for an overseas sister company, you still set it up as an internal customer or supplier. Your side is recorded in ERPNext, and the monthly balance confirmation does the rest."),
+
+      {
+        _type: "callToAction",
+        title: "Untangle Your Inter-Company Balances",
+        text: "We'll show you how your group's transactions would be recorded in ERPNext, on both sides.",
+        buttonText: "Book a Demo",
+        url: "/contact"
+      },
+
+      portableBlock("Money Collected on Someone Else's Behalf", "h3"),
+      portableBlock("This is where most mistakes happen. If your Kenyan company collects a deposit from a client for work your sister company will do, that money is not your income. It belongs to the sister company until you pass it on."),
+      portableBlock("Record it in a liability account for amounts due to the related company, then clear that account when the money is transferred. Your revenue stays accurate, and the inter-company balance shows exactly what is owed."),
+
+      portableBlock("A Monthly Routine That Works", "h3"),
+      portableListItem("Agree a cut-off date with the other company's finance team.", "number"),
+      portableListItem("Each side runs a statement of its balance with the other.", "number"),
+      portableListItem("Compare the two and list every difference: usually timing, missing invoices or wrong rates.", "number"),
+      portableListItem("Post the corrections in the right month, then confirm the agreed balance in writing.", "number"),
+      portableBlock("Fifteen minutes a month is far cheaper than a week of unpicking at year end, with auditors waiting."),
+
+      portableBlock("Different Currencies, Different Countries", "h3"),
+      portableBlock("Inter-company balances with an overseas company are often in USD, so exchange differences appear on both sides. Agree which rate each side uses, and expect small differences that come purely from exchange rates."),
+      portableBlock("Kenya's transfer pricing rules also apply. Related companies, especially in different countries, must charge each other fair market prices and keep records to show it. Some payments to related companies abroad may also attract withholding tax. Your tax adviser will guide you on both, and clean inter-company records make that conversation much easier."),
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "l-mc", _type: "link", href: "/resources/multi-currency-accounting-kes-usd" },
+          { _key: "l-fin", _type: "link", href: "/solutions/finance" }
+        ],
+        children: [
+          { _type: "span", text: "Read our guide to " },
+          { _type: "span", text: "running your books in KES and USD", marks: ["l-mc"] },
+          { _type: "span", text: ", or see how " },
+          { _type: "span", text: "ERPNext Financial Management", marks: ["l-fin"] },
+          { _type: "span", text: " brings the whole group into one system." }
+        ]
+      }
+    ]
+  },
+  {
+    _id: "post-serial-number-tracking-erpnext",
+    _type: "blogPost",
+    title: "Serial Number Tracking for Electronics in ERPNext",
+    slug: { current: "serial-number-tracking-erpnext" },
+    mainImage: "https://erpkenya.com/images/serial-number-tracking.png",
+    publishedAt: "2026-11-20T08:00:00Z",
+    updatedAt: "2026-11-20T08:00:00Z",
+    readTime: "7 min read",
+    excerpt: "Selling laptops, phones or equipment? How serial number tracking in ERPNext follows every unit from the supplier to the customer, and through warranty.",
+    faq: [
+      {
+        q: "Do we have to type every serial number by hand?",
+        a: "No. Serial numbers can be scanned with a barcode scanner when goods are received and sold, or imported from the supplier's packing list. Scanning is faster and avoids typing mistakes."
+      },
+      {
+        q: "Can we track warranty by serial number?",
+        a: "Yes. Set a warranty period on the item, and each serial number records when it was sold and when its warranty expires. When a customer brings a unit back, you can see straight away whether it is still covered."
+      },
+      {
+        q: "What is the difference between serial and batch tracking?",
+        a: "A serial number identifies one individual unit, such as a laptop. A batch identifies a group of units made or received together, such as a production run of medicine with one expiry date. Electronics usually need serial numbers; pharmaceuticals and food usually need batches."
+      }
+    ],
+    content: [
+      portableBlock("A customer walks in with a laptop that will not start. They say they bought it from you eight months ago and it is under warranty. Your stock sheet says you sold forty of that model this year. Which one was theirs? Who supplied it? Is the supplier's warranty still running? Without serial numbers in your system, the answer is a long search through invoices and boxes."),
+      portableBlock("For anyone selling electronics, quantity alone is not enough. Two laptops of the same model are not interchangeable once one has been sold, returned, repaired or claimed under warranty. Serial number tracking gives every unit its own history."),
+
+      portableBlock("What Serial Tracking Gives You", "h3"),
+      portableListItem("Every unit's full story: which supplier it came from, when it arrived, where it is now, and who bought it."),
+      portableListItem("Warranty answers in seconds, from the date of sale and the warranty period."),
+      portableListItem("Stock counts that check actual units, not just quantities, so a missing laptop is a specific missing laptop."),
+      portableListItem("Faster returns and supplier claims, because the serial links straight to the original purchase."),
+
+      portableBlock("How It Works in ERPNext", "h3"),
+      portableBlock("Serial tracking is switched on per item. Once an item is marked as having serial numbers, ERPNext will not let it move without them, which is exactly the discipline you want."),
+      portableListItem("Receiving. When goods arrive, each unit's serial number is scanned on the purchase receipt. Each serial is now in stock, in a specific warehouse, linked to the supplier and the purchase.", "number"),
+      portableListItem("Moving. Transfers between stores or branches move specific serials, so you always know which units are where.", "number"),
+      portableListItem("Selling. On the delivery note, sales invoice or point-of-sale screen, the serial of the unit going out is scanned. Only serials actually in stock at that location can be sold.", "number"),
+      portableListItem("After the sale. The serial now shows the customer and the date of sale, and its warranty expiry if a warranty period is set on the item.", "number"),
+      portableBlock("At any time, the serial number record and stock reports show where a unit is and every transaction it has been part of."),
+
+      {
+        _type: "callToAction",
+        title: "Track Every Unit, Not Just Every Model",
+        text: "See serial tracking set up for your products, from receiving to warranty.",
+        buttonText: "Book a Demo",
+        url: "/contact"
+      },
+
+      portableBlock("Warranty and Returns", "h3"),
+      portableBlock("When the customer from the opening walks in, you scan or type the serial number. ERPNext shows the sale date, the customer and whether the warranty is still running. If the unit is faulty and covered, a warranty claim can be logged against that serial, and if it goes back to the supplier, the serial links you to the original purchase for your own claim."),
+      portableBlock("Returns work the same way: a credit note for a returned unit brings that exact serial back into stock, so it cannot quietly be sold twice."),
+
+      portableBlock("Setting It Up Well", "h3"),
+      portableListItem("Decide which items need serials. Laptops, phones and equipment usually do; cables and accessories usually do not."),
+      portableListItem("Use the manufacturer's serial number, or IMEI for phones, rather than inventing your own, so it matches the label on the box."),
+      portableListItem("Set warranty periods on items so expiry dates are calculated automatically."),
+      portableListItem("Get barcode scanners for receiving and sales. Scanning is the difference between a system staff use and one they work around."),
+      portableListItem("Load opening stock from a physical count of serials, so the system starts with the units actually on your shelves."),
+
+      portableBlock("Counting Serialised Stock", "h3"),
+      portableBlock("A serial-tracked stock count is a list of serials scanned on the shelf, compared with the serials the system expects in that location. Differences are specific: a named unit missing, or one in the wrong store. That makes shrinkage far easier to investigate than a count that is simply three laptops short."),
+      {
+        _type: "block",
+        markDefs: [
+          { _key: "l-inv", _type: "link", href: "/resources/inventory-management-strategies" },
+          { _key: "l-qb", _type: "link", href: "/quickbooks-to-erpnext" }
+        ],
+        children: [
+          { _type: "span", text: "For reorder levels, landed costs and stock across branches, read our " },
+          { _type: "span", text: "inventory management guide", marks: ["l-inv"] },
+          { _type: "span", text: ". Tracking serials in a spreadsheet today? See " },
+          { _type: "span", text: "how the move from QuickBooks works", marks: ["l-qb"] },
+          { _type: "span", text: "." }
+        ]
+      }
+    ]
+  },
+  {
     _id: "post-year-end-tax-checklist-2026",
     _type: "blogPost",
     title: "Year-End Tax Checklist for Kenyan Businesses (2026)",
