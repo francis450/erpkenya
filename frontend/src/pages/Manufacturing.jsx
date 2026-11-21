@@ -89,7 +89,7 @@ export default function Manufacturing() {
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
         title="Manufacturing ERP Kenya: BOM, Production & QC"
-        description="Manufacturing ERP software built for Kenyan factories. Bill of Materials, production scheduling, quality control, shop floor tracking, KRA eTIMS compliance & M-Pesa integration."
+        description="Manufacturing ERP software built for Kenyan factories. Bill of Materials, production scheduling, quality control, shop floor tracking, eTIMS-ready invoicing & M-Pesa reconciliation."
         canonical="/manufacturing"
         jsonLd={manufacturingSoftwareJsonLd}
         breadcrumbs={[
@@ -112,7 +112,7 @@ export default function Manufacturing() {
               From Raw Materials to <span className="text-secondary">Finished Goods.</span> Track Every Shilling.
             </h1>
             <p className="text-xl text-slate-300 mb-8 leading-relaxed">
-              Purpose-built manufacturing ERP for Kenyan factories. Manage BOMs, production schedules, quality control, and costing — with KRA eTIMS compliance and M-Pesa reconciliation built in.
+              Purpose-built manufacturing ERP for Kenyan factories. Manage BOMs, production schedules, quality control, and costing — with eTIMS-ready invoicing and M-Pesa reconciliation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <CalendlyButton
@@ -186,8 +186,8 @@ export default function Manufacturing() {
                   <li className="flex gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-500 flex-shrink-0 mt-0.5" />
                     <div>
-                      <span className="font-semibold">KRA eTIMS Built In</span>
-                      <p className="text-sm text-muted-foreground">Every production invoice submitted automatically to KRA. No plugins, no manual uploads.</p>
+                      <span className="font-semibold">eTIMS-Ready Invoicing</span>
+                      <p className="text-sm text-muted-foreground">Invoices reach KRA eTIMS through an approved integrator. No manual portal uploads.</p>
                     </div>
                   </li>
                   <li className="flex gap-3">
@@ -250,7 +250,7 @@ export default function Manufacturing() {
               { step: "1", title: "Sales Order", desc: "Customer places an order. System checks available stock and creates a production plan." },
               { step: "2", title: "Production", desc: "Work orders generated from BOM. Materials allocated, shop floor tracks progress in real-time." },
               { step: "3", title: "Quality Check", desc: "Inspection checkpoints validate output. Defects logged, rework triggered automatically." },
-              { step: "4", title: "Delivery & Invoice", desc: "Finished goods dispatched. eTIMS invoice submitted to KRA. M-Pesa payment matched." }
+              { step: "4", title: "Delivery & Invoice", desc: "Finished goods dispatched. eTIMS invoice sent to KRA through an approved integrator. M-Pesa payment matched." }
             ].map((item, index) => (
               <div key={index} className="text-center">
                 <div className="w-12 h-12 bg-secondary text-white rounded-full flex items-center justify-center mx-auto mb-4 text-xl font-bold">

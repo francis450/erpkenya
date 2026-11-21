@@ -54,11 +54,11 @@ const useCases = [
     solution: [
       "Paybill and Till payments arrive through Safaricom's Daraja API and are matched to invoices by account number",
       "One stock ledger across every shop, warehouse and delivery van, with reorder levels per location",
-      "Every sales invoice is submitted to KRA eTIMS as it is raised, with no separate upload step",
+      "Sales invoices reach KRA eTIMS through an approved integrator, with no separate upload step",
     ],
     links: [
       { label: "M-Pesa reconciliation guide", to: "/resources/automated-mpesa-reconciliation" },
-      { label: "KRA eTIMS integration", to: "/kra-etims" },
+      { label: "How eTIMS works", to: "/kra-etims" },
     ],
   },
   {

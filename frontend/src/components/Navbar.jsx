@@ -18,7 +18,7 @@ import { LeadFormDialog } from '@/components/LeadFormDialog';
 const solutionLinks = [
   { name: "HR & Payroll", path: "/solutions/hr-payroll", desc: "Payroll, PAYE/NSSF/SHIF compliance, leave & performance", icon: Users, color: "text-primary" },
   { name: "Manufacturing", path: "/manufacturing", desc: "BOM, work orders & production costing", icon: Factory, color: "text-secondary" },
-  { name: "KRA eTIMS", path: "/kra-etims", desc: "Automated tax compliance & eTIMS integration", icon: ShieldCheck, color: "text-navy" },
+  { name: "KRA eTIMS", path: "/kra-etims", desc: "eTIMS through an approved integrator", icon: ShieldCheck, color: "text-navy" },
   { name: "Financial Management", path: "/solutions#financial", desc: "M-Pesa reconciliation, real-time P&L", icon: Banknote, color: "text-primary" },
   { name: "Inventory & Warehousing", path: "/solutions#inventory", desc: "Batch tracking, multi-warehouse transfers", icon: Box, color: "text-secondary" },
   { name: "CRM & Sales", path: "/solutions#crm", desc: "Lead pipeline, quotations & invoicing", icon: Smartphone, color: "text-navy" },

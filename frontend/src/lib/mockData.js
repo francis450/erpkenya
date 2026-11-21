@@ -78,8 +78,8 @@ export const mockBlogPosts = [
       {
         _type: "callToAction",
         title: "Keep eTIMS and Your Books in Step",
-        text: "ERP Kenya submits sales invoices and credit notes to eTIMS as they are raised, so your sales and KRA's records match by default.",
-        buttonText: "See the eTIMS Integration",
+        text: "ERP Kenya sets up ERPNext so invoices and credit notes reach eTIMS through an approved integrator, keeping your sales and KRA's records in step.",
+        buttonText: "How eTIMS Works With ERPNext",
         url: "/kra-etims"
       },
 
@@ -144,8 +144,8 @@ export const mockBlogPosts = [
           { _key: "link-contact", _type: "link", href: "/contact" }
         ],
         children: [
-          { _type: "span", text: "Most of this list comes down to one thing: your books, your eTIMS records and your stock need to tell the same story. If they live in separate systems, year end is when the gaps show. See how ERP Kenya handles " },
-          { _type: "span", text: "eTIMS for sales invoices and credit notes", marks: ["link-etims"] },
+          { _type: "span", text: "Most of this list comes down to one thing: your books, your eTIMS records and your stock need to tell the same story. If they live in separate systems, year end is when the gaps show. See how " },
+          { _type: "span", text: "eTIMS works with ERPNext", marks: ["link-etims"] },
           { _type: "span", text: ", or " },
           { _type: "span", text: "book a demo", marks: ["link-contact"] },
           { _type: "span", text: " to see it on your own processes." }
@@ -307,7 +307,7 @@ export const mockBlogPosts = [
       },
       {
         q: "Do M-Pesa sales still need a KRA eTIMS invoice?",
-        a: "Yes. The eTIMS requirement applies to the sale, not the payment method. Whether the customer pays by M-Pesa, cash or bank transfer, the invoice must be issued through eTIMS. In ERP Kenya, the invoice is submitted to eTIMS when it is raised, and the M-Pesa payment is matched to it afterwards."
+        a: "Yes. The eTIMS requirement applies to the sale, not the payment method. Whether the customer pays by M-Pesa, cash or bank transfer, the invoice must be issued through eTIMS. In ERPNext, the invoice goes to eTIMS through an approved integrator when it is raised, and the M-Pesa payment is matched to it afterwards."
       }
     ],
     content: [
@@ -498,7 +498,7 @@ export const mockBlogPosts = [
       {
         _type: "block",
         children: [
-          { _type: "span", text: "Built specifically for the Kenyan market. Native M-Pesa reconciliation, KRA eTIMS compliance out of the box, NSSF/SHIF payroll deductions, and local support based in Nairobi. Best for: SMEs and mid-market companies who need a system that works without heavy customization." }
+          { _type: "span", text: "Built specifically for the Kenyan market. M-Pesa reconciliation, KRA eTIMS through an approved integrator, NSSF/SHIF payroll deductions, and local support based in Nairobi. Best for: SMEs and mid-market companies who need a system that works without heavy customization." }
         ]
       },
       {
@@ -611,7 +611,7 @@ export const mockBlogPosts = [
       {
         _type: "callToAction",
         title: "Skip the Guesswork",
-        text: "See how ERP Kenya handles M-Pesa, eTIMS, and payroll compliance natively — no plugins required.",
+        text: "See how ERP Kenya handles M-Pesa, eTIMS, and payroll compliance for Kenyan businesses.",
         buttonText: "Book a Free Comparison Demo",
         url: "/contact"
       },
@@ -623,7 +623,7 @@ export const mockBlogPosts = [
       {
         _type: "block",
         children: [
-          { _type: "span", text: "If you're a Kenyan SME or mid-market company, prioritize local compliance and support over brand name. A system that works on day one — with M-Pesa, eTIMS, and SHIF built in — will save you more than a global brand that needs 6 months of customization." }
+          { _type: "span", text: "If you're a Kenyan SME or mid-market company, prioritize local compliance and support over brand name. A system that works on day one — with M-Pesa, eTIMS, and SHIF handled from day one — will save you more than a global brand that needs 6 months of customization." }
         ]
       },
       {

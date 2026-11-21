@@ -170,7 +170,7 @@ export default function Home() {
                         <CardTitle>100% KRA Compliance</CardTitle>
                     </CardHeader>
                     <CardContent className="text-muted-foreground">
-                        Automated VAT calculations, eTIMS integration support, and regulatory reporting built-in.
+                        Automated VAT calculations, eTIMS-ready invoicing, and regulatory reporting built-in.
                     </CardContent>
                 </Card>
                 <Card className="border-t-4 border-t-navy shadow-sm hover:shadow-md transition-shadow">
