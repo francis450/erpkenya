@@ -1,3 +1,4 @@
+import { API } from '@/lib/api';
 import React, { useState } from 'react';
 import axios from 'axios';
 import { Button } from '@/components/ui/button';
@@ -15,8 +16,6 @@ import {
 } from '@/components/ui/dialog';
 import { toast } from 'sonner';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 
 export function LeadFormDialog({ triggerText, triggerVariant = "default", triggerClass = "" }) {
   const [open, setOpen] = useState(false);

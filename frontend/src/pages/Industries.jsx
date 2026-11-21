@@ -33,6 +33,16 @@ const dotColorMap = {
 export default function Industries() {
   const industries = [
     {
+      title: "Import, Trading & Distribution",
+      icon: <Truck size={40} />,
+      description: "Buy in dollars, sell in shillings, and know the true cost of every unit.",
+      details: ["KES & USD Purchasing", "Serial & Batch Tracking", "Landed Costs", "Multi-location Stock"],
+      color: "green",
+      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000",
+      link: "/solutions/finance",
+      linkText: "Explore Financial Management"
+    },
+    {
       title: "Manufacturing",
       icon: <FactoryIcon size={40} />,
       description: "From raw materials to finished goods, track every shilling of value add.",
@@ -43,18 +53,10 @@ export default function Industries() {
       linkText: "Explore Manufacturing ERP"
     },
     {
-      title: "Distribution & Wholesale",
-      icon: <Truck size={40} />,
-      description: "Keep your fleet moving and your warehouse organized.",
-      details: ["Route Sales Management", "Van Sales", "Multi-warehouse stock", "Driver Reconciliation"],
-      color: "green",
-      image: "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&q=80&w=1000"
-    },
-    {
       title: "Retail & Supermarkets",
       icon: <ShoppingCart size={40} />,
       description: "Speed up checkout and stop inventory shrinkage.",
-      details: ["Fast POS System", "Loyalty Programs", "Shelf-life Management", "Barcode Integration"],
+      details: ["Fast POS System", "Loyalty Programs", "Batch & Expiry Tracking", "Barcode Scanning"],
       color: "navy",
       image: "https://images.unsplash.com/photo-1534723452862-4c874018d66d?auto=format&fit=crop&q=80&w=1000"
     },
@@ -78,7 +80,7 @@ export default function Industries() {
       title: "Agribusiness",
       icon: <WheatIcon size={40} />,
       description: "Farm to fork traceability and cost management.",
-      details: ["Harvest Tracking", "Input Management", "Outgrower Management", "Biological Asset Tracking"],
+      details: ["Farm Intake", "Input Stock Management", "Batch Traceability", "Project Costing"],
       color: "navy",
       image: "https://images.unsplash.com/photo-1625246333195-78d9c38ad449?auto=format&fit=crop&q=80&w=1000"
     },
@@ -93,8 +95,8 @@ export default function Industries() {
     {
       title: "Healthcare & Pharmacy",
       icon: <Stethoscope size={40} />,
-      description: "Manage patient records, pharmacy stock, and clinic operations.",
-      details: ["Patient Management", "Pharmacy Inventory", "Expiry Tracking", "Insurance Billing"],
+      description: "Keep pharmacy and clinic stock under control, batch by batch.",
+      details: ["Pharmacy Inventory", "Batch & Expiry Tracking", "Insurance Billing", "Supplier Purchasing"],
       color: "green",
       image: "https://images.unsplash.com/photo-1516549655169-df83a0774514?auto=format&fit=crop&q=80&w=1000"
     }
@@ -103,8 +105,8 @@ export default function Industries() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Industry ERP Kenya: Agriculture, Retail & More"
-        description="ERP solutions tailored for Kenyan industries: Manufacturing, Distribution, Retail, Agriculture, Construction, Healthcare, NGOs & Service companies. Local compliance built-in."
+        title="Industry ERP Kenya: Trading, Manufacturing & More"
+        description="ERPNext for Kenyan industries: import & trading, manufacturing, retail, services, construction, agribusiness, NGOs and healthcare. Local compliance built in."
         canonical="/industries"
         breadcrumbs={[
           { name: "Home", url: "/" },
@@ -126,16 +128,18 @@ export default function Industries() {
               Generic software fails when reality hits. Whether you manufacture, distribute, or serve—ERPKenya speaks your specific industry language.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button size="lg" className="bg-primary hover:bg-primary/90 text-white border-0">
-                Explore Your Industry
-              </Button>
+              <a href="#industries">
+                <Button size="lg" className="bg-primary hover:bg-primary/90 text-white border-0">
+                  Explore Your Industry
+                </Button>
+              </a>
             </div>
           </div>
         </div>
       </section>
 
       {/* Industries Grid */}
-      <section className="py-20 bg-slate-50 dark:bg-slate-950/50">
+      <section id="industries" className="scroll-mt-20 py-20 bg-slate-50 dark:bg-slate-950/50">
         <div className="container mx-auto px-4 md:px-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {industries.map((industry, index) => (
@@ -170,7 +174,7 @@ export default function Industries() {
                 <CardFooter className="border-t pt-4">
                      <Link to={industry.link || "/contact"} className="w-full">
                         <Button variant="ghost" className="w-full justify-between hover:bg-slate-100 group-hover:text-primary">
-                            {industry.linkText || "See Case Studies"} <ArrowRight size={16} />
+                            {industry.linkText || "Talk to Us"} <ArrowRight size={16} />
                         </Button>
                      </Link>
                 </CardFooter>

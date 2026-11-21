@@ -127,7 +127,7 @@ export default function HrPayroll() {
                   className="text-lg h-14 px-8 bg-primary hover:bg-primary/90 text-white shadow-xl shadow-primary/20 border-0"
                 />
                 <Link to="/solutions">
-                  <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+                  <Button variant="outline" size="lg" className="h-14 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                     All Solutions <ArrowRight className="ml-2" size={18} />
                   </Button>
                 </Link>
@@ -313,7 +313,7 @@ export default function HrPayroll() {
               className="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-primary/50"
             />
             <Link to="/resources/erp-implementation-kenya-checklist">
-              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                 Read: Implementation Checklist
               </Button>
             </Link>

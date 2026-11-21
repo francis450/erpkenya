@@ -5,6 +5,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Mail, MapPin, Phone, Clock } from 'lucide-react';
 import { CalendlyButton } from '@/components/CalendlyWidget';
 import { SEO } from '@/components/SEO';
+import { QuoteForm } from '@/components/QuoteForm';
 
 const contactJsonLd = {
   "@context": "https://schema.org",
@@ -31,8 +32,8 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
-        title="Contact Us: Book an ERP Demo in Nairobi"
-        description="Contact ERP Kenya in Karen, Nairobi. Book a free demo, get pricing, or speak to an industry expert. Call +254 757 185 189. Response within 2 hours."
+        title="Contact Us: ERP Quote or Demo in Nairobi"
+        description="Request an itemised ERP quote or book a demo with ERP Kenya in Karen, Nairobi. Call +254 757 185 189 or email contact@erpkenya.com."
         canonical="/contact"
         jsonLd={contactJsonLd}
         breadcrumbs={[
@@ -47,11 +48,24 @@ export default function Contact() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=2084&auto=format&fit=crop')] bg-cover bg-center opacity-20"></div>
         <div className="container mx-auto relative z-10 px-4 md:px-6 text-center">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight mb-6">
-            Let's Start Your <span className="text-primary">Transformation.</span>
+            Get an <span className="text-primary">Itemised Quote.</span>
           </h1>
           <p className="text-xl text-slate-300 max-w-2xl mx-auto mb-8">
-             Whether you have a question about features, pricing, or need a custom demo, our team is ready to help you become the hero of your industry.
+             Tell us how your business trades and we'll send an itemised quote with every assumption written down. Or call, email or book a demo below.
           </p>
+        </div>
+      </section>
+
+      {/* Quote request */}
+      <section id="quote" className="py-20 bg-background scroll-mt-20">
+        <div className="container mx-auto px-4 md:px-6 max-w-3xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl font-bold mb-4">Request an Itemised Quote</h2>
+            <p className="text-muted-foreground text-lg">
+              These are the details we need to price your implementation. It takes about three minutes.
+            </p>
+          </div>
+          <QuoteForm />
         </div>
       </section>
 

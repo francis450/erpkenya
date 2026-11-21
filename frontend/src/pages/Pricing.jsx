@@ -25,12 +25,12 @@ const costFactors = [
   {
     icon: <Users size={22} />,
     title: "Number of Users",
-    desc: "How many employees need logins — finance staff, HR, warehouse teams, or the whole company via self-service.",
+    desc: "There are no per-user licence fees, but more users means more roles to set up and more people to train.",
   },
   {
     icon: <Puzzle size={22} />,
     title: "Modules You Need",
-    desc: "Finance, HR & Payroll, Inventory, Manufacturing, CRM, and Analytics can be licensed together or added as you grow.",
+    desc: "Finance, HR & Payroll, Inventory, Manufacturing, CRM, and Analytics can be set up together or added in phases as you grow.",
   },
   {
     icon: <Database size={22} />,
@@ -61,20 +61,36 @@ const faqs = [
   },
   {
     q: "Do you charge per user, per module, or a flat fee?",
-    a: "Your quote is built from the modules you select and the number of users on each. We'll walk you through the breakdown before you commit to anything, so you know exactly what you're paying for.",
+    a: "There are no per-user licence fees: ERPNext is open source, for any number of users. Your quote is a fixed implementation fee built from the modules, data and set-up you need, plus monthly hosting and support. Every line is itemised before you commit.",
   },
   {
-    q: "Is there a free trial or free HR/payroll software option?",
-    a: "Open-source ERP cores exist and can look 'free' on paper, but hosting, implementation, statutory compliance configuration, data migration, and ongoing support still cost time and money either way. We're happy to walk you through what's realistically involved if you're evaluating a self-hosted route versus a managed one.",
+    q: "If ERPNext is open source, what am I paying for?",
+    a: "The software is free to use, but setting it up for your business is not. You pay for configuration, data migration, statutory setup, training and go-live support, and then for hosting and support once you're live. You can also self-host and we're happy to explain what that involves.",
   },
   {
     q: "What's included in an implementation quote?",
-    a: "Discovery and scoping, module configuration, data migration, statutory setup (PAYE, NSSF, SHIF, Housing Levy, eTIMS), integrations, user training, and a defined support period after go-live.",
+    a: "Discovery and scoping, module configuration, data migration, statutory setup (PAYE, NSSF, SHIF, Housing Levy, and setting up ERPNext for eTIMS), integrations, user training, and a defined support period after go-live. The eTIMS integrator's own fees are quoted separately.",
   },
   {
     q: "How long does ERP implementation take in Kenya?",
     a: "Straightforward single-module rollouts (like payroll alone) can go live in weeks. Multi-module implementations with data migration and integrations typically take longer — we'll give you a realistic timeline as part of your quote, not a generic estimate.",
   },
+];
+
+const quoteLines = [
+  { item: "Software licence", basis: "KES 0", detail: "ERPNext and Frappe HR are open source. No licence fees for any number of users, now or as you grow." },
+  { item: "Implementation", basis: "One-time", detail: "Scoping, configuration, data migration, statutory setup, training and go-live support, priced from the modules and data in scope." },
+  { item: "Hosting", basis: "Monthly", detail: "Cloud or hybrid hosting, backups and maintenance. Not needed if you run fully on your own server." },
+  { item: "Support", basis: "Monthly", detail: "Help for your team, fixes and updates after go-live, with a named contact." },
+  { item: "eTIMS integrator", basis: "Separate", detail: "The approved integrator's connection to KRA is quoted on its own line, based mainly on your monthly invoice volume." },
+  { item: "Custom work", basis: "Only if needed", detail: "Most businesses run on standard features. Anything custom is scoped and priced separately, so you can decide." },
+];
+
+const howWeQuote = [
+  "A short scoping call about how you trade: users, companies, currencies, stock and payroll.",
+  "We send an itemised quote with every assumption written down: users, items, locations and companies.",
+  "You confirm or correct the assumptions.",
+  "We issue a final, fixed quote and a dated plan.",
 ];
 
 const faqJsonLd = {
@@ -92,7 +108,7 @@ export default function Pricing() {
     <div className="min-h-screen bg-background flex flex-col font-sans">
       <SEO
         title="ERP Pricing Kenya: Costs & Custom Quotes"
-        description="How much does ERP software cost in Kenya? See what actually drives pricing — users, modules, integrations, and support — and request a custom quote for your business."
+        description="How much does ERP software cost in Kenya? What drives the price, what's in an itemised quote, and how payment works. No licence fees with ERPNext."
         canonical="/pricing"
         jsonLd={faqJsonLd}
         breadcrumbs={[
@@ -155,6 +171,60 @@ export default function Pricing() {
         </div>
       </section>
 
+      {/* What's in a quote */}
+      <section className="py-20 bg-background">
+        <div className="container mx-auto px-4 md:px-6 max-w-4xl">
+          <div className="text-center mb-12">
+            <Badge className="mb-4 bg-primary/10 text-primary border-primary/50">Your Quote</Badge>
+            <h2 className="text-3xl font-bold tracking-tight mb-4">What's in an ERP Kenya Quote</h2>
+            <p className="text-lg text-muted-foreground">
+              Every quote is itemised, so you can see exactly what each part costs and why.
+            </p>
+          </div>
+          <div className="divide-y divide-slate-200 border border-slate-200 rounded-2xl bg-white dark:bg-slate-900 overflow-hidden">
+            {quoteLines.map((line) => (
+              <div key={line.item} className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-6 p-6">
+                <div>
+                  <div className="font-semibold text-slate-900 dark:text-white">{line.item}</div>
+                  <div className="text-sm text-primary font-medium mt-1">{line.basis}</div>
+                </div>
+                <div className="sm:col-span-2 text-muted-foreground">{line.detail}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How we quote + payment options */}
+      <section className="py-20 bg-slate-50 dark:bg-slate-900/50">
+        <div className="container mx-auto px-4 md:px-6 max-w-5xl grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight mb-4">How We Quote</h2>
+            <ol className="space-y-4">
+              {howWeQuote.map((step, i) => (
+                <li key={step} className="flex gap-4">
+                  <span className="w-8 h-8 rounded-lg bg-primary text-white flex items-center justify-center font-bold shrink-0">{i + 1}</span>
+                  <span className="text-muted-foreground pt-1">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold tracking-tight mb-4">Payment Options</h2>
+            <div className="space-y-4">
+              <div className="p-5 rounded-xl border bg-white dark:bg-slate-900">
+                <h3 className="font-semibold mb-1">Pay upfront</h3>
+                <p className="text-muted-foreground text-sm">The implementation fee paid in stages through the project, then monthly hosting and support.</p>
+              </div>
+              <div className="p-5 rounded-xl border bg-white dark:bg-slate-900">
+                <h3 className="font-semibold mb-1">Spread the cost</h3>
+                <p className="text-muted-foreground text-sm">A smaller payment upfront, with the balance spread over 12 months alongside hosting and support.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Cloud vs On-Premise */}
       <section className="py-20 bg-background">
         <div className="container mx-auto px-4 md:px-6">
@@ -163,7 +233,8 @@ export default function Pricing() {
               <Badge className="mb-4 bg-primary/10 text-primary border-primary/50">Deployment Model</Badge>
               <h2 className="text-3xl font-bold tracking-tight mb-4">Cloud vs. On-Premise ERP Cost in Kenya</h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                The deployment model you choose changes the shape of your costs, not just the total.
+                The deployment model you choose changes the shape of your costs, not just the total.{' '}
+                <Link to="/deployment" className="text-primary underline underline-offset-2">Compare the options</Link>.
               </p>
             </div>
             <div className="grid md:grid-cols-2 gap-8">
@@ -225,7 +296,7 @@ export default function Pricing() {
               triggerClass="bg-primary hover:bg-primary/90 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-primary/50"
             />
             <Link to="/resources/erp-software-cost-kenya-pricing-guide">
-              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                 Read: Full Cost Guide <ArrowRight className="ml-2" size={18} />
               </Button>
             </Link>

@@ -176,7 +176,7 @@ export default function KraEtims() {
                 className="text-lg h-14 px-8 bg-green-600 hover:bg-green-700 text-white shadow-xl shadow-green-900/20 border-0"
               />
               <Link to="/solutions">
-                <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+                <Button variant="outline" size="lg" className="h-14 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                   All Solutions <ArrowRight className="ml-2" size={18} />
                 </Button>
               </Link>
@@ -335,7 +335,7 @@ export default function KraEtims() {
               className="bg-green-600 hover:bg-green-500 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-green-900/50"
             />
             <Link to="/resources/year-end-tax-checklist-kenya-2026">
-              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                 Read: Year-End Tax Checklist
               </Button>
             </Link>

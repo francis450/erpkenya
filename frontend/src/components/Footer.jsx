@@ -1,3 +1,4 @@
+import { API } from '@/lib/api';
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
@@ -6,8 +7,6 @@ import { Input } from '@/components/ui/input';
 import { Facebook, Twitter, Linkedin, Mail, MapPin, Phone } from 'lucide-react';
 import { toast } from 'sonner';
 
-const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
-const API = `${BACKEND_URL}/api`;
 
 export function Footer() {
   const [email, setEmail] = useState('');

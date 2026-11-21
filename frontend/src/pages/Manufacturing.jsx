@@ -121,7 +121,7 @@ export default function Manufacturing() {
                 className="text-lg h-14 px-8 bg-secondary hover:bg-secondary/90 text-white shadow-xl shadow-secondary/20 border-0"
               />
               <Link to="/solutions">
-                <Button variant="outline" size="lg" className="h-14 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+                <Button variant="outline" size="lg" className="h-14 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                   See All Modules <ArrowRight className="ml-2" size={18} />
                 </Button>
               </Link>
@@ -279,7 +279,7 @@ export default function Manufacturing() {
               className="bg-secondary hover:bg-secondary/90 text-white text-lg px-8 py-6 h-auto font-semibold border-0 shadow-xl shadow-secondary/50"
             />
             <Link to="/resources/top-erp-software-kenya-2026-comparison">
-              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg border-slate-600 text-slate-300 hover:bg-slate-800">
+              <Button variant="outline" size="lg" className="h-auto py-6 px-8 text-lg bg-transparent border-slate-600 text-slate-300 hover:bg-slate-800">
                 Read: ERP Comparison Guide
               </Button>
             </Link>

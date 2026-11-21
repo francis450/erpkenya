@@ -14,6 +14,10 @@ const Manufacturing = lazy(() => import("./pages/Manufacturing"));
 const KraEtims = lazy(() => import("./pages/KraEtims"));
 const HrPayroll = lazy(() => import("./pages/HrPayroll"));
 const Pricing = lazy(() => import("./pages/Pricing"));
+const FinancialManagement = lazy(() => import("./pages/FinancialManagement"));
+const QuickBooksMigration = lazy(() => import("./pages/QuickBooksMigration"));
+const Implementation = lazy(() => import("./pages/Implementation"));
+const Deployment = lazy(() => import("./pages/Deployment"));
 const BlogPost = lazy(() => import("./components/BlogPost"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
@@ -29,6 +33,10 @@ function App() {
             <Route path="/success-stories" element={<SuccessStories />} />
             <Route path="/solutions" element={<Solutions />} />
             <Route path="/solutions/hr-payroll" element={<HrPayroll />} />
+            <Route path="/solutions/finance" element={<FinancialManagement />} />
+            <Route path="/quickbooks-to-erpnext" element={<QuickBooksMigration />} />
+            <Route path="/implementation" element={<Implementation />} />
+            <Route path="/deployment" element={<Deployment />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/industries" element={<Industries />} />
             <Route path="/manufacturing" element={<Manufacturing />} />

@@ -542,7 +542,7 @@ export const mockBlogPosts = [
       {
         _type: "block",
         children: [
-          { _type: "span", text: "Affordable and user-friendly with a wide app ecosystem. However, M-Pesa and eTIMS integrations require third-party connectors. Best for: Small businesses looking for an all-in-one suite on a budget." }
+          { _type: "span", text: "Affordable and user-friendly with a wide app ecosystem. M-Pesa and eTIMS connections come from third-party add-ons, so check who supports them locally. Best for: Small businesses looking for an all-in-one suite on a budget." }
         ]
       },
       {
